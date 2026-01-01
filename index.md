@@ -4,18 +4,38 @@ title: CTF Writeups
 permalink: /
 ---
 
-# CTF Writeups
+<section class="hero">
+  <p class="eyebrow">CTF note-log</p>
+  <h1>Writeups for quals &amp; finals</h1>
+  <p class="lede">試行錯誤を後から再現できるよう、手順と判断のログを短くまとめています。機材や環境の差分もできるだけ明記。</p>
+  <div class="hero-meta">
+    <span>Custom domain: writeups.claustra01.net</span>
+    <span>Maintainer: claustra01</span>
+  </div>
+</section>
 
-Notes from events, quals, and finals. Each post is a walkthrough so future-me (and teammates) can replay the path from idea to exploit.
-
-## Recent writeups
-
+<h2 class="section-title">Recent writeups</h2>
+<div class="card-grid">
 {% assign sorted = site.writeups | sort: "date" | reverse %}
 {% if sorted and sorted != empty %}
-{% for writeup in sorted %}
-- **[{{ writeup.title }}]({{ writeup.url | relative_url }})** — {{ writeup.event }} {{ writeup.year }}{% if writeup.category %} • {{ writeup.category }}{% endif %}{% if writeup.tags and writeup.tags != empty %} • tags: {{ writeup.tags | join: ", " }}{% endif %}{% if writeup.date %} • {{ writeup.date | date: "%Y-%m-%d" }}{% endif %}
-  {{ writeup.summary | default: writeup.excerpt | strip_html | truncate: 140 }}
-{% endfor %}
+  {% for writeup in sorted %}
+  <article class="card">
+    <div class="card-meta">{{ writeup.event }} {{ writeup.year }}{% if writeup.category %} · {{ writeup.category }}{% endif %}</div>
+    <h2><a href="{{ writeup.url | relative_url }}">{{ writeup.title }}</a></h2>
+    <p class="card-summary">{{ writeup.summary | default: writeup.excerpt | strip_html | truncate: 150 }}</p>
+    <div class="card-footer">
+      <span>{% if writeup.date %}{{ writeup.date | date: "%Y-%m-%d" }}{% else %}No date{% endif %}</span>
+      {% if writeup.tags and writeup.tags != empty %}
+      <div class="tags">
+        {% for tag in writeup.tags %}
+          <span class="pill subtle">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </article>
+  {% endfor %}
 {% else %}
-No writeups yet. Drop Markdown files into `_writeups/` to populate this list.
+  <p class="muted">まだWriteupがありません。`_writeups/` にMarkdownを追加してください。</p>
 {% endif %}
+</div>
