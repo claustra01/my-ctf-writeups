@@ -51,10 +51,12 @@
             </div>
             {% endif %}
             {% if page.tags %}
-            <div class="meta-chips">
-              {% for tag in page.tags %}
-              <span class="pill ghost">{{ tag }}</span>
-              {% endfor %}
+            <div class="stat-block wide">
+              <div class="meta-chips">
+                {% for tag in page.tags %}
+                <span class="pill ghost">{{ tag }}</span>
+                {% endfor %}
+              </div>
             </div>
             {% endif %}
           </div>
