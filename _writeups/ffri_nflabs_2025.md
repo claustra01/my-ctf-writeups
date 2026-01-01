@@ -476,6 +476,7 @@ COPY index.html script.js style.css README.md /usr/share/nginx/html/
 
 flagはmanagerのdashboardに表示されている。また、`timecard.remarks`に自明なXSSが存在する。
 
+{% raw %}
 ```html
 <body>
     <h1>ようこそ、{{ current_user.username }}さん</h1>
@@ -512,6 +513,7 @@ flagはmanagerのdashboardに表示されている。また、`timecard.remarks`
     </ul>
 </body>
 ```
+{% endraw %}
 
 manager botが毎分dashboardを巡回し、申請を承認していく。よって、`timecard.remarks`にStored XSSを仕込み、`document.documentElement.outerHTML`を外部に送信することでflagが得られる。
 
