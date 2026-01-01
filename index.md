@@ -10,9 +10,7 @@ permalink: /
 {% if sorted and sorted != empty %}
   {% for writeup in sorted %}
   <article class="card">
-    <div class="card-meta">{{ writeup.event }} {{ writeup.year }}{% if writeup.language %} · {{ writeup.language }}{% endif %}</div>
     <h2><a href="{{ writeup.url | relative_url }}">{{ writeup.title }}</a></h2>
-    <p class="card-summary">{{ writeup.summary | default: writeup.excerpt | strip_html | truncate: 150 }}</p>
     {% if writeup.rank or writeup.total_teams or writeup.language or writeup.tags %}
     <div class="meta-chips">
       {% if writeup.rank or writeup.total_teams %}

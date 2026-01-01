@@ -260,16 +260,6 @@ a:hover {
   z-index: 1;
 }
 
-.card-meta {
-  color: var(--muted);
-  font-size: 0.95rem;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  letter-spacing: 0.01em;
-}
-
 .card h2 {
   margin: 6px 0 6px;
   font-size: 1.25rem;
@@ -278,11 +268,6 @@ a:hover {
 
 .card h2 a:hover {
   color: var(--accent);
-}
-
-.card-summary {
-  margin: 0;
-  color: #1f2937;
 }
 
 .card-footer {
