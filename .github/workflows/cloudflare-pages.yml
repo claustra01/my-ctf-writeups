@@ -38,11 +38,17 @@ jobs:
           if curl -fsS "${auth[@]}" "${get_api}" > /dev/null; then
             echo "Cloudflare Pages project '${CF_PROJECT_NAME}' already exists."
           else
-            echo "Creating Cloudflare Pages project '${CF_PROJECT_NAME}'..."
+            echo "Creating Cloudflare Pages project '${CF_PROJECT_NAME}' via API..."
             create_api="https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/pages/projects"
-            body=$(printf '{"name":"%s","production_branch":"main","source":{"type":"direct_upload"},"build_config":{"build_command":"","destination_dir":"_site","root_dir":""}}' "${CF_PROJECT_NAME}")
-            curl -fsS "${auth[@]}" -X POST "${create_api}" --data "${body}"
-            echo "Project '${CF_PROJECT_NAME}' created."
+            body=$(printf '{"name":"%s","production_branch":"main","build_config":{"build_command":"","destination_dir":"_site","root_dir":""}}' "${CF_PROJECT_NAME}")
+            resp_file=$(mktemp)
+            status=$(curl -sS -o "${resp_file}" -w "%{http_code}" "${auth[@]}" -X POST "${create_api}" --data "${body}" || true)
+            echo "Create status: ${status}"
+            cat "${resp_file}"
+            if [[ "${status}" != "200" && "${status}" != "201" ]]; then
+              echo "Failed to create project '${CF_PROJECT_NAME}'."
+              exit 1
+            fi
           fi
 
       - name: Publish to Cloudflare Pages
