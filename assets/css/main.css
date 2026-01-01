@@ -7,11 +7,24 @@
   --accent: #0ea5e9;
   --accent-2: #22d3ee;
   --border: #dbe3ef;
-  --shadow: 0 18px 50px rgba(15, 23, 42, 0.12);
+  --radius-lg: 22px;
+  --radius-md: 18px;
+  --radius-sm: 14px;
+  --grad-accent: linear-gradient(135deg, var(--accent), var(--accent-2));
+  --grad-accent-soft: linear-gradient(135deg, rgba(14, 165, 233, 0.08), rgba(34, 211, 238, 0.06));
+  --grad-accent-strong: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(34, 211, 238, 0.14));
+  --grad-ambient: linear-gradient(120deg, rgba(14, 165, 233, 0.16), rgba(34, 211, 238, 0.08));
+  --grad-pill: linear-gradient(135deg, rgba(14, 165, 233, 0.16), rgba(34, 211, 238, 0.1));
+  --shadow-strong: 0 18px 50px rgba(15, 23, 42, 0.14);
+  --shadow-medium: 0 16px 46px rgba(15, 23, 42, 0.12);
+  --shadow-card: 0 14px 40px rgba(15, 23, 42, 0.12);
+  --shadow-light: 0 10px 26px rgba(15, 23, 42, 0.1);
+  --shadow-ambient: 0 12px 28px rgba(15, 23, 42, 0.18);
   --shadow-soft: 0 10px 28px rgba(14, 165, 233, 0.15);
   --mono: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
 }
 
+/* Base */
 * {
   box-sizing: border-box;
 }
@@ -42,6 +55,7 @@ a:hover {
   color: var(--accent);
 }
 
+/* Layout */
 .container {
   width: min(1140px, 100% - 48px);
   margin: 0 auto;
@@ -66,6 +80,7 @@ a:hover {
   opacity: 0.8;
 }
 
+/* Header */
 .site-header {
   position: sticky;
   top: 0;
@@ -103,7 +118,7 @@ a:hover {
   width: 12px;
   height: 12px;
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background: var(--grad-accent);
   box-shadow: 0 0 0 8px rgba(14, 165, 233, 0.12);
   display: inline-block;
 }
@@ -135,6 +150,7 @@ a:hover {
   box-shadow: none;
 }
 
+/* Main shell */
 .page-body {
   flex: 1;
   padding: 72px 0 88px;
@@ -146,9 +162,9 @@ a:hover {
   position: relative;
   isolation: isolate;
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(240, 245, 251, 0.92));
-  border-radius: 22px;
+  border-radius: var(--radius-lg);
   padding: 32px 28px;
-  box-shadow: 0 16px 46px rgba(15, 23, 42, 0.12);
+  box-shadow: var(--shadow-medium);
   overflow: hidden;
 }
 
@@ -193,14 +209,15 @@ a:hover {
   color: var(--muted);
 }
 
+/* Home sections & cards */
 .section-title {
   margin: 4px 0 16px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 8px 12px;
-  background: linear-gradient(120deg, rgba(14, 165, 233, 0.16), rgba(34, 211, 238, 0.08));
-  border-radius: 12px;
+  background: var(--grad-ambient);
+  border-radius: var(--radius-sm);
   font-size: 0.95rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -216,9 +233,9 @@ a:hover {
 
 .card {
   background: var(--panel);
-  border-radius: 18px;
+  border-radius: var(--radius-md);
   padding: 18px;
-  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+  box-shadow: var(--shadow-card);
   position: relative;
   overflow: hidden;
   transition: transform 180ms ease, box-shadow 180ms ease;
@@ -234,7 +251,7 @@ a:hover {
 
 .card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.14), 0 12px 32px rgba(14, 165, 233, 0.12);
+  box-shadow: var(--shadow-strong), 0 12px 32px rgba(14, 165, 233, 0.12);
 }
 
 .card > * {
@@ -292,6 +309,7 @@ a:hover {
   font-size: 0.95rem;
 }
 
+/* Tags & chips */
 .meta-chips {
   display: flex;
   align-items: center;
@@ -307,7 +325,7 @@ a:hover {
   border-radius: 999px;
   font-size: 0.9rem;
   font-weight: 700;
-  background: linear-gradient(135deg, rgba(14, 165, 233, 0.16), rgba(34, 211, 238, 0.1));
+  background: var(--grad-pill);
   color: #0b5fad;
   box-shadow: 0 8px 18px rgba(14, 165, 233, 0.15);
 }
@@ -324,17 +342,31 @@ a:hover {
 }
 
 .pill.stat {
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background: var(--grad-accent);
   color: #fff;
   border: none;
   box-shadow: var(--shadow-soft);
 }
 
+.writeup .meta-chips .pill {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  color: var(--text);
+}
+
+.writeup .meta-chips .pill::before {
+  content: "•";
+  margin-right: 6px;
+  color: var(--accent);
+}
+
+/* Writeup page */
 .writeup {
   background: var(--panel);
-  border-radius: 22px;
+  border-radius: var(--radius-lg);
   padding: 26px 22px;
-  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.14);
+  box-shadow: var(--shadow-strong);
   position: relative;
   overflow: hidden;
 }
@@ -389,14 +421,14 @@ a:hover {
 }
 
 .stat-block {
-  background: linear-gradient(135deg, rgba(14, 165, 233, 0.08), rgba(34, 211, 238, 0.06));
+  background: var(--grad-accent-soft);
   border-radius: 16px;
   padding: 12px 14px;
-  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.1);
+  box-shadow: var(--shadow-light);
 }
 
 .stat-block.highlight {
-  background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(34, 211, 238, 0.14));
+  background: var(--grad-accent-strong);
   box-shadow: var(--shadow-soft);
 }
 
@@ -435,6 +467,7 @@ a:hover {
   color: var(--text);
 }
 
+/* Markdown content */
 .markdown-body h2 {
   margin-top: 28px;
   margin-bottom: 10px;
@@ -467,14 +500,14 @@ a:hover {
   border-radius: 12px;
   overflow-x: auto;
   font-family: var(--mono);
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
+  box-shadow: var(--shadow-ambient);
 }
 
 .markdown-body img {
   max-width: 100%;
   display: block;
   margin: 18px auto;
-  border-radius: 14px;
+  border-radius: var(--radius-sm);
   box-shadow: 0 14px 32px rgba(15, 23, 42, 0.14);
 }
 
@@ -492,9 +525,9 @@ a:hover {
 .markdown-body blockquote {
   margin: 0 0 16px 0;
   padding: 14px 16px;
-  background: linear-gradient(120deg, rgba(14, 165, 233, 0.16), rgba(34, 211, 238, 0.1));
+  background: var(--grad-ambient);
   color: #0f172a;
-  border-radius: 14px;
+  border-radius: var(--radius-sm);
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
 }
 
