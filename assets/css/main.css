@@ -301,6 +301,13 @@ a:hover {
   margin-top: 6px;
 }
 
+.meta-date {
+  color: var(--muted);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-size: 0.95rem;
+}
+
 .meta-chips {
   display: flex;
   align-items: center;

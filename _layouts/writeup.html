@@ -35,12 +35,11 @@
           <a class="back-link" href="{{ '/' | relative_url }}">← All writeups</a>
 
           <header class="writeup-hero">
-            {% if page.date %}
-            <div class="meta-line">
-              <span class="pill subtle">{{ page.date | date: "%Y-%m-%d" }}</span>
-            </div>
-            {% endif %}
             <h1>{{ page.title }}</h1>
+            <div class="hero-meta">
+              {% if page.language %}<span class="pill ghost">{{ page.language }}</span>{% endif %}
+              {% if page.date %}<span class="meta-date">{{ page.date | date: "%Y-%m-%d" }}</span>{% endif %}
+            </div>
           </header>
 
           {% if page.rank or page.total_teams or page.tags %}
