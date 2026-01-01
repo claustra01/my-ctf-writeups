@@ -12,8 +12,8 @@ collections:
     permalink: /:name/
 defaults:
   - scope:
-      path: "_writeups"
+      path: ""
       type: writeups
     values:
       layout: writeup
-      author: your-handle
+      author: claustra01
