@@ -1,15 +1,20 @@
-title: "My CTF Writeups"
-description: "CTF challenge notes and walkthroughs."
+title: "claustra01 CTF Writeups"
+description: "A collection of CTF writeups by claustra01."
+
 plugins:
   - jekyll-seo-tag
+
 markdown: kramdown
-timezone: UTC
+timezone: JST
+
 url: "https://writeups.claustra01.net"
 baseurl: ""
+
 collections:
   writeups:
     output: true
     permalink: /:name/
+
 defaults:
   - scope:
       path: ""
