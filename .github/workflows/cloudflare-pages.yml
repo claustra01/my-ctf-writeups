@@ -5,6 +5,11 @@ on:
     branches: ["main"]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  deployments: write
+  id-token: write
+
 env:
   JEKYLL_ENV: production
   PAGES_REPO_NWO: ${{ github.repository }}
