@@ -9,7 +9,7 @@ baseurl: ""
 collections:
   writeups:
     output: true
-    permalink: /:collection/:name/
+    permalink: /:name/
 defaults:
   - scope:
       path: "_writeups"
