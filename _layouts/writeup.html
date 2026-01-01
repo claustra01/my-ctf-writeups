@@ -36,11 +36,44 @@
         <header class="writeup-hero">
           <div class="meta-line">
             {% if page.event %}<span class="eyebrow">{{ page.event }}{% if page.year %} {{ page.year }}{% endif %}</span>{% endif %}
-            {% if page.category %}<span class="pill">{{ page.category }}</span>{% endif %}
+            {% if page.language %}<span class="pill">{{ page.language }}</span>{% endif %}
             {% if page.date %}<span class="pill subtle">{{ page.date | date: "%Y-%m-%d" }}</span>{% endif %}
           </div>
           <h1>{{ page.title }}</h1>
         </header>
+
+        {% if page.rank or page.total_teams or page.language or page.tags %}
+        <div class="writeup-stats">
+          {% if page.rank %}
+          <div class="stat-block">
+            <div class="stat-label">順位</div>
+            <div class="stat-value">#{{ page.rank }}</div>
+          </div>
+          {% endif %}
+          {% if page.total_teams %}
+          <div class="stat-block">
+            <div class="stat-label">総参加チーム数</div>
+            <div class="stat-value">{{ page.total_teams }}</div>
+          </div>
+          {% endif %}
+          {% if page.language %}
+          <div class="stat-block">
+            <div class="stat-label">言語</div>
+            <div class="stat-value">{{ page.language }}</div>
+          </div>
+          {% endif %}
+          {% if page.tags %}
+          <div class="stat-block wide">
+            <div class="stat-label">タグ</div>
+            <div class="meta-chips">
+              {% for tag in page.tags %}
+              <span class="pill ghost">{{ tag }}</span>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
 
         <div class="writeup-body markdown-body">
           {{ content }}
