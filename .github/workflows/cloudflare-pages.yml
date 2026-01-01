@@ -26,6 +26,25 @@ jobs:
       - name: Build site with Jekyll
         run: bundle exec jekyll build --destination ./_site
 
+      - name: Ensure Cloudflare Pages project exists
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_PROJECT_NAME: writeups
+        run: |
+          set -euo pipefail
+          auth=(-H "Authorization: Bearer ${CF_API_TOKEN}" -H "Content-Type: application/json")
+          get_api="https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/pages/projects/${CF_PROJECT_NAME}"
+          if curl -fsS "${auth[@]}" "${get_api}" > /dev/null; then
+            echo "Cloudflare Pages project '${CF_PROJECT_NAME}' already exists."
+          else
+            echo "Creating Cloudflare Pages project '${CF_PROJECT_NAME}'..."
+            create_api="https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/pages/projects"
+            body=$(printf '{"name":"%s","production_branch":"main","source":{"type":"direct_upload"},"build_config":{"build_command":"","destination_dir":"_site","root_dir":""}}' "${CF_PROJECT_NAME}")
+            curl -fsS "${auth[@]}" -X POST "${create_api}" --data "${body}"
+            echo "Project '${CF_PROJECT_NAME}' created."
+          fi
+
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
