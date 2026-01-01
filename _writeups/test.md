@@ -4,7 +4,6 @@ event: SECCON
 year: 2014
 date: 2014-12-07
 category: misc
-tags: [crypto, reversing]
 summary: Quick notes from SECCON 2014 quals with a sample challenge walkthrough.
 ---
 

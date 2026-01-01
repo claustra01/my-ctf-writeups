@@ -211,7 +211,7 @@ a:hover {
   font-size: 0.95rem;
 }
 
-.tags, .meta-line {
+.meta-line {
   display: flex;
   align-items: center;
   gap: 8px;

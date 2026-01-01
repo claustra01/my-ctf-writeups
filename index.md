@@ -25,13 +25,6 @@ permalink: /
     <p class="card-summary">{{ writeup.summary | default: writeup.excerpt | strip_html | truncate: 150 }}</p>
     <div class="card-footer">
       <span>{% if writeup.date %}{{ writeup.date | date: "%Y-%m-%d" }}{% else %}No date{% endif %}</span>
-      {% if writeup.tags and writeup.tags != empty %}
-      <div class="tags">
-        {% for tag in writeup.tags %}
-          <span class="pill subtle">{{ tag }}</span>
-        {% endfor %}
-      </div>
-      {% endif %}
     </div>
   </article>
   {% endfor %}
