@@ -348,19 +348,6 @@ a:hover {
   box-shadow: var(--shadow-soft);
 }
 
-.writeup .meta-chips .pill {
-  background: transparent;
-  box-shadow: none;
-  padding: 0;
-  color: var(--text);
-}
-
-.writeup .meta-chips .pill::before {
-  content: "•";
-  margin-right: 6px;
-  color: var(--accent);
-}
-
 /* Writeup page */
 .writeup {
   background: var(--panel);
