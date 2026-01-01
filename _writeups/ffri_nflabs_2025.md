@@ -17,8 +17,8 @@ tags:
 
 [FFRI × NFLabs. Cybersecurity Challenge 2025](https://connpass.com/event/356453/)に参加しており、3位だった。
 並行してDefCamp CTF Qualsにも出ていた（こちらは決勝進出できずだった）が、このCTFは開催期間が72時間というのもあり、それなりにじっくり取り組むことができた。
-![](https://storage.googleapis.com/zenn-user-upload/6fbc2d2c6b7f-20250915.png)
-![](https://storage.googleapis.com/zenn-user-upload/078f57f55ea5-20250915.png)
+![](/assets/img/ffri_nflabs_2025/6fbc2d2c6b7f-20250915.png)
+![](/assets/img/ffri_nflabs_2025/078f57f55ea5-20250915.png)
 
 以下、自分が解いた問題のwriteupになる。
 かなりLLMに頼っている部分もあるが、そこはご了承願いたい。
@@ -53,7 +53,7 @@ Nmap done: 1 IP address (1 host up) scanned in 9.17 seconds
 ```
 
 アクセスしてみるとshellっぽいUIが表示されたので、`cat /flag*`するとflagが得られた。
-![](https://storage.googleapis.com/zenn-user-upload/bcdf7192a0d2-20250914.png)
+![](/assets/img/ffri_nflabs_2025/bcdf7192a0d2-20250914.png)
 `flag{Ch4nging_th3_p0rt_is_p0intl3ss}`
 
 ## Shell4Solr [425pt / 16 solves]
@@ -77,17 +77,17 @@ Nmap done: 1 IP address (1 host up) scanned in 9.37 seconds
 ```
 
 ブラウザでアクセスするとSolrのコンソールらしき画面が表示される。バージョンが8.11.0、`-Dcom.sun.jndi.ldap.object.trustURLCodebase=true`となっているので、問題文のヒントに書かれている通りlog4j vulnerabilityが有効っぽい。
-![](https://storage.googleapis.com/zenn-user-upload/d17097003501-20250914.png)
+![](/assets/img/ffri_nflabs_2025/d17097003501-20250914.png)
 
 [GitHubで見つけたレポジトリ](https://github.com/LucasPDiniz/CVE-2021-44228)の通りにncで待機してpayloadを送信すると、コネクションを受け取ることができた。
-![](https://storage.googleapis.com/zenn-user-upload/bd4671446b77-20250914.png)
+![](/assets/img/ffri_nflabs_2025/bd4671446b77-20250914.png)
 
 次に、GitHubで[log4j-shell-poc](https://github.com/kozmer/log4j-shell-poc)というPoCを見つけたので、これを使ってshellを取りたい。
 そのためにはjdk1.8.0が必要だが、攻撃マシンにはjdk17が入っており、ダウングレードしようにもkaliなのでこのバージョンのjdkをaptからインストールすることができない。うーむ。
 Oracleの公式ページで公開されているものをDLすれば良さそうだが、なぜかアカウントが作成できず困った。色々打開策を調べて回り、今回は[適当なミラーサーバー](https://mirrors.huaweicloud.com/java/jdk/8u202-b08/)からDLしてPoCが要求しているファイル名に合わせることでどうにかなった。
 
 これでshellが取れたので、`cat /flag*`でflagを得る。
-![](https://storage.googleapis.com/zenn-user-upload/4a6c18b146af-20250914.png)
+![](/assets/img/ffri_nflabs_2025/4a6c18b146af-20250914.png)
 `flag{l0g4j_s0lr_r3vshell}`
 
 ## Center [450pt / 9 solves]
@@ -519,7 +519,7 @@ manager botが毎分dashboardを巡回し、申請を承認していく。よっ
 
 さて、ローカルで解けたので意気揚々と問題サーバーにpayloadを投げたが、いつまで経ってもいつも使っているrequestbinにflagが飛んでこない。困った。
 色々検証した結果、どうやら問題サーバーは外部ネットワークへアクセスできないのではないかとアタリを付け、問い合わせたら案の定ビンゴ。ルールに追記された。
-![](https://storage.googleapis.com/zenn-user-upload/5bbeede91dad-20250915.png)
+![](/assets/img/ffri_nflabs_2025/5bbeede91dad-20250915.png)
 
 ということで、攻撃マシン側でリクエストを待ち受ける準備をする。
 
@@ -1077,7 +1077,7 @@ http://172.30.153.199/x2hZq0XMZro0
 ## Acrobatics [320pt / 37 solves]
 
 Acrobatで開いて適当な場所をクリックするとダイアログが表示された。
-![](https://storage.googleapis.com/zenn-user-upload/89295950c83b-20250915.png)
+![](/assets/img/ffri_nflabs_2025/89295950c83b-20250915.png)
 
 これをbase64で復号するとflagが得られた。
 `flag{pdf_javascript_magic}`
@@ -1720,10 +1720,10 @@ LAB_004017af:
     }
 ```
 
-![](https://storage.googleapis.com/zenn-user-upload/eb8c21c88716-20250915.png)
+![](/assets/img/ffri_nflabs_2025/eb8c21c88716-20250915.png)
 
 あとはflagを購入するだけ。
-![](https://storage.googleapis.com/zenn-user-upload/40bd5755ebf0-20250915.png)
+![](/assets/img/ffri_nflabs_2025/40bd5755ebf0-20250915.png)
 `flag{Th3_m1nu5_cr33p5_b3y0nd_ch405}`
 
 ## Jump [320pt / 37 solves]
@@ -2077,7 +2077,7 @@ flag{G0T_3NTRY_W1TH0UT_L1BC_ADDR}
 ## Bellaso [260pt / 49 solves]
 
 ヴィジュネル暗号。鍵まで配布されているので[オンラインデコーダー](https://cryptii.com/pipes/vigenere-cipher)で復号する。
-![](https://storage.googleapis.com/zenn-user-upload/bb4b5db75ce5-20250915.png)
+![](/assets/img/ffri_nflabs_2025/bb4b5db75ce5-20250915.png)
 `makuranosoushi`
 
 ## Hamburger [400pt / 21 solves]
@@ -2089,7 +2089,7 @@ LLMに見つけてもらった。
 ## Lamp [310pt / 39 solves]
 
 [Zennの記事](https://zenn.dev/ythk/articles/ythk-raspico-pins)で分かりやすい対応図を見つけた。
-![](https://storage.googleapis.com/zenn-user-upload/df9a48621cb3-20250915.png)
+![](/assets/img/ffri_nflabs_2025/df9a48621cb3-20250915.png)
 
 ```py
 from machine import Pin
@@ -2105,7 +2105,7 @@ while True:
 ```
 
 より、GP18に対応するのは24番ピン。24と入力するとflagが得られた。
-![](https://storage.googleapis.com/zenn-user-upload/8dbac8579c1c-20250915.png)
+![](/assets/img/ffri_nflabs_2025/8dbac8579c1c-20250915.png)
 `flag{pico_gpio_master}`
 
 この問題、入力に3回制限があるけどインスタンスを建て直せばリセットされるし、ピンは40番までしかないから総当たりでも解けそう。
