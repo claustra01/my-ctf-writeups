@@ -29,56 +29,50 @@
       </div>
     </header>
 
-    <main class="container page-body">
-      <article class="writeup">
-        <a class="back-link" href="{{ '/' | relative_url }}">← Writeups一覧</a>
+    <main class="page-body">
+      <div class="container content-wrap">
+        <article class="writeup">
+          <a class="back-link" href="{{ '/' | relative_url }}">← Writeups一覧</a>
 
-        <header class="writeup-hero">
-          <div class="meta-line">
-            {% if page.event %}<span class="eyebrow">{{ page.event }}{% if page.year %} {{ page.year }}{% endif %}</span>{% endif %}
-            {% if page.language %}<span class="pill">{{ page.language }}</span>{% endif %}
-            {% if page.date %}<span class="pill subtle">{{ page.date | date: "%Y-%m-%d" }}</span>{% endif %}
-          </div>
-          <h1>{{ page.title }}</h1>
-        </header>
-
-        {% if page.rank or page.total_teams or page.language or page.tags %}
-        <div class="writeup-stats">
-          {% if page.rank %}
-          <div class="stat-block">
-            <div class="stat-label">順位</div>
-            <div class="stat-value">#{{ page.rank }}</div>
-          </div>
-          {% endif %}
-          {% if page.total_teams %}
-          <div class="stat-block">
-            <div class="stat-label">総参加チーム数</div>
-            <div class="stat-value">{{ page.total_teams }}</div>
-          </div>
-          {% endif %}
-          {% if page.language %}
-          <div class="stat-block">
-            <div class="stat-label">言語</div>
-            <div class="stat-value">{{ page.language }}</div>
-          </div>
-          {% endif %}
-          {% if page.tags %}
-          <div class="stat-block wide">
-            <div class="stat-label">タグ</div>
-            <div class="meta-chips">
-              {% for tag in page.tags %}
-              <span class="pill ghost">{{ tag }}</span>
-              {% endfor %}
+          <header class="writeup-hero">
+            <div class="meta-line">
+              {% if page.event %}<span class="eyebrow">{{ page.event }}{% if page.year %} {{ page.year }}{% endif %}</span>{% endif %}
+              {% if page.date %}<span class="pill subtle">{{ page.date | date: "%Y-%m-%d" }}</span>{% endif %}
             </div>
+            <h1>{{ page.title }}</h1>
+            <div class="hero-meta">
+              {% if page.language %}<span class="pill ghost">{{ page.language }}</span>{% endif %}
+            </div>
+          </header>
+
+          {% if page.rank or page.total_teams or page.tags %}
+          <div class="writeup-stats">
+            {% if page.rank or page.total_teams %}
+            <div class="stat-block highlight">
+              <div class="stat-label">結果</div>
+              <div class="stat-value result">
+                {% if page.rank %}#{{ page.rank }}{% endif %}{% if page.total_teams %}{% if page.rank %} / {% endif %}{{ page.total_teams }} teams{% endif %}
+              </div>
+            </div>
+            {% endif %}
+            {% if page.tags %}
+            <div class="stat-block wide">
+              <div class="stat-label">タグ</div>
+              <div class="meta-chips">
+                {% for tag in page.tags %}
+                <span class="pill ghost">{{ tag }}</span>
+                {% endfor %}
+              </div>
+            </div>
+            {% endif %}
           </div>
           {% endif %}
-        </div>
-        {% endif %}
 
-        <div class="writeup-body markdown-body">
-          {{ content }}
-        </div>
-      </article>
+          <div class="writeup-body markdown-body">
+            {{ content }}
+          </div>
+        </article>
+      </div>
     </main>
 
     <footer class="site-footer">

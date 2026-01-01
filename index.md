@@ -15,8 +15,11 @@ permalink: /
     <p class="card-summary">{{ writeup.summary | default: writeup.excerpt | strip_html | truncate: 150 }}</p>
     {% if writeup.rank or writeup.total_teams or writeup.language or writeup.tags %}
     <div class="meta-chips">
-      {% if writeup.rank %}<span class="pill stat">#{{ writeup.rank }}</span>{% endif %}
-      {% if writeup.total_teams %}<span class="pill subtle">{{ writeup.total_teams }} teams</span>{% endif %}
+      {% if writeup.rank or writeup.total_teams %}
+      <span class="pill stat">
+        {% if writeup.rank %}#{{ writeup.rank }}{% endif %}{% if writeup.total_teams %}{% if writeup.rank %} / {% endif %}{{ writeup.total_teams }} teams{% endif %}
+      </span>
+      {% endif %}
       {% if writeup.language %}<span class="pill subtle">{{ writeup.language }}</span>{% endif %}
       {% if writeup.tags %}
         {% for tag in writeup.tags %}
