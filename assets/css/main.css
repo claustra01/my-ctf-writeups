@@ -72,7 +72,6 @@ a:hover {
   z-index: 10;
   backdrop-filter: blur(12px);
   background: rgba(255, 255, 255, 0.85);
-  border-bottom: 1px solid rgba(14, 165, 233, 0.14);
   box-shadow: 0 8px 30px rgba(15, 23, 42, 0.07);
 }
 
@@ -147,10 +146,9 @@ a:hover {
   position: relative;
   isolation: isolate;
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(240, 245, 251, 0.92));
-  border: 1px solid rgba(14, 165, 233, 0.14);
   border-radius: 22px;
   padding: 32px 28px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 16px 46px rgba(15, 23, 42, 0.12);
   overflow: hidden;
 }
 
@@ -165,23 +163,12 @@ a:hover {
   pointer-events: none;
 }
 
-.content-wrap::after {
-  content: "";
-  position: absolute;
-  inset: 12px;
-  border: 1px solid rgba(14, 165, 233, 0.08);
-  border-radius: 18px;
-  z-index: 0;
-  pointer-events: none;
-}
-
 .content-wrap > * {
   position: relative;
   z-index: 1;
 }
 
 .site-footer {
-  border-top: 1px solid rgba(14, 165, 233, 0.12);
   padding: 24px 0 32px;
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 -8px 28px rgba(15, 23, 42, 0.05);
@@ -212,8 +199,7 @@ a:hover {
   align-items: center;
   gap: 8px;
   padding: 8px 12px;
-  background: rgba(14, 165, 233, 0.08);
-  border: 1px solid rgba(14, 165, 233, 0.16);
+  background: linear-gradient(120deg, rgba(14, 165, 233, 0.16), rgba(34, 211, 238, 0.08));
   border-radius: 12px;
   font-size: 0.95rem;
   letter-spacing: 0.12em;
@@ -230,13 +216,12 @@ a:hover {
 
 .card {
   background: var(--panel);
-  border: 1px solid rgba(14, 165, 233, 0.14);
   border-radius: 18px;
   padding: 18px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
   position: relative;
   overflow: hidden;
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 .card::before {
@@ -249,8 +234,7 @@ a:hover {
 
 .card:hover {
   transform: translateY(-3px);
-  border-color: rgba(14, 165, 233, 0.45);
-  box-shadow: 0 16px 44px rgba(15, 23, 42, 0.16);
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.14), 0 12px 32px rgba(14, 165, 233, 0.12);
 }
 
 .card > * {
@@ -323,21 +307,20 @@ a:hover {
   border-radius: 999px;
   font-size: 0.9rem;
   font-weight: 700;
-  background: rgba(14, 165, 233, 0.12);
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.16), rgba(34, 211, 238, 0.1));
   color: #0b5fad;
-  border: 1px solid rgba(14, 165, 233, 0.2);
+  box-shadow: 0 8px 18px rgba(14, 165, 233, 0.15);
 }
 
 .pill.subtle {
-  background: rgba(100, 116, 139, 0.1);
-  color: #475569;
-  border-color: rgba(100, 116, 139, 0.24);
+  background: rgba(100, 116, 139, 0.14);
+  color: #334155;
 }
 
 .pill.ghost {
-  background: rgba(15, 23, 42, 0.04);
+  background: rgba(15, 23, 42, 0.06);
   color: #0f172a;
-  border: 1px solid var(--border);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
 }
 
 .pill.stat {
@@ -350,9 +333,8 @@ a:hover {
 .writeup {
   background: var(--panel);
   border-radius: 22px;
-  border: 1px solid rgba(14, 165, 233, 0.14);
   padding: 26px 22px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.14);
   position: relative;
   overflow: hidden;
 }
@@ -407,16 +389,14 @@ a:hover {
 }
 
 .stat-block {
-  background: rgba(14, 165, 233, 0.06);
-  border: 1px solid rgba(14, 165, 233, 0.16);
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.08), rgba(34, 211, 238, 0.06));
   border-radius: 16px;
   padding: 12px 14px;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.1);
 }
 
 .stat-block.highlight {
-  background: linear-gradient(135deg, rgba(14, 165, 233, 0.16), rgba(34, 211, 238, 0.12));
-  border-color: rgba(14, 165, 233, 0.4);
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(34, 211, 238, 0.14));
   box-shadow: var(--shadow-soft);
 }
 
@@ -481,16 +461,16 @@ a:hover {
   border-radius: 12px;
   overflow-x: auto;
   font-family: var(--mono);
-  border: 1px solid rgba(226, 232, 240, 0.12);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
 }
 
 .markdown-body blockquote {
   margin: 0 0 16px 0;
-  padding: 10px 14px;
-  border-left: 3px solid var(--accent);
-  background: rgba(14, 165, 233, 0.08);
+  padding: 14px 16px;
+  background: linear-gradient(120deg, rgba(14, 165, 233, 0.16), rgba(34, 211, 238, 0.1));
   color: #0f172a;
-  border-radius: 10px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
 }
 
 .markdown-body ul {
