@@ -83,6 +83,8 @@ a:hover {
   padding: 20px 0;
   position: relative;
   z-index: 1;
+  width: min(1140px, 100% - 48px);
+  margin: 0 auto;
 }
 
 .brand {

@@ -17,7 +17,7 @@
 <body>
   <div class="page">
     <header class="site-header">
-      <div class="container header-inner">
+      <div class="header-inner">
         <a class="brand" href="{{ '/' | relative_url }}">
           <span class="dot"></span>
           <span class="brand-text">claustra01 CTF writeups</span>
@@ -35,10 +35,11 @@
           <a class="back-link" href="{{ '/' | relative_url }}">← All writeups</a>
 
           <header class="writeup-hero">
+            {% if page.date %}
             <div class="meta-line">
-              {% if page.event %}<span class="eyebrow">{{ page.event }}{% if page.year %} {{ page.year }}{% endif %}</span>{% endif %}
-              {% if page.date %}<span class="pill subtle">{{ page.date | date: "%Y-%m-%d" }}</span>{% endif %}
+              <span class="pill subtle">{{ page.date | date: "%Y-%m-%d" }}</span>
             </div>
+            {% endif %}
             <h1>{{ page.title }}</h1>
             <div class="hero-meta">
               {% if page.language %}<span class="pill ghost">{{ page.language }}</span>{% endif %}
