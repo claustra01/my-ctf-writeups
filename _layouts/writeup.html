@@ -32,7 +32,7 @@
     <main class="page-body">
       <div class="container content-wrap">
         <article class="writeup">
-          <a class="back-link" href="{{ '/' | relative_url }}">← Writeups一覧</a>
+          <a class="back-link" href="{{ '/' | relative_url }}">← All writeups</a>
 
           <header class="writeup-hero">
             <div class="meta-line">
@@ -49,7 +49,7 @@
           <div class="writeup-stats">
             {% if page.rank or page.total_teams %}
             <div class="stat-block highlight">
-              <div class="stat-label">結果</div>
+              <div class="stat-label">Result</div>
               <div class="stat-value result">
                 {% if page.rank %}#{{ page.rank }}{% endif %}{% if page.total_teams %}{% if page.rank %} / {% endif %}{{ page.total_teams }} teams{% endif %}
               </div>
@@ -57,7 +57,7 @@
             {% endif %}
             {% if page.tags %}
             <div class="stat-block wide">
-              <div class="stat-label">タグ</div>
+              <div class="stat-label">Tags</div>
               <div class="meta-chips">
                 {% for tag in page.tags %}
                 <span class="pill ghost">{{ tag }}</span>
