@@ -1,14 +1,31 @@
 title: "claustra01 CTF Writeups"
 description: "A collection of CTF writeups by claustra01."
+lang: ja
+locale: ja_JP
 
-plugins:
-  - jekyll-seo-tag
-
-markdown: kramdown
-timezone: JST
+author: "claustra01"
+twitter_username: "claustra01"
+github_username: "claustra01"
 
 url: "https://writeups.claustra01.net"
 baseurl: ""
+
+logo: "/assets/img/og-default.svg"
+image: "/assets/img/og-default.svg"
+
+social:
+  name: "claustra01"
+  links:
+    - "https://writeups.claustra01.net"
+    - "https://x.com/claustra01"
+    - "https://github.com/claustra01"
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+markdown: kramdown
+timezone: Asia/Tokyo
 
 collections:
   writeups:
@@ -18,7 +35,13 @@ collections:
 defaults:
   - scope:
       path: ""
+    values:
+      lang: ja
+      image: "/assets/img/og-default.svg"
+  - scope:
+      path: ""
       type: writeups
     values:
       layout: writeup
       author: claustra01
+      lang: ja
