@@ -17,7 +17,7 @@ permalink: /
       <div class="meta-row">
         {% assign official = writeup.official %}
         {% if official %}
-        <span class="pill pill-flag">Official</span>
+        <span class="pill pill-flag">Official writeup</span>
         {% endif %}
 
         {% if writeup.rank or writeup.total_teams %}
