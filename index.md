@@ -4,39 +4,33 @@ title: CTF Writeups
 permalink: /
 ---
 
-<h2 class="section-title">Recent writeups</h2>
-<div class="card-grid">
+<h2>Recent writeups</h2>
 {% assign sorted = site.writeups | sort: "date" | reverse %}
 {% if sorted and sorted != empty %}
-  {% for writeup in sorted %}
-  <article class="card">
-    <h2><a href="{{ writeup.url | relative_url }}">{{ writeup.title }}</a></h2>
+<ul>
+{% for writeup in sorted %}
+  <li>
+    <a href="{{ writeup.url | relative_url }}">{{ writeup.title }}</a>
     {% assign official = writeup.official %}
-    {% if official or writeup.rank or writeup.total_teams or writeup.language or writeup.tags %}
-    <div class="meta-chips">
-      {% if official or writeup.rank or writeup.total_teams %}
-      <span class="pill stat{% if official %} official{% endif %}">
-        {% if official %}
-        Official writeup
-        {% else %}
-        {% if writeup.rank %}#{{ writeup.rank }}{% endif %}{% if writeup.total_teams %}{% if writeup.rank %} / {% endif %}{{ writeup.total_teams }} teams{% endif %}
-        {% endif %}
-      </span>
-      {% endif %}
-      {% if writeup.language %}<span class="pill subtle">{{ writeup.language }}</span>{% endif %}
-      {% if writeup.tags %}
-        {% for tag in writeup.tags %}
-        <span class="pill ghost">{{ tag }}</span>
-        {% endfor %}
+    {% if official or writeup.rank or writeup.total_teams %}
+    <div>
+      {% if official %}
+      Official writeup
+      {% else %}
+      {% if writeup.rank %}#{{ writeup.rank }}{% endif %}{% if writeup.total_teams %}{% if writeup.rank %} / {% endif %}{{ writeup.total_teams }} teams{% endif %}
       {% endif %}
     </div>
     {% endif %}
-    <div class="card-footer">
-      <span>{% if writeup.date %}{{ writeup.date | date: "%Y-%m-%d" }}{% else %}No date{% endif %}</span>
-    </div>
-  </article>
-  {% endfor %}
+    {% if writeup.language %}
+    <div>Language: {{ writeup.language }}</div>
+    {% endif %}
+    {% if writeup.tags %}
+    <div>Tags: {% for tag in writeup.tags %}{{ tag }}{% unless forloop.last %}, {% endunless %}{% endfor %}</div>
+    {% endif %}
+    <div>{% if writeup.date %}{{ writeup.date | date: "%Y-%m-%d" }}{% else %}No date{% endif %}</div>
+  </li>
+{% endfor %}
+</ul>
 {% else %}
-  <p class="muted">まだWriteupがありません。`_writeups/` にMarkdownを追加してください。</p>
+<p>まだWriteupがありません。`_writeups/` にMarkdownを追加してください。</p>
 {% endif %}
-</div>
