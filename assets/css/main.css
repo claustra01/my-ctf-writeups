@@ -234,6 +234,24 @@ a:hover {
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
 }
 
+.pill-rank-gold {
+  background: linear-gradient(120deg, #fcd34d, #f59e0b);
+  color: #7c2d12;
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.35);
+}
+
+.pill-rank-silver {
+  background: linear-gradient(120deg, #e5e7eb, #cbd5e1);
+  color: #111827;
+  box-shadow: 0 8px 20px rgba(148, 163, 184, 0.35);
+}
+
+.pill-rank-bronze {
+  background: linear-gradient(120deg, #e3a869, #cd7f32);
+  color: #3f2a1d;
+  box-shadow: 0 8px 20px rgba(205, 127, 50, 0.35);
+}
+
 .tag-row {
   display: flex;
   flex-wrap: wrap;
