@@ -23,7 +23,7 @@
 
     <main class="page-shell">
       <section class="page-header">
-        <a class="text-link" href="{{ '/' | relative_url }}">← All writeups</a>
+        <a class="text-link" href="{{ '/' | relative_url }}">← All writeups &amp; results</a>
         <h1 class="page-title">{{ page.title }}</h1>
 
         {% if page.date %}
@@ -32,8 +32,13 @@
 
         <div class="meta-row">
           {% assign is_official = page.official %}
+          {% assign is_result_only = page.result_only %}
           {% if is_official %}
           <span class="pill pill-flag">Official writeup</span>
+          {% endif %}
+
+          {% if is_result_only %}
+          <span class="pill pill-result">No writeup</span>
           {% endif %}
 
           {% if page.rank or page.total_teams %}
@@ -74,11 +79,23 @@
       </section>
 
       <article class="prose">
+        {% assign is_result_only = page.result_only %}
+        {% assign trimmed_content = content | strip %}
+        {% if is_result_only %}
+        <div class="notice">
+          <strong>Result only.</strong> This entry records placement for the event without a full writeup.
+        </div>
+        {% endif %}
+
+        {% if trimmed_content == "" %}
+        <p class="muted-text">No writeup content has been added yet.</p>
+        {% endif %}
+
         {{ content }}
       </article>
 
       <div class="back-link">
-        <a class="text-link" href="{{ '/' | relative_url }}">← All writeups</a>
+        <a class="text-link" href="{{ '/' | relative_url }}">← All writeups &amp; results</a>
       </div>
     </main>
 

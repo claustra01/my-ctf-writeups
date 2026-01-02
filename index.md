@@ -16,8 +16,13 @@ permalink: /
     <article class="card">
       <div class="meta-row">
         {% assign official = writeup.official %}
+        {% assign result_only = writeup.result_only %}
         {% if official %}
         <span class="pill pill-flag">Official writeup</span>
+        {% endif %}
+
+        {% if result_only %}
+        <span class="pill pill-result">No writeup</span>
         {% endif %}
 
         {% if writeup.rank or writeup.total_teams %}
@@ -74,7 +79,7 @@ permalink: /
 {% else %}
 <section class="section">
   <div class="empty-state">
-    <p class="empty-title">No writeups</p>
+    <p class="empty-title">No writeups or results yet</p>
   </div>
 </section>
 {% endif %}

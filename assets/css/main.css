@@ -226,6 +226,12 @@ a:hover {
   color: #f8fafc;
 }
 
+.pill-result {
+  background: #e0f2fe;
+  color: #075985;
+  border: 1px dashed #bfdbfe;
+}
+
 .pill-rank {
   background: linear-gradient(120deg, var(--accent), var(--accent-2));
   color: #f8fafc;
@@ -377,6 +383,25 @@ a:hover {
   word-break: normal;
   overflow-wrap: normal;
   white-space: pre;
+}
+
+.notice {
+  margin: 12px 0 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-left: 4px solid #0ea5e9;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: var(--muted);
+}
+
+.notice strong {
+  color: var(--text);
+}
+
+.muted-text {
+  color: var(--muted);
+  margin: 12px 0;
 }
 
 /* Rouge syntax highlighting */
