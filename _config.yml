@@ -28,6 +28,7 @@ markdown: kramdown
 highlighter: rouge
 kramdown:
   syntax_highlighter: rouge
+  hard_wrap: true
 timezone: Asia/Tokyo
 
 collections:
