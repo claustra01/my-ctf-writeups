@@ -39,7 +39,7 @@ permalink: /
         {% if writeup.date %}
         <span>{{ writeup.date | date: "%Y-%m-%d" }}</span>
         {% else %}
-        <span>日付不明</span>
+        <span>No date</span>
         {% endif %}
       </div>
 
@@ -57,8 +57,7 @@ permalink: /
 {% else %}
 <section class="section">
   <div class="empty-state">
-    <p class="empty-title">まだWriteupがありません</p>
-    <p class="empty-text">`_writeups/` にMarkdownを追加して最初のエントリを書きましょう。</p>
+    <p class="empty-title">No writeups</p>
   </div>
 </section>
 {% endif %}
