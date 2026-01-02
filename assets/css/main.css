@@ -645,7 +645,7 @@ a:hover {
 }
 
 @media (max-width: 900px) {
-  .site-nav {
+  .nav-link {
     display: none;
   }
 }
