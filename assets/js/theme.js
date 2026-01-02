@@ -2,7 +2,6 @@
   var storageKey = 'theme-preference';
   var root = document.documentElement;
   var toggle = document.querySelector('[data-theme-toggle]');
-  var label = document.querySelector('[data-theme-label]');
   var icon = document.querySelector('.theme-toggle-icon');
   var systemQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -31,23 +30,23 @@
   }
 
   function updateToggleUI(mode) {
-    if (!toggle || !label || !icon) return;
+    if (!toggle || !icon) return;
 
     var resolved = mode || 'system';
-    var text = 'テーマ: 自動';
     var iconText = '🌗';
+    var labelText = 'Toggle theme (System)';
 
     if (resolved === 'light') {
-      text = 'テーマ: ライト';
       iconText = '☀️';
+      labelText = 'Toggle theme (Light)';
     } else if (resolved === 'dark') {
-      text = 'テーマ: ダーク';
       iconText = '🌙';
+      labelText = 'Toggle theme (Dark)';
     }
 
-    label.textContent = text;
     icon.textContent = iconText;
-    toggle.setAttribute('aria-label', text);
+    toggle.setAttribute('aria-label', labelText);
+    toggle.setAttribute('title', labelText);
   }
 
   function applyTheme(mode) {
