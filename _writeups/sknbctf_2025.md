@@ -2,7 +2,7 @@
 title: sknbCTF 2025 Author's Writeup 
 date: 2025-11-27
 layout: writeup
-is_official: true
+official: true
 language: en
 tags:
   - web
