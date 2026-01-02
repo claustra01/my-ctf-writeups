@@ -5,6 +5,7 @@ layout: writeup
 result_only: true
 rank: 17
 total_teams: 681
+qualified: true
 tags:
   - Quals
 ---

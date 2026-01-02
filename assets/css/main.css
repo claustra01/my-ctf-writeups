@@ -231,6 +231,11 @@ a:hover {
   color: #f8fafc;
 }
 
+.pill-qualified {
+  background: linear-gradient(120deg, #fb7185, #f43f5e);
+  color: #fff7ed;
+}
+
 .pill-rank-gold {
   background: linear-gradient(120deg, #fcd34d, #f59e0b);
   color: #7c2d12;

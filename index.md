@@ -38,6 +38,10 @@ permalink: /
         </span>
         {% endif %}
 
+        {% if writeup.qualified %}
+        <span class="pill pill-qualified">Qualified</span>
+        {% endif %}
+
         {% if result_only %}
         <span class="pill pill-ghost">No writeup</span>
         {% endif %}

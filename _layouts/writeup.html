@@ -54,6 +54,10 @@
           </span>
           {% endif %}
 
+          {% if page.qualified %}
+          <span class="pill pill-qualified">Qualified</span>
+          {% endif %}
+
           {% if is_result_only %}
           <span class="pill pill-ghost">No writeup</span>
           {% endif %}
