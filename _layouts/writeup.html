@@ -80,14 +80,6 @@
 
       <article class="prose">
         {% assign is_result_only = page.result_only %}
-        {% assign trimmed_content = content | strip %}
-        {% if is_result_only %}
-        <div class="notice">
-          <strong>Result only.</strong> This entry records placement for the event without a full writeup.
-        </div>
-        {% endif %}
-
-        {% if trimmed_content == "" %}
         <p class="muted-text">No writeup content has been added yet.</p>
         {% endif %}
 
