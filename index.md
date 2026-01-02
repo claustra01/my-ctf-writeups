@@ -57,7 +57,13 @@ permalink: /
       {% if writeup.tags %}
       <div class="tag-row">
         {% for tag in writeup.tags %}
-        <span class="tag">{{ tag }}</span>
+        {% assign tag_class = "tag" %}
+        {% if tag == "Quals" %}
+        {% assign tag_class = tag_class | append: " tag-quals" %}
+        {% elsif tag == "Finals" %}
+        {% assign tag_class = tag_class | append: " tag-finals" %}
+        {% endif %}
+        <span class="{{ tag_class }}">{{ tag }}</span>
         {% endfor %}
       </div>
       {% endif %}
