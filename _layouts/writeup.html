@@ -79,7 +79,7 @@
       </section>
 
       <article class="prose">
-        {% assign is_result_only = page.result_only %}
+        {% if page.result_only %}
         <p class="muted-text">No writeup content has been added yet.</p>
         {% endif %}
 
