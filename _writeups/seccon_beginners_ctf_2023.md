@@ -2,7 +2,7 @@
 title: SECCON Beginners CTF 2023 Writeup
 date: 2023-06-04
 layout: writeup
-rank: ?
+rank: ???
 total_teams: ???
 language: ja
 tags:
