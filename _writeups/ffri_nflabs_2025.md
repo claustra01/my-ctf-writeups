@@ -6,11 +6,11 @@ rank: 3
 total_teams: 76
 language: ja
 tags:
-  - web
-  - rev
-  - pwn
-  - pentest
-  - misc
+  - Web
+  - Rev
+  - Pwn
+  - Pentest
+  - Misc
 ---
 
 # まえがき

@@ -5,8 +5,8 @@ layout: writeup
 official: true
 language: en
 tags:
-  - web
-  - misc
+  - Web
+  - Misc
 ---
 
 I made some challenges for [sknbCTF 2025](https://ctftime.org/event/2947/). This article is author's official writeup.
