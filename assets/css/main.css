@@ -17,30 +17,18 @@
   --pill-ghost-bg: #edf1f7;
   --pill-ghost-text: #0f172a;
   --pill-ghost-border: #d9e0ec;
-  --pill-flag-start: #16a34a;
-  --pill-flag-end: #22c55e;
-  --pill-flag-text: #0b1220;
-  --pill-qualified-start: #f472b6;
-  --pill-qualified-end: #ec4899;
-  --pill-qualified-text: #0b1220;
-  --pill-rank-gold-start: #f6d860;
-  --pill-rank-gold-end: #e5a126;
-  --pill-rank-gold-text: #0b1220;
-  --pill-rank-silver-start: #e3e7ef;
-  --pill-rank-silver-end: #cbd2e1;
+  --pill-flag: linear-gradient(120deg, #16a34a, #22c55e);
+  --pill-qualified: linear-gradient(120deg, #f472b6, #ec4899);
+  --pill-rank-gold: linear-gradient(120deg, #f6d860, #e5a126);
+  --pill-rank-silver: linear-gradient(120deg, #e3e7ef, #cbd2e1);
   --pill-rank-silver-text: #0f172a;
-  --pill-rank-bronze-start: #e1b17a;
-  --pill-rank-bronze-end: #c77b38;
+  --pill-rank-bronze: linear-gradient(120deg, #e1b17a, #c77b38);
   --pill-rank-bronze-text: #2f1a12;
   --tag-bg: #e6edff;
   --tag-text: #0f172a;
   --tag-border: #cdd9ff;
-  --tag-quals-start: #52c7f0;
-  --tag-quals-end: #239edc;
-  --tag-quals-text: #0b1220;
-  --tag-finals-start: #f4729a;
-  --tag-finals-end: #ec4899;
-  --tag-finals-text: #0b1220;
+  --tag-quals: linear-gradient(120deg, #52c7f0, #239edc);
+  --tag-finals: linear-gradient(120deg, #f4729a, #ec4899);
   --blockquote-bg: #f8fafc;
   --code-inline-bg: #e5edff;
   --code-block-bg: #0f172a;
@@ -62,8 +50,6 @@
   --accent: #60a5fa;
   --accent-soft: #1e293b;
   --accent-2: #38bdf8;
-  --accent-green: #22c55e;
-  --accent-green-2: #16a34a;
   --border: #1f2937;
   --shadow: 0 18px 48px rgba(0, 0, 0, 0.55);
   --header-bg: rgba(15, 23, 42, 0.78);
@@ -71,35 +57,22 @@
   --pill-ghost-bg: #15243a;
   --pill-ghost-text: #e5e7eb;
   --pill-ghost-border: #25374f;
-  --pill-flag-start: #2e8d52;
-  --pill-flag-end: #22c55e;
-  --pill-flag-text: #0b1220;
-  --pill-qualified-start: #f06595;
-  --pill-qualified-end: #e0498c;
-  --pill-qualified-text: #0b1220;
-  --pill-rank-gold-start: #eab308;
-  --pill-rank-gold-end: #bd6726;
-  --pill-rank-gold-text: #0b1220;
-  --pill-rank-silver-start: #2f3a4b;
-  --pill-rank-silver-end: #4b5563;
+  --pill-flag: linear-gradient(120deg, #2e8d52, #22c55e);
+  --pill-qualified: linear-gradient(120deg, #f06595, #e0498c);
+  --pill-rank-gold: linear-gradient(120deg, #eab308, #bd6726);
+  --pill-rank-silver: linear-gradient(120deg, #2f3a4b, #4b5563);
   --pill-rank-silver-text: #e5e7eb;
-  --pill-rank-bronze-start: #936539;
-  --pill-rank-bronze-end: #8c552c;
+  --pill-rank-bronze: linear-gradient(120deg, #936539, #8c552c);
   --pill-rank-bronze-text: #fef3c7;
   --tag-bg: #13263f;
   --tag-text: #dfe7ff;
   --tag-border: #284066;
-  --tag-quals-start: #33c2ec;
-  --tag-quals-end: #1f9bd8;
-  --tag-quals-text: #0b1220;
-  --tag-finals-start: #ee6fa1;
-  --tag-finals-end: #d9467a;
-  --tag-finals-text: #0b1220;
+  --tag-quals: linear-gradient(120deg, #33c2ec, #1f9bd8);
+  --tag-finals: linear-gradient(120deg, #ee6fa1, #d9467a);
   --blockquote-bg: #111827;
   --code-inline-bg: #1e293b;
   --code-block-bg: #0b1220;
   --code-block-text: #e2e8f0;
-  --code-scrollbar-track: #0b1220;
   --code-scrollbar-thumb-color: #334155;
   --code-scrollbar-thumb: linear-gradient(120deg, #2563eb, #38bdf8);
   --table-head-bg: #111827;
@@ -117,8 +90,6 @@
     --accent: #60a5fa;
     --accent-soft: #1e293b;
     --accent-2: #38bdf8;
-    --accent-green: #22c55e;
-    --accent-green-2: #16a34a;
     --border: #1f2937;
     --shadow: 0 18px 48px rgba(0, 0, 0, 0.55);
     --header-bg: rgba(15, 23, 42, 0.78);
@@ -126,35 +97,22 @@
     --pill-ghost-bg: #15243a;
     --pill-ghost-text: #e5e7eb;
     --pill-ghost-border: #25374f;
-    --pill-flag-start: #2e8d52;
-    --pill-flag-end: #22c55e;
-    --pill-flag-text: #0b1220;
-    --pill-qualified-start: #f06595;
-    --pill-qualified-end: #e0498c;
-    --pill-qualified-text: #0b1220;
-    --pill-rank-gold-start: #eab308;
-    --pill-rank-gold-end: #bd6726;
-    --pill-rank-gold-text: #0b1220;
-    --pill-rank-silver-start: #2f3a4b;
-    --pill-rank-silver-end: #4b5563;
+    --pill-flag: linear-gradient(120deg, #2e8d52, #22c55e);
+    --pill-qualified: linear-gradient(120deg, #f06595, #e0498c);
+    --pill-rank-gold: linear-gradient(120deg, #eab308, #bd6726);
+    --pill-rank-silver: linear-gradient(120deg, #2f3a4b, #4b5563);
     --pill-rank-silver-text: #e5e7eb;
-    --pill-rank-bronze-start: #936539;
-    --pill-rank-bronze-end: #8c552c;
+    --pill-rank-bronze: linear-gradient(120deg, #936539, #8c552c);
     --pill-rank-bronze-text: #fef3c7;
     --tag-bg: #13263f;
     --tag-text: #dfe7ff;
     --tag-border: #284066;
-    --tag-quals-start: #33c2ec;
-    --tag-quals-end: #1f9bd8;
-    --tag-quals-text: #0b1220;
-    --tag-finals-start: #ee6fa1;
-    --tag-finals-end: #d9467a;
-    --tag-finals-text: #0b1220;
+    --tag-quals: linear-gradient(120deg, #33c2ec, #1f9bd8);
+    --tag-finals: linear-gradient(120deg, #ee6fa1, #d9467a);
     --blockquote-bg: #111827;
     --code-inline-bg: #1e293b;
     --code-block-bg: #0b1220;
     --code-block-text: #e2e8f0;
-    --code-scrollbar-track: #0b1220;
     --code-scrollbar-thumb-color: #334155;
     --code-scrollbar-thumb: linear-gradient(120deg, #2563eb, #38bdf8);
     --table-head-bg: #111827;
@@ -362,8 +320,8 @@ a:hover {
 }
 
 .pill-flag {
-  background: linear-gradient(120deg, var(--pill-flag-start), var(--pill-flag-end));
-  color: var(--pill-flag-text);
+  background: var(--pill-flag);
+  color: #0b1220;
 }
 
 .pill-rank {
@@ -372,22 +330,22 @@ a:hover {
 }
 
 .pill-qualified {
-  background: linear-gradient(120deg, var(--pill-qualified-start), var(--pill-qualified-end));
-  color: var(--pill-qualified-text);
+  background: var(--pill-qualified);
+  color: #0b1220;
 }
 
 .pill-rank-gold {
-  background: linear-gradient(120deg, var(--pill-rank-gold-start), var(--pill-rank-gold-end));
-  color: var(--pill-rank-gold-text);
+  background: var(--pill-rank-gold);
+  color: #0b1220;
 }
 
 .pill-rank-silver {
-  background: linear-gradient(120deg, var(--pill-rank-silver-start), var(--pill-rank-silver-end));
+  background: var(--pill-rank-silver);
   color: var(--pill-rank-silver-text);
 }
 
 .pill-rank-bronze {
-  background: linear-gradient(120deg, var(--pill-rank-bronze-start), var(--pill-rank-bronze-end));
+  background: var(--pill-rank-bronze);
   color: var(--pill-rank-bronze-text);
 }
 
@@ -411,13 +369,13 @@ a:hover {
 }
 
 .tag-quals {
-  background: linear-gradient(120deg, var(--tag-quals-start), var(--tag-quals-end));
-  color: var(--tag-quals-text);
+  background: var(--tag-quals);
+  color: #0b1220;
 }
 
 .tag-finals {
-  background: linear-gradient(120deg, var(--tag-finals-start), var(--tag-finals-end));
-  color: var(--tag-finals-text);
+  background: var(--tag-finals);
+  color: #0b1220;
 }
 
 .section + .section {
