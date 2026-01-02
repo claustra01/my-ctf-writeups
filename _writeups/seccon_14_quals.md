@@ -470,7 +470,7 @@ XSSは不可能に思えるが、htmlをクエリパラメータから取って�
 
 という手順でXSSが発火した。
 
-![{CF863F92-04E2-4C18-B08E-B84AA6F6B054}.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2982709/b3f42922-0799-462c-847a-602b948a01bb.png)
+![{CF863F92-04E2-4C18-B08E-B84AA6F6B054}.png](/assets/img/seccon_14_quals/b3f42922-0799-462c-847a-602b948a01bb.png)
 
 bot上でもこれと同じことができないか。
 

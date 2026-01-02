@@ -290,6 +290,6 @@ Flagは`ctf4b{c4n_y0u_ab1e_t0_und0_t4e_t4ree_sp1it_f14g3}`でした．
 
 # おわりに
 
-![](https://storage.googleapis.com/zenn-user-upload/bdde87c14df5-20230604.png)
+![](/assets/img/seccon_beginners_ctf_2023/bdde87c14df5-20230604.png)
 最終結果としては6問solveして375ptで778チーム中255位．あまり時間が取れなかったというのもあるが，中々悔いの残る結果に．特にForbiddenとpoemは方針まで合っていたのにあと一歩が思いつかなかったからとても悔しい．なんで試しすらしなかったんだろうなぁ……
 まぁ，数時間にしてはそこそこ解けたかなという感触なので，機会があればこんな感じの比較的低難易度なCTFに時間一杯まで参加してみたいですね．このWriteUpも30分余りで書き上げてしまったので，願わくば次はもっと執筆に時間がかかりますように．

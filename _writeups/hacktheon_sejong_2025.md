@@ -14,7 +14,7 @@ tags:
 # まえがき
 
 2025 Hacktheon SejongのInternational Collegiate Cyber Security Competition（学部生だけが参加できて、40チームがオンサイトFinalに行ける）にチームsknbで参加しました。結果はAdvanced部門（部門がいくつかあり、Advanced部門からは上位20チームが決勝に行ける）32位で、オンサイト決勝には行けませんでした。チームとしては12問を解いて5762ptを、個人としてはそのうち9問を解いて4328ptを獲得しました。この記事は自分が解いた問題の簡易Writeupになります。
-![](https://storage.googleapis.com/zenn-user-upload/b6fece677a78-20250426.png)
+![](/assets/img/hacktheon_sejong_2025/b6fece677a78-20250426.png)
 
 # I love reversing [rev/62solves]
 

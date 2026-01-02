@@ -12,7 +12,7 @@ tags:
 # はじめに
 
 SECCON Beginners 福岡に参加してCTFのモチベが上がったのでCakeCTF 2023に参加してきました。チームkanimisoとして2人で参加し、99位/729チームでした。
-![](https://storage.googleapis.com/zenn-user-upload/cf744e339150-20231112.png)
+![](/assets/img/cakectf_2023/cf744e339150-20231112.png)
 
 # WriteUp
 
@@ -140,7 +140,7 @@ Flagは`CakeCTF{b3_c4refUl_wh3n_y0U_u5e_JS0N_1nPut}`でした。
 
 謎言語のリーディング問題を100問出題され、すべて正答ならFlagが表示されるという問題。
 とりあえず適当に触って開発者ツールを確認すると、最初に`api/start`を叩いてリセットし、sessionで管理しているっぽい感じ。
-![](https://storage.googleapis.com/zenn-user-upload/6d54395bffd5-20231112.png)
+![](/assets/img/cakectf_2023/6d54395bffd5-20231112.png)
 ソースコードは以下の通りで、sessionごとに正解もランダムで生成されるらしい。
 
 ```py
@@ -346,7 +346,7 @@ solver()
 解けませんでした。
 ブログの投稿と閲覧ができるwebアプリ、管理者への通報ページのようなwebアプリ、その通報されたページを巡回するwebクローラーがあり、クローラーが巡回する際にFlagを仕込んだCookieを置いていくという問題。
 ブログ投稿画面にご丁寧にもHTMLとあり、クローラーでセットしているCookieはhttpOnlyもsecureもどちらもfalseになっているという、XSSしてくれと言わんばかりの問題。
-![](https://storage.googleapis.com/zenn-user-upload/9d58c0ddd400-20231112.png)
+![](/assets/img/cakectf_2023/9d58c0ddd400-20231112.png)
 
 ```js
         await page.setCookie({

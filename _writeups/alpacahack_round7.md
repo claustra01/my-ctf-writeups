@@ -139,7 +139,7 @@ solve()
 
 dog, cat, alpacaに対して投票ができるアプリ。
 
-![](https://storage.googleapis.com/zenn-user-upload/a7a525990893-20241130.png)
+![](/assets/img/alpacahack_round7/a7a525990893-20241130.png)
 
 データはRedisに保存されており、incrementとgetのみが可能。
 また、flagもRedisに保存されている。これをどうにかして読み出したい。
@@ -601,7 +601,7 @@ export const visit = async (url) => {
 `res.socket.destroy()`を行っているのはexpressのルーティングの後なので、それよりも前の段階で何か処理を止めれば接続を切られることはない。ここでは、ルーティング中にエラーを発生させる方法を考える。
 
 `/cookie/%`にアクセスすると、URLのデコードに失敗してエラー画面が表示された。
-![](https://storage.googleapis.com/zenn-user-upload/9f1d2727b9d0-20241207.png)
+![](/assets/img/alpacahack_round7/9f1d2727b9d0-20241207.png)
 
 これを別ウィンドウで開けば`/`からJavaScriptを実行することができそう。
 
@@ -611,7 +611,7 @@ export const visit = async (url) => {
 http://localhost:3000/?xss=w=open("/cookie/%");setInterval(()=>{alert(w.document.location)},1000)
 ```
 
-![](https://storage.googleapis.com/zenn-user-upload/baab87d37203-20241207.png)
+![](/assets/img/alpacahack_round7/baab87d37203-20241207.png)
 
 あとは`document.cookie`を外部に送ればよいが、CSPに`default-src: 'none'`が設定されているため`fetch`や`navigator.sendBeacon`、`<iframe>`などはリクエストがブロックされてしまった。
 

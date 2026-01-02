@@ -14,7 +14,7 @@ tags:
 
 IERAE CTF 2025 にチームsknbで参加して5位/538チームでした。チームメンバーが強かったです。
 個人としてはcryptoのwarmup問題の肝の部分と、web問を2問解きました。upsolveしたものも合わせて計4問のwriteupになります。
-![](https://storage.googleapis.com/zenn-user-upload/b2bf8b1eb767-20250622.png)
+![](/assets/img/ierae_ctf_2025/b2bf8b1eb767-20250622.png)
 
 # Writeup
 
@@ -105,7 +105,7 @@ if __name__ == '__main__':
 ## [web, warmup] Warmdown (135 solves)
 
 markdownを入力してXSSを発火させる問題。どのようなhtmlにパースされるかまで表示してくれるらしい。親切すぎる。
-![](https://storage.googleapis.com/zenn-user-upload/ae5bb9db9f2f-20250622.png)
+![](/assets/img/ierae_ctf_2025/ae5bb9db9f2f-20250622.png)
 
 ソースコードを見る。`<>`が`＜＞`に置換されているので、単純にhtmlタグを挿入してXSSを発火させるのは難しそう。
 
@@ -155,10 +155,10 @@ app.listen({ port: 3000, host: "0.0.0.0" });
 ```
 
 ざっと眺めて、markdownでは画像のalt属性の値を設定できることを思い出す。例えば`![hoge](https://example.com)`を入力してみると、alt属性の値が`hoge`になっていることが分かる。
-![](https://storage.googleapis.com/zenn-user-upload/f2ad8085e348-20250622.png)
+![](/assets/img/ierae_ctf_2025/f2ad8085e348-20250622.png)
 
 ここにバックスラッシュを仕込むとalt属性値の終わりのダブルクオーテーションをエスケープできないかと思いつき、試してみる。`![\" onerror="alert(1)](x)`を入力すると、狙い通りにalertが発火した。
-![](https://storage.googleapis.com/zenn-user-upload/0cb74de96f3b-20250622.png)
+![](/assets/img/ierae_ctf_2025/0cb74de96f3b-20250622.png)
 
 あとはcookieを外部に送信するpayloadを組み立て、adminに報告すれば良い。
 
@@ -228,14 +228,14 @@ flagが得られた。
 
 `document.getElementById()`が消されており、一見`<canvas id="flag">`を取得することができないように見える。
 しかし、html要素はグローバルスコープの`window`にプロパティとして登録されるので、例えば`window.flag`で取得することができる。
-![](https://storage.googleapis.com/zenn-user-upload/937161b5e1f7-20250622.png)
+![](/assets/img/ierae_ctf_2025/937161b5e1f7-20250622.png)
 
 ### Step.2 `getContext()`の復元
 
 `canvas.getContext("2d").font`でflagが取得できるはずだったが、当然のように`getContext()`も消されている。これをどうにかして復元できれば勝ち。
 ちなみに、javascriptにはそのpropertyが本当にそのobjectのものかを検証する、Brand Checkという機構があるらしい。よって、いい感じのobjectの中にある`OffscreenCanvas.prototype.getContext`などを`HTMLCanvasElement.prototype.getContext`へ借用しても期待通りの挙動にはならず、Illegal invocationエラーが発生する。これは`Object.defineProperty()`や`Object.setPrototypeOf()`などで差し替えを試みても回避できない。
 
-![](https://storage.googleapis.com/zenn-user-upload/89f8bf2beaa2-20250622.png)
+![](/assets/img/ierae_ctf_2025/89f8bf2beaa2-20250622.png)
 
 よって、どうにかこのBrand Checkを回避して`getContext()`を復元する必要がある。
 
@@ -299,8 +299,8 @@ http://web:3000?xss=(async () =>{const ifr = (new Range()).createContextualFragm
 ## [web, easy] Slide Sandbox (3 solves)
 
 良い感じのスライドパズルを作ることができるアプリ。これ、**easy**タグ付いてたんですが。
-![](https://storage.googleapis.com/zenn-user-upload/7c28a88872f6-20250622.png)
-![](https://storage.googleapis.com/zenn-user-upload/582b36e5fddf-20250622.png)
+![](/assets/img/ierae_ctf_2025/7c28a88872f6-20250622.png)
+![](/assets/img/ierae_ctf_2025/582b36e5fddf-20250622.png)
 
 そもそもflagはどこかというと、adminが作成したパズルの`title`にある。パズルを作成してから報告されたURLを見に行くようになっている。
 
@@ -486,7 +486,7 @@ app.listen({ port: 3000, host: "0.0.0.0" });
 
 ということでupsolveする。
 まず、パズルに配置する8文字`answers`に注目する。この8文字をsplitしてそれぞれのパネルに入れているわけだが、絵文字などの4バイト文字は`split("")`で複数バイトに分割される。
-![](https://storage.googleapis.com/zenn-user-upload/6c24af7ad496-20250622.png)
+![](/assets/img/ierae_ctf_2025/6c24af7ad496-20250622.png)
 
 改めて実装を見返すと、`frames.length`は当然9だが、4バイト文字が`answers`に含まれるケースでは`pieces.length`が9以上になることが分かる。
 
@@ -543,15 +543,15 @@ app.listen({ port: 3000, host: "0.0.0.0" });
 ```
 
 `answers`に絵文字を混入させるとどうなるのか試してみる。
-![](https://storage.googleapis.com/zenn-user-upload/352b73be26ef-20250622.png)
+![](/assets/img/ierae_ctf_2025/352b73be26ef-20250622.png)
 
 この時、`pieces.length`は7+2で9になっているので、9つのパネル全てに文字が入る。
-![](https://storage.googleapis.com/zenn-user-upload/6c9dc63984c0-20250622.png)
+![](/assets/img/ierae_ctf_2025/6c9dc63984c0-20250622.png)
 
 では`pieces.length`が10以上だとどうなるのか。もちろんパネル(iframe)は9つしかないので溢れてしまうが、この溢れた部分はiframeによるsandbox制限の外側にあるのでXSSが発火してしまう。これは[Xで色々言われているのを見かけた](https://x.com/Satoooon1024/status/1936703301594317119)が、まだあまり理解できていない。
 
 ということで、このような入力でalertが発火した。
-![](https://storage.googleapis.com/zenn-user-upload/39e0218b648e-20250622.png)
+![](/assets/img/ierae_ctf_2025/39e0218b648e-20250622.png)
 
 既存のパズルの`title`は`/puzzles`のレスポンスに含まれているので、このようなpayloadをadminに踏んでもらえば勝ち。
 

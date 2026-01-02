@@ -17,9 +17,9 @@ tags:
 
 ぼーっと携帯を眺めていたらハッカソンで出会った方からお誘いいただいたので、チームCyberForgeでpicoCTF 2025に参加してきました。開催期間がSecHack365の成果発表会や未踏ITの提案書執筆と重なっていたのであまり時間は取れませんでしたが、4610ptを獲得し10460チーム中399位、日本の学生チームに限定すると140チーム中19位でした。
 個人としてはそのうち21問を解き、3425ptを獲得しました。この記事では自分が解いた問題のみの簡易Writeupを書いていきます。
-![](https://storage.googleapis.com/zenn-user-upload/5daeca6f9e9d-20250318.png)
-![](https://storage.googleapis.com/zenn-user-upload/def3bd9d3204-20250318.png)
-![](https://storage.googleapis.com/zenn-user-upload/3550a28196b4-20250318.png)
+![](/assets/img/picoctf_2025/5daeca6f9e9d-20250318.png)
+![](/assets/img/picoctf_2025/def3bd9d3204-20250318.png)
+![](/assets/img/picoctf_2025/3550a28196b4-20250318.png)
 
 # Binary Exploitation
 
@@ -550,7 +550,7 @@ if (isset($_POST["username"]) && isset($_POST["pwd"])) {
 ## Pachinko [300pt]
 
 NANDシミュレータのサイト。何も分かってないけどなんか適当に繋げてたら解けた。
-![](https://storage.googleapis.com/zenn-user-upload/829c4687ddb0-20250318.png)
+![](/assets/img/picoctf_2025/829c4687ddb0-20250318.png)
 
 `picoCTF{p4ch1nk0_f146_0n3_e947b9d7}`
 

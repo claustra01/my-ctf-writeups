@@ -13,7 +13,7 @@ tags:
 # まえがき
 
 大学はもっぱら試験期間ですが、試験を犠牲にしてチームkanimisoでCrewCTFに参加してきました。時間がなかったので半日ほどしか参加出来ず、575チーム中112位という結果に終わりました。
-![](https://storage.googleapis.com/zenn-user-upload/04d14d573864-20240806.png)
+![](/assets/img/crewctf_2024/04d14d573864-20240806.png)
 
 # WriteUp
 
@@ -34,7 +34,7 @@ Flagは`crew{welcome_to_crew_ctf_2024}`でした。
 ## Feedback
 
 アンケートに答えると以下のような文字列が表示されました。base64とあるので言われた通りにdecodeしてみるとFlagが得られます。
-![](https://storage.googleapis.com/zenn-user-upload/3e62ade0f51b-20240806.png)
+![](/assets/img/crewctf_2024/3e62ade0f51b-20240806.png)
 Flagは`crew{C4nt_Re4d_It_Thr0ugh_Inspect_or_maybe_can}`でした。
 
 ## Recursion

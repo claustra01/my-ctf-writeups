@@ -14,7 +14,7 @@ tags:
 
 去年はctf4bに参加したことで危うく微分方程式を落単しかけましたが、今年はこの時期に試験が無かったので意気揚々とctf4bに参加してきました。
 大学のサークルでチームKIT3re2として参加し、962チーム中45位でした。
-![](https://storage.googleapis.com/zenn-user-upload/11fc6e9a49b0-20240701.png)
+![](/assets/img/seccon_beginners_ctf_2024/11fc6e9a49b0-20240701.png)
 
 # WriteUp
 
@@ -841,7 +841,7 @@ Flagは`ctf4b{15_my_5c0r3_700000_b1g?}`でした。
 
 # おわりに
 
-![](https://storage.googleapis.com/zenn-user-upload/745b8051c4c9-20240701.png)
+![](/assets/img/seccon_beginners_ctf_2024/745b8051c4c9-20240701.png)
 実はCTFに参加するのが昨年のCakeCTF以来だったのですが、CTF力もそれなりに上がっていて安堵しました。
 今年はmedium問もそれなりに解けたので嬉しかった一方、easy問のssrforlfiが解けなかったのが悔しかったですね。私の知識が広く浅くというか、情報収集能力が足りないというか。ちゃんと調べれば解けた問題だったと思うので惜しいことをしたなと思っています。
 最近Cryptoの勉強を始めたので、次に出るCTFではCryptoも少しは解ければなと思っています。それでは。

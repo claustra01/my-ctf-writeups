@@ -16,7 +16,7 @@ AlpacaHack Round 11 (web) に参加して[10位/213人](https://alpacahack.com/c
 ## Jackpot (63 solves)
 
 スロットが遊べるWebサイト。
-![](https://storage.googleapis.com/zenn-user-upload/a4abec014ae6-20250518.png)
+![](/assets/img/alpacahack_round11/a4abec014ae6-20250518.png)
 
 こちらで指定した文字`candidates`の中からランダムに15回取り出し、それをスロットの結果にしている。`is_jackpot`がtrue、つまりvalidate後に`candidates`が7のみからなっていれば良い。
 
@@ -51,10 +51,10 @@ def validate(value: str | None) -> list[int]:
 
 一見`0123456789`の10文字以外にこれを満たす文字列は無いように思うが、例えば半角の`7`と全角の`７`など、正規表現の`\d`に対応しており`int()`で同じ数字に変換できる文字は複数存在する。
 ChatGPTに聞いてみると10種類教えてくれた。
-![](https://storage.googleapis.com/zenn-user-upload/707a23b86390-20250518.png)
+![](/assets/img/alpacahack_round11/707a23b86390-20250518.png)
 
 `7７٧۷߇७৭੭૭୭`を入力してスロットを回すとFlagが得られた。
-![](https://storage.googleapis.com/zenn-user-upload/a43dd61ec28d-20250518.png)
+![](/assets/img/alpacahack_round11/a43dd61ec28d-20250518.png)
 `Alpaca{what_i5_your_f4vorite_s3ven?}`
 
 # Upsolve
@@ -119,7 +119,7 @@ http://redirector:3000?next=javascript:with(String)with(fromCharCode())with(conc
 ## AlpacaMark (3 solves)
 
 自由にMarkdownを書けるWebサイト。
-![](https://storage.googleapis.com/zenn-user-upload/b497d2688d07-20250518.png)
+![](/assets/img/alpacahack_round11/b497d2688d07-20250518.png)
 
 ejsが使用されており、nonceとmarkdownを埋め込んでいる。
 
@@ -167,7 +167,7 @@ app.get("/", (req, res) => {
 `markdown`には制限なく自由に入力可能なため、`</textarea>`でtextareaから脱出することで任意のHTMLが挿入できる。しかし、scriptタグを挿入してもnonceが無いので実行できない。
 
 ここでCSPを見ると、`script-src 'strict-dynamic'`という見慣れない記述がある。
-![](https://storage.googleapis.com/zenn-user-upload/40075c88c227-20250518.png)
+![](/assets/img/alpacahack_round11/40075c88c227-20250518.png)
 
 [ドキュメント](https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src)を見るに、どうやら既にnonceで信頼が与えられている`main.js`の内部で呼び出されたスクリプトは、連鎖的に信頼できるものと見なして実行が許可されるらしい。
 

@@ -1,5 +1,5 @@
 ---
-title: sknbCTF 2025 Author's Writeup 
+title: sknbCTF 2025 Author's Writeup
 date: 2025-11-27
 layout: writeup
 official: true

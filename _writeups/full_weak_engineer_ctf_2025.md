@@ -20,7 +20,7 @@ Full Weak Engineer CTF 2025にチームsknbで参加し、733チーム中2位で
 
 **2nd Solve🥈**
 謎の文字列が表示されるWebページ。
-![](https://storage.googleapis.com/zenn-user-upload/515bb7aa5e3e-20250831.png)
+![](/assets/img/full_weak_engineer_ctf_2025/515bb7aa5e3e-20250831.png)
 
 ```ts
 app.get("/heartbeat", c => {
@@ -75,7 +75,7 @@ const isAllowedURL = (u: URL) => u.protocol === "http:" && !["localhost", "0.0.0
 ```
 
 にアクセスし、トップページでflagが表示されるのを待てば良い。
-![](https://storage.googleapis.com/zenn-user-upload/86c6b8801c90-20250831.png)
+![](/assets/img/full_weak_engineer_ctf_2025/86c6b8801c90-20250831.png)
 
 `fwectf{7h3_fu11_w34k_h34r7_l1v3d_4g41n}`
 
