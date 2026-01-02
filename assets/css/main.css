@@ -356,6 +356,8 @@ a:hover {
   border-radius: 6px;
   font-family: "JetBrains Mono", SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 14px;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .prose pre {
@@ -372,6 +374,9 @@ a:hover {
   background: transparent;
   padding: 0;
   color: inherit;
+  word-break: normal;
+  overflow-wrap: normal;
+  white-space: pre;
 }
 
 /* Rouge syntax highlighting */
