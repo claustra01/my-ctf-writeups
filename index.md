@@ -4,33 +4,71 @@ title: CTF Writeups
 permalink: /
 ---
 
-<h2>Recent writeups</h2>
+<section class="page-hero">
+  <p class="eyebrow">CTF Journal</p>
+  <h1 class="hero-title">シンプルでスタイリッシュなWriteup集</h1>
+  <p class="hero-lead">Zennライクな読みやすさで、PCでもスマホでも快適に。</p>
+</section>
+
 {% assign sorted = site.writeups | sort: "date" | reverse %}
 {% if sorted and sorted != empty %}
-<ul>
-{% for writeup in sorted %}
-  <li>
-    <a href="{{ writeup.url | relative_url }}">{{ writeup.title }}</a>
-    {% assign official = writeup.official %}
-    {% if official or writeup.rank or writeup.total_teams %}
+<section class="section">
+  <div class="section-head">
     <div>
-      {% if official %}
-      Official writeup
-      {% else %}
-      {% if writeup.rank %}#{{ writeup.rank }}{% endif %}{% if writeup.total_teams %}{% if writeup.rank %} / {% endif %}{{ writeup.total_teams }} teams{% endif %}
-      {% endif %}
+      <p class="eyebrow">Recent</p>
+      <h2 class="section-title">最新のWriteups</h2>
     </div>
-    {% endif %}
-    {% if writeup.language %}
-    <div>Language: {{ writeup.language }}</div>
-    {% endif %}
-    {% if writeup.tags %}
-    <div>Tags: {% for tag in writeup.tags %}{{ tag }}{% unless forloop.last %}, {% endunless %}{% endfor %}</div>
-    {% endif %}
-    <div>{% if writeup.date %}{{ writeup.date | date: "%Y-%m-%d" }}{% else %}No date{% endif %}</div>
-  </li>
-{% endfor %}
-</ul>
+    <p class="section-note">日付の新しい順に並んでいます。</p>
+  </div>
+
+  <div class="card-grid">
+    {% for writeup in sorted %}
+    <article class="card">
+      <div class="meta-row">
+        {% assign official = writeup.official %}
+        {% if official %}
+        <span class="pill pill-flag">Official</span>
+        {% endif %}
+
+        {% if writeup.rank or writeup.total_teams %}
+        <span class="pill pill-outline">
+          {% if writeup.rank %}#{{ writeup.rank }}{% endif %}{% if writeup.total_teams %}{% if writeup.rank %} / {% endif %}{{ writeup.total_teams }} teams{% endif %}
+        </span>
+        {% endif %}
+
+        {% if writeup.language %}
+        <span class="pill pill-ghost">{{ writeup.language }}</span>
+        {% endif %}
+      </div>
+
+      <h3 class="card-title">
+        <a href="{{ writeup.url | relative_url }}">{{ writeup.title }}</a>
+      </h3>
+
+      <div class="card-meta">
+        {% if writeup.date %}
+        <span>{{ writeup.date | date: "%Y-%m-%d" }}</span>
+        {% else %}
+        <span>日付不明</span>
+        {% endif %}
+      </div>
+
+      {% if writeup.tags %}
+      <div class="tag-row">
+        {% for tag in writeup.tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
 {% else %}
-<p>まだWriteupがありません。`_writeups/` にMarkdownを追加してください。</p>
+<section class="section">
+  <div class="empty-state">
+    <p class="empty-title">まだWriteupがありません</p>
+    <p class="empty-text">`_writeups/` にMarkdownを追加して最初のエントリを書きましょう。</p>
+  </div>
+</section>
 {% endif %}

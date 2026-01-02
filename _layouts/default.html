@@ -3,24 +3,40 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   {%- seo -%}
 </head>
 <body>
-  <header>
-    <p><a href="{{ '/' | relative_url }}">claustra01 CTF writeups</a></p>
-    <p>
-      <a href="https://x.com/claustra01" target="_blank" rel="noopener">X</a>
-      |
-      <a href="https://github.com/claustra01" target="_blank" rel="noopener">GitHub</a>
-    </p>
-  </header>
+  <div class="site">
+    <header class="site-header">
+      <div class="brand">
+        <a class="brand-link" href="{{ '/' | relative_url }}">
+          <span class="brand-mark"></span>
+          claustra01 CTF writeups
+        </a>
+      </div>
+      <nav class="site-nav">
+        <a class="nav-link" href="{{ '/' | relative_url }}">Writeups</a>
+        <a class="nav-link" href="https://x.com/claustra01" target="_blank" rel="noopener">X</a>
+        <a class="nav-link" href="https://github.com/claustra01" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </header>
 
-  <main>
-    {{ content }}
-  </main>
+    <main class="page-shell">
+      {{ content }}
+    </main>
 
-  <footer>
-    <p>Hosted on Cloudflare Pages · Built with Jekyll</p>
-  </footer>
+    <footer class="site-footer">
+      <div class="footer-meta">
+        <p class="footer-title">claustra01 CTF writeups</p>
+        <p class="footer-sub">writeups.claustra01.net</p>
+      </div>
+      <div class="footer-links">
+        <span>Hosted on Cloudflare Pages</span>
+        <span class="divider">·</span>
+        <span>Built with Jekyll</span>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
