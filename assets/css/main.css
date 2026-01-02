@@ -193,6 +193,13 @@ a:hover {
   gap: 8px;
 }
 
+.meta-date {
+  color: var(--muted);
+  font-weight: 600;
+  margin: 8px 0 0;
+  display: block;
+}
+
 .pill {
   display: inline-flex;
   align-items: center;

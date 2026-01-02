@@ -27,10 +27,6 @@
         <h1 class="page-title">{{ page.title }}</h1>
 
         <div class="meta-row">
-          {% if page.date %}
-          <span class="pill pill-ghost">{{ page.date | date: "%Y-%m-%d" }}</span>
-          {% endif %}
-
           {% assign is_official = page.official %}
           {% if is_official %}
           <span class="pill pill-flag">Official writeup</span>
@@ -46,6 +42,10 @@
           <span class="pill pill-ghost">Lang: {{ page.language }}</span>
           {% endif %}
         </div>
+
+        {% if page.date %}
+        <p class="meta-date">{{ page.date | date: "%Y-%m-%d" }}</p>
+        {% endif %}
 
         {% if page.tags %}
         <div class="tag-row">
