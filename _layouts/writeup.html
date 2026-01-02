@@ -36,8 +36,8 @@
           {% endif %}
 
           {% if page.rank or page.total_teams %}
-          <span class="pill pill-outline">
-            {% if page.rank %}#{{ page.rank }}{% endif %}{% if page.total_teams %}{% if page.rank %} / {% endif %}{{ page.total_teams }} teams{% endif %}
+          <span class="pill pill-rank">
+            {% if page.rank %}#{{ page.rank }}{% endif %}{% if page.total_teams %}{% if page.rank %} / {% endif %}{{ page.total_teams }} Teams{% endif %}
           </span>
           {% endif %}
 

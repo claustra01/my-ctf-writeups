@@ -21,8 +21,8 @@ permalink: /
         {% endif %}
 
         {% if writeup.rank or writeup.total_teams %}
-        <span class="pill pill-outline">
-          {% if writeup.rank %}#{{ writeup.rank }}{% endif %}{% if writeup.total_teams %}{% if writeup.rank %} / {% endif %}{{ writeup.total_teams }} teams{% endif %}
+        <span class="pill pill-rank">
+          {% if writeup.rank %}#{{ writeup.rank }}{% endif %}{% if writeup.total_teams %}{% if writeup.rank %} / {% endif %}{{ writeup.total_teams }} Teams{% endif %}
         </span>
         {% endif %}
 
