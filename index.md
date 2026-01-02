@@ -21,10 +21,6 @@ permalink: /
         <span class="pill pill-flag">Official writeup</span>
         {% endif %}
 
-        {% if result_only %}
-        <span class="pill pill-result">No writeup</span>
-        {% endif %}
-
         {% if writeup.rank or writeup.total_teams %}
         {% assign rank_classes = "pill pill-rank" %}
         {% if writeup.rank %}
@@ -40,6 +36,10 @@ permalink: /
         <span class="{{ rank_classes }}">
           {% if writeup.rank %}# {{ writeup.rank }}{% endif %}{% if writeup.total_teams %}{% if writeup.rank %} / {% endif %}{{ writeup.total_teams }} Teams{% endif %}
         </span>
+        {% endif %}
+
+        {% if result_only %}
+        <span class="pill pill-ghost">No writeup</span>
         {% endif %}
 
         {% if writeup.language %}

@@ -226,12 +226,6 @@ a:hover {
   color: #f8fafc;
 }
 
-.pill-result {
-  background: #e0f2fe;
-  color: #075985;
-  border: 1px dashed #bfdbfe;
-}
-
 .pill-rank {
   background: linear-gradient(120deg, var(--accent), var(--accent-2));
   color: #f8fafc;

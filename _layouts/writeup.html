@@ -37,10 +37,6 @@
           <span class="pill pill-flag">Official writeup</span>
           {% endif %}
 
-          {% if is_result_only %}
-          <span class="pill pill-result">No writeup</span>
-          {% endif %}
-
           {% if page.rank or page.total_teams %}
           {% assign rank_classes = "pill pill-rank" %}
           {% if page.rank %}
@@ -56,6 +52,10 @@
           <span class="{{ rank_classes }}">
             {% if page.rank %}# {{ page.rank }}{% endif %}{% if page.total_teams %}{% if page.rank %} / {% endif %}{{ page.total_teams }} Teams{% endif %}
           </span>
+          {% endif %}
+
+          {% if is_result_only %}
+          <span class="pill pill-ghost">No writeup</span>
           {% endif %}
 
           {% if page.language %}
