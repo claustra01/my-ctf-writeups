@@ -8,6 +8,7 @@ language: ja
 tags:
   - Quals
   - Web
+  - Jail
 ---
 
 # [Web] broken-challenge
