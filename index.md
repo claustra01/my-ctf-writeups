@@ -27,7 +27,7 @@ permalink: /
         {% endif %}
 
         {% if writeup.language %}
-        <span class="pill pill-ghost">{{ writeup.language }}</span>
+        <span class="pill pill-ghost">Lang: {{ writeup.language }}</span>
         {% endif %}
       </div>
 
