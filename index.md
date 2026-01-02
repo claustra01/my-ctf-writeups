@@ -33,7 +33,7 @@ permalink: /
         {% endif %}
         {% endif %}
         <span class="{{ rank_classes }}">
-          {% if writeup.rank %}#{{ writeup.rank }}{% endif %}{% if writeup.total_teams %}{% if writeup.rank %} / {% endif %}{{ writeup.total_teams }} Teams{% endif %}
+          {% if writeup.rank %}# {{ writeup.rank }}{% endif %}{% if writeup.total_teams %}{% if writeup.rank %} / {% endif %}{{ writeup.total_teams }} Teams{% endif %}
         </span>
         {% endif %}
 
