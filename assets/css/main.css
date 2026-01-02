@@ -14,10 +14,33 @@
   --radius: 16px;
   --header-bg: rgba(255, 255, 255, 0.78);
   --nav-hover-bg: var(--accent-soft);
-  --pill-ghost-bg: #f3f4f6;
-  --pill-ghost-text: #374151;
-  --tag-bg: #eef2ff;
-  --tag-text: #1f2937;
+  --pill-ghost-bg: #edf1f7;
+  --pill-ghost-text: #0f172a;
+  --pill-ghost-border: #d9e0ec;
+  --pill-flag-start: #16a34a;
+  --pill-flag-end: #22c55e;
+  --pill-flag-text: #0b1220;
+  --pill-qualified-start: #f472b6;
+  --pill-qualified-end: #ec4899;
+  --pill-qualified-text: #0b1220;
+  --pill-rank-gold-start: #f6d860;
+  --pill-rank-gold-end: #e5a126;
+  --pill-rank-gold-text: #0b1220;
+  --pill-rank-silver-start: #e3e7ef;
+  --pill-rank-silver-end: #cbd2e1;
+  --pill-rank-silver-text: #0f172a;
+  --pill-rank-bronze-start: #e1b17a;
+  --pill-rank-bronze-end: #c77b38;
+  --pill-rank-bronze-text: #2f1a12;
+  --tag-bg: #e6edff;
+  --tag-text: #0f172a;
+  --tag-border: #cdd9ff;
+  --tag-quals-start: #52c7f0;
+  --tag-quals-end: #239edc;
+  --tag-quals-text: #0b1220;
+  --tag-finals-start: #f4729a;
+  --tag-finals-end: #ec4899;
+  --tag-finals-text: #0b1220;
   --blockquote-bg: #f8fafc;
   --code-inline-bg: #e5edff;
   --code-block-bg: #0f172a;
@@ -45,10 +68,33 @@
   --shadow: 0 18px 48px rgba(0, 0, 0, 0.55);
   --header-bg: rgba(15, 23, 42, 0.78);
   --nav-hover-bg: #1e293b;
-  --pill-ghost-bg: #1f2937;
+  --pill-ghost-bg: #15243a;
   --pill-ghost-text: #e5e7eb;
-  --tag-bg: #1e293b;
-  --tag-text: #e2e8f0;
+  --pill-ghost-border: #25374f;
+  --pill-flag-start: #2e8d52;
+  --pill-flag-end: #22c55e;
+  --pill-flag-text: #0b1220;
+  --pill-qualified-start: #f06595;
+  --pill-qualified-end: #e0498c;
+  --pill-qualified-text: #0b1220;
+  --pill-rank-gold-start: #eab308;
+  --pill-rank-gold-end: #bd6726;
+  --pill-rank-gold-text: #0b1220;
+  --pill-rank-silver-start: #2f3a4b;
+  --pill-rank-silver-end: #4b5563;
+  --pill-rank-silver-text: #e5e7eb;
+  --pill-rank-bronze-start: #936539;
+  --pill-rank-bronze-end: #8c552c;
+  --pill-rank-bronze-text: #fef3c7;
+  --tag-bg: #13263f;
+  --tag-text: #dfe7ff;
+  --tag-border: #284066;
+  --tag-quals-start: #33c2ec;
+  --tag-quals-end: #1f9bd8;
+  --tag-quals-text: #0b1220;
+  --tag-finals-start: #ee6fa1;
+  --tag-finals-end: #d9467a;
+  --tag-finals-text: #0b1220;
   --blockquote-bg: #111827;
   --code-inline-bg: #1e293b;
   --code-block-bg: #0b1220;
@@ -77,10 +123,33 @@
     --shadow: 0 18px 48px rgba(0, 0, 0, 0.55);
     --header-bg: rgba(15, 23, 42, 0.78);
     --nav-hover-bg: #1e293b;
-    --pill-ghost-bg: #1f2937;
+    --pill-ghost-bg: #15243a;
     --pill-ghost-text: #e5e7eb;
-    --tag-bg: #1e293b;
-    --tag-text: #e2e8f0;
+    --pill-ghost-border: #25374f;
+    --pill-flag-start: #2e8d52;
+    --pill-flag-end: #22c55e;
+    --pill-flag-text: #0b1220;
+    --pill-qualified-start: #f06595;
+    --pill-qualified-end: #e0498c;
+    --pill-qualified-text: #0b1220;
+    --pill-rank-gold-start: #eab308;
+    --pill-rank-gold-end: #bd6726;
+    --pill-rank-gold-text: #0b1220;
+    --pill-rank-silver-start: #2f3a4b;
+    --pill-rank-silver-end: #4b5563;
+    --pill-rank-silver-text: #e5e7eb;
+    --pill-rank-bronze-start: #936539;
+    --pill-rank-bronze-end: #8c552c;
+    --pill-rank-bronze-text: #fef3c7;
+    --tag-bg: #13263f;
+    --tag-text: #dfe7ff;
+    --tag-border: #284066;
+    --tag-quals-start: #33c2ec;
+    --tag-quals-end: #1f9bd8;
+    --tag-quals-text: #0b1220;
+    --tag-finals-start: #ee6fa1;
+    --tag-finals-end: #d9467a;
+    --tag-finals-text: #0b1220;
     --blockquote-bg: #111827;
     --code-inline-bg: #1e293b;
     --code-block-bg: #0b1220;
@@ -289,11 +358,12 @@ a:hover {
 .pill-ghost {
   background: var(--pill-ghost-bg);
   color: var(--pill-ghost-text);
+  border: 1px solid var(--pill-ghost-border);
 }
 
 .pill-flag {
-  background: linear-gradient(120deg, var(--accent-green), var(--accent-green-2));
-  color: #f8fafc;
+  background: linear-gradient(120deg, var(--pill-flag-start), var(--pill-flag-end));
+  color: var(--pill-flag-text);
 }
 
 .pill-rank {
@@ -302,23 +372,23 @@ a:hover {
 }
 
 .pill-qualified {
-  background: linear-gradient(120deg, #fb7185, #f43f5e);
-  color: #fff7ed;
+  background: linear-gradient(120deg, var(--pill-qualified-start), var(--pill-qualified-end));
+  color: var(--pill-qualified-text);
 }
 
 .pill-rank-gold {
-  background: linear-gradient(120deg, #fcd34d, #f59e0b);
-  color: #7c2d12;
+  background: linear-gradient(120deg, var(--pill-rank-gold-start), var(--pill-rank-gold-end));
+  color: var(--pill-rank-gold-text);
 }
 
 .pill-rank-silver {
-  background: linear-gradient(120deg, #e5e7eb, #cbd5e1);
-  color: #111827;
+  background: linear-gradient(120deg, var(--pill-rank-silver-start), var(--pill-rank-silver-end));
+  color: var(--pill-rank-silver-text);
 }
 
 .pill-rank-bronze {
-  background: linear-gradient(120deg, #e3a869, #cd7f32);
-  color: #3f2a1d;
+  background: linear-gradient(120deg, var(--pill-rank-bronze-start), var(--pill-rank-bronze-end));
+  color: var(--pill-rank-bronze-text);
 }
 
 .tag-row {
@@ -337,16 +407,17 @@ a:hover {
   font-weight: 600;
   color: var(--tag-text);
   background: var(--tag-bg);
+  border: 1px solid var(--tag-border);
 }
 
 .tag-quals {
-  background: linear-gradient(120deg, #58d6f4, #1fb2e6);
-  color: #f8fafc;
+  background: linear-gradient(120deg, var(--tag-quals-start), var(--tag-quals-end));
+  color: var(--tag-quals-text);
 }
 
 .tag-finals {
-  background: linear-gradient(120deg, #fb7185, #f43f5e);
-  color: #fff7ed;
+  background: linear-gradient(120deg, var(--tag-finals-start), var(--tag-finals-end));
+  color: var(--tag-finals-text);
 }
 
 .section + .section {
