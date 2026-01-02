@@ -350,6 +350,10 @@ a:hover {
   box-shadow: var(--shadow-soft);
 }
 
+.pill.stat.official {
+  background: linear-gradient(135deg, #10b981 0%, #059669 70%);
+}
+
 /* Writeup page */
 .writeup {
   background: var(--panel);
@@ -449,6 +453,11 @@ a:hover {
   display: inline-flex;
   align-items: baseline;
   gap: 6px;
+}
+
+.stat-value.result.official {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .writeup-body {

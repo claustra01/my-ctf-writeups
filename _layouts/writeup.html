@@ -41,12 +41,17 @@
             </div>
           </header>
 
-          {% if page.rank or page.total_teams or page.tags %}
+          {% assign is_official = page.official %}
+          {% if is_official or page.rank or page.total_teams or page.tags %}
           <div class="writeup-stats">
-            {% if page.rank or page.total_teams %}
+            {% if is_official or page.rank or page.total_teams %}
             <div class="stat-block highlight">
-              <div class="stat-value result">
+              <div class="stat-value result{% if is_official %} official{% endif %}">
+                {% if is_official %}
+                Official
+                {% else %}
                 {% if page.rank %}#{{ page.rank }}{% endif %}{% if page.total_teams %}{% if page.rank %} / {% endif %}{{ page.total_teams }} teams{% endif %}
+                {% endif %}
               </div>
             </div>
             {% endif %}

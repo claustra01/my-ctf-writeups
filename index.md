@@ -11,11 +11,16 @@ permalink: /
   {% for writeup in sorted %}
   <article class="card">
     <h2><a href="{{ writeup.url | relative_url }}">{{ writeup.title }}</a></h2>
-    {% if writeup.rank or writeup.total_teams or writeup.language or writeup.tags %}
+    {% assign official = writeup.official %}
+    {% if official or writeup.rank or writeup.total_teams or writeup.language or writeup.tags %}
     <div class="meta-chips">
-      {% if writeup.rank or writeup.total_teams %}
-      <span class="pill stat">
+      {% if official or writeup.rank or writeup.total_teams %}
+      <span class="pill stat{% if official %} official{% endif %}">
+        {% if official %}
+        Official
+        {% else %}
         {% if writeup.rank %}#{{ writeup.rank }}{% endif %}{% if writeup.total_teams %}{% if writeup.rank %} / {% endif %}{{ writeup.total_teams }} teams{% endif %}
+        {% endif %}
       </span>
       {% endif %}
       {% if writeup.language %}<span class="pill subtle">{{ writeup.language }}</span>{% endif %}
