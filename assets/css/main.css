@@ -466,6 +466,10 @@ a:hover {
     align-items: flex-start;
   }
 
+  .site-nav {
+    display: none;
+  }
+
   .page-shell {
     width: min(100%, 100% - 20px);
     padding: 26px 10px 48px;
