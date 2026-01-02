@@ -13,7 +13,7 @@ tags:
 # broken-challenge
 XSSの問題だが、XSSを発生させるべきWebサーバーが存在せず、botだけが与えられた。そんな無茶な。
 
-<details><summary>conf.js</summary>
+conf.js:
 
 ```js
 import puppeteer from "puppeteer";
@@ -69,9 +69,8 @@ export const visit = async (url) => {
 };
 ```
 
-</details>
 
-<details><summary>index.js</summary>
+index.js:
 
 ```js
 import express from "express";
@@ -133,7 +132,6 @@ app.post("/api/report", async (req, res) => {
 app.listen(1337);
 ```
 
-</details>
 
 botのソースコードを確認すると、`hack.the.planet.seccon`でXSSできればflagが得られることが分かる。
 
@@ -331,7 +329,7 @@ with socketserver.TCPServer(("0.0.0.0", PORT), ExploitHandler) as httpd:
 
 iframe sandbox内に任意のhtmlを挿入することができるwebアプリ。これでどうにかしてXSSするという問題。
 
-<details><summary>app.py</summary>
+app.py:
 
 ```py
 from flask import Flask, request
@@ -375,9 +373,8 @@ if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=3000)
 ```
 
-</details>
 
-<details><summary>conf.js</summary>
+conf.js:
 
 ```js
 import puppeteer from "puppeteer";
@@ -434,7 +431,6 @@ export const visit = async (url) => {
 };
 ```
 
-</details>
 
 `/view`がhtmlをそのまま返しているのでXSSできそうだが、`From-Fetch`ヘッダが無いと何も返してくれない。
 

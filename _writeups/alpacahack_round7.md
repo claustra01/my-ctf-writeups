@@ -19,7 +19,7 @@ AlpacaHack Round 7 (web) に参加して[17位/458人](https://alpacahack.com/ct
 
 ランダムなディレクトリを生成してflag.txtを置いているらしい。
 
-:::details Dockerfile
+Dockerfile:
 
 ```dockerfile
 FROM node:22.11.0
@@ -45,11 +45,9 @@ USER 404:404
 CMD node index.js
 ```
 
-:::
-
 問題サーバーでは`/[flag]/`を含むパスへのアクセスをブロックしている。
 
-:::details index.js
+index.js:
 
 ```js
 import express from "express";
@@ -87,7 +85,6 @@ app.get("/", (req, res) => res.type("html").send(html));
 app.listen(3000);
 ```
 
-:::
 
 Dockerfileから、ディレクトリは`/a/4/6/0/c/1/0/.../4/f/l/a/g/./t/x/t`のように一文字ずつの階層構造になっていることが分かるので、一階層ずつ特定する方法を考える。
 
@@ -143,7 +140,7 @@ dog, cat, alpacaに対して投票ができるアプリ。
 
 データはRedisに保存されており、incrementとgetのみが可能。
 また、flagもRedisに保存されている。これをどうにかして読み出したい。
-:::details index.js
+index.js:
 
 ```js
 import fs from 'node:fs/promises';
@@ -195,9 +192,8 @@ app.listen(PORT, () => {
 });
 ```
 
-:::
 
-:::details db.js
+db.js:
 
 ```js
 import net from 'node:net';
@@ -268,7 +264,6 @@ export async function init(flag) {
 }
 ```
 
-:::
 
 この問題は環境を自分で生成する（=人によって環境が異なる）ので、何かしらの破壊的変更を加えることが可能とメタ読みする。~~ここでしばらくprotorype pollutionを疑って沼っていたのは内緒~~
 
@@ -369,7 +364,7 @@ solve()
 
 ~~まだ解けていない。~~ 解けた。
 任意のhtmlを表示することができるが、`/script|src|on|html|data|&/`は使用できないらしい。
-:::details index.js
+index.js:
 
 ```js
 import express from "express";
@@ -411,10 +406,9 @@ express()
   .listen(3000);
 ```
 
-:::
 
 また、botの`APP_HOST`が`localhost`になっている。
-:::details bot.js
+bot.js:
 
 ```js
 import puppeteer from "puppeteer";
@@ -471,7 +465,6 @@ export const visit = async (url) => {
 };
 ```
 
-:::
 
 ヘッダが特定の値の時だけフィルタを通さないという明らかに怪しい部分がある。なんとかしてbotから`"Sec-Fetch-Site" = "same-origin"`と`"Sec-Fetch-Dest" != "document"`を満たすリクエストを飛ばしたい。
 
@@ -537,7 +530,7 @@ express()
 ```
 
 flagはbotのcookieにあるが、cookieのpathが`/cookie`に設定されており、`/`では窃取できない。
-:::details bot.js
+bot.js:
 
 ```js
 import puppeteer from "puppeteer";
@@ -594,7 +587,6 @@ export const visit = async (url) => {
 };
 ```
 
-:::
 
 `/cookie`以下へアクセスし、接続が切れる前にどうにかしてcookieを窃取する方法を考える。
 

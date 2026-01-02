@@ -716,8 +716,6 @@ using System;class Program {static void Main() {int len=0x23;Console.Write("INPU
 
 オブジェクトファイルが与えられるので、objdumpでアセンブリを得る。
 
-:::details 長いので折り畳み
-
 ```asm
 CLP2.o:     file format elf64-x86-64
 
@@ -1024,8 +1022,6 @@ Disassembly of section .text:
  3b3:   c9                      leave
  3b4:   c3                      ret
 ```
-
-:::
 
 あとは読むだけ。これも面倒なのでGPTにやってもらった。
 `ctf4b{GOTO_G0T0_90t0_N0m0r3_90t0}`

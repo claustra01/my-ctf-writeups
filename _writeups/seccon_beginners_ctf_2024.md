@@ -38,7 +38,7 @@ Flagは`ctf4b{Welcome_to_SECCON_Beginners_CTF_2024}`でした。
 
 ログインページがあり、ゲストユーザーのユーザー名とパスワードを入力すると「Access denied」と表示されます。そしてページのURLにはトークンがクエリパラメータで付与されていました。
 
-:::details 問題ソースコード
+問題ソースコード:
 
 ```js:app/server.js
 const express = require('express');
@@ -205,8 +205,6 @@ const crawl = async (path, ID) => {
 })();
 ```
 
-:::
-
 ソースコードを見てみるとjwt認証が施されており、`isAdmin`がtrueになっているトークンをなんらかの手法で取得できればFlagが得られることが分かります。
 ここで`package.json`を確認しますが、`jsonwebtoken`のバージョンは`^9.0.2`なので`alg=none`攻撃は使用できなさそうです。
 
@@ -366,7 +364,7 @@ Flagは`ctf4b{x55_50m371m35_m4k35_w0rk3r_vuln3r4bl3}`でした。
 
 これまたどうにかしてadminでログインしようという問題。ゲストユーザーも用意されていないようなのでとりあえずソースコードを読みます。
 
-:::details 問題ソースコード
+問題ソースコード:
 
 ```py:app/app.py
 from flask import Flask, request, jsonify, render_template, abort
@@ -496,7 +494,6 @@ if __name__ == "__main__":
     app.run(debug=False, host="0.0.0.0", port=41413)
 ```
 
-:::
 
 この問題ではmongoDBが使用されており、NoSQLでユーザー情報の管理を行っているようです。
 また、やはりユーザーはadminのみしか登録されておらず、それ以外のユーザーは存在しないようです。
@@ -693,7 +690,7 @@ Flagは`ctf4b{wh4t_k1nd_0f_me4l5_d0_y0u_pr3f3r?}`でした。
 
 思い浮かべてる数字を当ててね！というゲームで数字を当てると得点が1増加し、順位が表示される問題。おそらく1位になるとFlagが得られるものだとあたりをつけ、ソースコードを確認します。
 
-:::details 問題ソースコード
+問題ソースコード:
 
 ```js:app/main.ts
 import fastify, { FastifyRequest } from "fastify";
@@ -779,7 +776,6 @@ server.listen(
 );
 ```
 
-:::
 
 どうやら10^255ポイント以上でランキングが1位となり、Flagが得られるという問題のようです。
 当然手作業で10^255ポイントを取得するのは非現実的なので、APIに良い感じの値を入力して直接叩く方針になります。

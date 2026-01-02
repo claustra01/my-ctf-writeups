@@ -304,7 +304,7 @@ http://web:3000?xss=(async () =>{const ifr = (new Range()).createContextualFragm
 
 そもそもflagはどこかというと、adminが作成したパズルの`title`にある。パズルを作成してから報告されたURLを見に行くようになっている。
 
-:::details bot.js (抜粋)
+bot.js (抜粋):
 
 ```js
   try {
@@ -333,11 +333,9 @@ http://web:3000?xss=(async () =>{const ifr = (new Range()).createContextualFragm
   }
 ```
 
-:::
-
 アプリの方も見ていく。まずはサーバー側だが、`/puzzles`で作成したパズル一覧を取得できるものの、session管理されていて他人が作成したパズルのidは分からないし、分かったところでパズルを見ることはできない。
 
-:::details index.js
+index.js:
 
 ```js
 import fastify from "fastify";
@@ -412,12 +410,10 @@ app.get("/puzzles/:id", (req, reply) => {
 app.listen({ port: 3000, host: "0.0.0.0" });
 ```
 
-:::
-
 クライアント側も見ると、ユーザーから受け取った`template`をそのまま描画しているので任意のhtmlを挿入できる。
 しかし、`<iframe id="frame0" sandbox="allow-same-origin">`によってjavascriptの実行は封じられている。どうやらjavascriptを実行するにはsandbox属性に`allow-scripts`という値が必要らしい。
 
-:::details puzzle.html
+puzzle.html:
 
 ```html
 <!DOCTYPE html>
@@ -480,7 +476,7 @@ app.listen({ port: 3000, host: "0.0.0.0" });
 </script>
 ```
 
-:::
+ 
 
 ここからCSSでleakするのかなぁなどとずっと悩んでおり、競技時間中には解けなかった。
 
