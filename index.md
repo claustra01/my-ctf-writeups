@@ -17,7 +17,7 @@ permalink: /
       {% if official or writeup.rank or writeup.total_teams %}
       <span class="pill stat{% if official %} official{% endif %}">
         {% if official %}
-        Official
+        Official writeup
         {% else %}
         {% if writeup.rank %}#{{ writeup.rank }}{% endif %}{% if writeup.total_teams %}{% if writeup.rank %} / {% endif %}{{ writeup.total_teams }} teams{% endif %}
         {% endif %}
