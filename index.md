@@ -4,21 +4,11 @@ title: CTF Writeups
 permalink: /
 ---
 
-<section class="page-hero">
-  <p class="eyebrow">CTF Journal</p>
-  <h1 class="hero-title">シンプルでスタイリッシュなWriteup集</h1>
-  <p class="hero-lead">Zennライクな読みやすさで、PCでもスマホでも快適に。</p>
-</section>
-
 {% assign sorted = site.writeups | sort: "date" | reverse %}
 {% if sorted and sorted != empty %}
 <section class="section">
   <div class="section-head">
-    <div>
-      <p class="eyebrow">Recent</p>
-      <h2 class="section-title">最新のWriteups</h2>
-    </div>
-    <p class="section-note">日付の新しい順に並んでいます。</p>
+    <h1 class="section-title">Writeups</h1>
   </div>
 
   <div class="card-grid">
