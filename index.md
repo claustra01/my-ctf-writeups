@@ -8,7 +8,7 @@ permalink: /
 {% if sorted and sorted != empty %}
 <section class="section">
   <div class="section-head">
-    <h1 class="section-title">Writeups</h1>
+    <h1 class="section-title">Recently</h1>
   </div>
 
   <div class="card-grid">
