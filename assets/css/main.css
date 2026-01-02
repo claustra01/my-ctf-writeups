@@ -399,6 +399,36 @@ a:hover {
   overflow-x: auto;
 }
 
+/* Subtle horizontal scrollbar styling for code blocks */
+.prose pre,
+.highlight pre {
+  scrollbar-color: #475569 #0b1220;
+  scrollbar-width: thin;
+}
+
+.prose pre::-webkit-scrollbar,
+.highlight pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.prose pre::-webkit-scrollbar-track,
+.highlight pre::-webkit-scrollbar-track {
+  background: #0b1220;
+  border-radius: 999px;
+}
+
+.prose pre::-webkit-scrollbar-thumb,
+.highlight pre::-webkit-scrollbar-thumb {
+  background: linear-gradient(120deg, #1f2937, #334155);
+  border-radius: 999px;
+  border: 2px solid #0b1220;
+}
+
+.prose pre::-webkit-scrollbar-thumb:hover,
+.highlight pre::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(120deg, #2563eb, #38bdf8);
+}
+
 .highlight .c { color: #94a3b8; font-style: italic; } /* Comment */
 .highlight .err { color: #fca5a5; background-color: rgba(248, 113, 113, 0.1); } /* Error */
 .highlight .k { color: #93c5fd; font-weight: 700; } /* Keyword */
