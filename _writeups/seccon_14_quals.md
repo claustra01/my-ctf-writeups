@@ -1,6 +1,6 @@
 ---
 title: SECCON 14 Quals Writeup
-date: 2026-01-02
+date: 2025-12-19
 layout: writeup
 rank: 50
 total_teams: 817
