@@ -429,11 +429,7 @@ a:hover {
 .site-footer {
   border-top: 1px solid var(--border);
   padding: 18px 20px 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
+  text-align: center;
   color: var(--muted);
   font-size: 14px;
 }
@@ -446,17 +442,6 @@ a:hover {
 
 .footer-sub {
   margin: 4px 0 0;
-}
-
-.footer-links {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.divider {
-  color: #cbd5e1;
 }
 
 @media (max-width: 720px) {
