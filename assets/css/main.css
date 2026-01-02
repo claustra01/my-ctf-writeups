@@ -196,7 +196,7 @@ a:hover {
 .meta-date {
   color: var(--muted);
   font-weight: 600;
-  margin: 8px 0 0;
+  margin: 6px 0 8px;
   display: block;
 }
 
