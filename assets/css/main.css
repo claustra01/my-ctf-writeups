@@ -21,9 +21,7 @@ body {
   margin: 0;
   font-family: "Noto Sans JP", system-ui, -apple-system, "Segoe UI", sans-serif;
   color: var(--text);
-  background: radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.05), transparent 25%),
-              radial-gradient(circle at 80% 0%, rgba(34, 211, 238, 0.08), transparent 28%),
-              var(--bg);
+  background: var(--bg);
   line-height: 1.7;
   letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
@@ -70,17 +68,9 @@ a:hover {
   align-items: center;
   gap: 10px;
   font-weight: 700;
+  font-size: 20px;
   color: var(--text);
   letter-spacing: 0.02em;
-}
-
-.brand-mark {
-  width: 14px;
-  height: 14px;
-  border-radius: 999px;
-  background: linear-gradient(120deg, var(--accent), var(--accent-2));
-  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.35);
-  display: inline-block;
 }
 
 .site-nav {
