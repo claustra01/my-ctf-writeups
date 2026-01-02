@@ -1,6 +1,6 @@
 ---
 title: TSG CTF 2025
-date: 2025-12-29
+date: 2025-12-21
 layout: writeup
 result_only: true
 rank: 17
