@@ -6,6 +6,7 @@ rank: 50
 total_teams: 817
 language: ja
 tags:
+  - Quals
   - Web
 ---
 
