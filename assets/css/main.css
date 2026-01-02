@@ -703,3 +703,9 @@ a:hover {
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 900px) {
+  .site-nav {
+    display: none;
+  }
+}
