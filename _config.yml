@@ -25,6 +25,9 @@ plugins:
   - jekyll-sitemap
 
 markdown: kramdown
+highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
 timezone: Asia/Tokyo
 
 collections:
