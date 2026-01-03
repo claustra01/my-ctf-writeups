@@ -45,9 +45,11 @@
         <div class="meta-date">{{ page.date | date: "%Y-%m-%d" }}</div>
         {% endif %}
 
+        {% assign content_text = page.content | strip_html | strip_newlines | strip %}
+        {% assign has_writeup = content_text | size %}
+
         <div class="meta-row">
           {% assign is_official = page.official %}
-          {% assign is_result_only = page.result_only %}
           {% if is_official %}
           <span class="pill pill-flag">Official writeup</span>
           {% endif %}
@@ -73,7 +75,7 @@
           <span class="pill pill-qualified">Qualified</span>
           {% endif %}
 
-          {% if is_result_only %}
+          {% if has_writeup == 0 %}
           <span class="pill pill-ghost">No writeup</span>
           {% endif %}
 
@@ -98,7 +100,7 @@
       </section>
 
       <article class="prose">
-        {% if page.result_only %}
+        {% if has_writeup == 0 %}
         <p class="muted-text">No writeup content has been added yet.</p>
         {% endif %}
 

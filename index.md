@@ -15,8 +15,9 @@ permalink: /
     {% for writeup in sorted %}
     <a class="card card-link" href="{{ writeup.url | relative_url }}">
       <div class="meta-row">
+        {% assign content_text = writeup.content | strip_html | strip_newlines | strip %}
+        {% assign has_writeup = content_text | size %}
         {% assign official = writeup.official %}
-        {% assign result_only = writeup.result_only %}
         {% if official %}
         <span class="pill pill-flag">Official writeup</span>
         {% endif %}
@@ -42,7 +43,7 @@ permalink: /
         <span class="pill pill-qualified">Qualified</span>
         {% endif %}
 
-        {% if result_only %}
+        {% if has_writeup == 0 %}
         <span class="pill pill-ghost">No writeup</span>
         {% endif %}
 
