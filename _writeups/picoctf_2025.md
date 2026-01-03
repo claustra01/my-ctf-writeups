@@ -4,6 +4,7 @@ date: 2025-03-18
 layout: writeup
 rank: 399
 total_teams: 10460
+team: CyberForge
 language: ja
 tags:
   - Web

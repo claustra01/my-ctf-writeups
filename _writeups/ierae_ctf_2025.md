@@ -4,6 +4,7 @@ date: 2025-06-22
 layout: writeup
 rank: 5
 total_teams: 538
+team: sknb
 language: ja
 tags:
   - Web

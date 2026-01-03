@@ -4,6 +4,7 @@ date: 2025-12-19
 layout: writeup
 rank: 50
 total_teams: 817
+team: Ax4n=B1kRA
 language: ja
 tags:
   - Quals

@@ -4,6 +4,7 @@ date: 2024-08-28
 layout: writeup
 rank: 112
 total_teams: 575
+team: kanimiso
 language: ja
 tags:
   - Forensics

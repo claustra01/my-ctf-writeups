@@ -4,6 +4,7 @@ date: 2023-11-12
 layout: writeup
 rank: 99
 total_teams: 729
+team: kanimiso
 language: ja
 tags:
   - Web

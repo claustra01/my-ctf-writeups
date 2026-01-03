@@ -4,6 +4,7 @@ date: 2025-07-27
 layout: writeup
 rank: 11
 total_teams: 880
+team: KIT3re2
 language: ja
 tags:
   - Web
