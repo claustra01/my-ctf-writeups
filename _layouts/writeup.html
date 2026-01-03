@@ -85,7 +85,7 @@
 
           {% if page.team %}
           <span class="pill pill-ghost">Team: {{ page.team }}</span>
-          {% elsif not is_official %}
+          {% elsif is_official == false %}
           <span class="pill pill-ghost">Individual</span>
           {% endif %}
         </div>
