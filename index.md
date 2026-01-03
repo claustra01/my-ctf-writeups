@@ -50,6 +50,13 @@ permalink: /
         {% if writeup.language %}
         <span class="pill pill-ghost">Lang: {{ writeup.language }}</span>
         {% endif %}
+
+        {% if writeup.team %}
+        <span class="pill pill-ghost">Team: {{ writeup.team }}</span>
+        {% endif %}
+        {% else %}
+        <span class="pill pill-ghost">Individual</span>
+        {% endif %}
       </div>
 
       <h3 class="card-title">
