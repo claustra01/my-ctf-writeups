@@ -13,7 +13,7 @@ permalink: /
 
   <div class="card-grid">
     {% for writeup in sorted %}
-    <article class="card">
+    <a class="card card-link" href="{{ writeup.url | relative_url }}">
       <div class="meta-row">
         {% assign official = writeup.official %}
         {% assign result_only = writeup.result_only %}
@@ -52,7 +52,7 @@ permalink: /
       </div>
 
       <h3 class="card-title">
-        <a href="{{ writeup.url | relative_url }}">{{ writeup.title }}</a>
+        {{ writeup.title }}
       </h3>
 
       <div class="card-meta">
@@ -76,7 +76,7 @@ permalink: /
         {% endfor %}
       </div>
       {% endif %}
-    </article>
+    </a>
     {% endfor %}
   </div>
 </section>
