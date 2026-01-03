@@ -17,8 +17,8 @@ permalink: /
       <div class="meta-row">
         {% assign content_text = writeup.content | strip_html | strip_newlines | strip %}
         {% assign has_writeup = content_text | size %}
-        {% assign official = writeup.official %}
-        {% if official %}
+        {% assign is_official = writeup.official %}
+        {% if is_official %}
         <span class="pill pill-flag">Official writeup</span>
         {% endif %}
 
