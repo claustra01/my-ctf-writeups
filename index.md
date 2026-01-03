@@ -53,7 +53,6 @@ permalink: /
 
         {% if writeup.team %}
         <span class="pill pill-ghost">Team: {{ writeup.team }}</span>
-        {% endif %}
         {% else %}
         <span class="pill pill-ghost">Individual</span>
         {% endif %}
