@@ -26,10 +26,6 @@
       </span>
       {% endif %}
 
-      {% if writeup.qualified %}
-      <span class="pill pill-qualified">Qualified</span>
-      {% endif %}
-
       {% if has_writeup == 0 %}
       <span class="pill pill-ghost">No writeup</span>
       {% endif %}
@@ -63,6 +59,8 @@
       {% assign tag_class = "tag" %}
       {% if tag == "Quals" %}
       {% assign tag_class = tag_class | append: " tag-quals" %}
+      {% if tag == "Qualified" %}
+      {% assign tag_class = tag_class | append: " tag-finals" %}
       {% elsif tag == "Finals" %}
       {% assign tag_class = tag_class | append: " tag-finals" %}
       {% endif %}

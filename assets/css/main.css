@@ -16,7 +16,6 @@
   --pill-ghost-border: #d9e0ec;
   --pill-text: #0b1220;
   --pill-flag: linear-gradient(120deg, #a7e2b6, #63b97a);
-  --pill-qualified: linear-gradient(120deg, #f6c1d9, #e38bb5);
   --pill-rank: linear-gradient(120deg, #b9d4ff, #7eb4f1);
   --pill-rank-silver: linear-gradient(120deg, #e3e7ef, #cbd2e1);
   --pill-rank-gold: linear-gradient(120deg, #fdeab8, #f0c15c);
@@ -55,7 +54,6 @@
   --pill-ghost-border: #25374f;
   --pill-text: var(--text);
   --pill-flag: linear-gradient(120deg, #063016, #147638);
-  --pill-qualified: linear-gradient(120deg, #4a2235, #b33674);
   --pill-rank: linear-gradient(120deg, #132048, #127180);
   --pill-rank-silver: linear-gradient(120deg, #2c3845, #596371);
   --pill-rank-gold: linear-gradient(120deg, #3d300e, #8f560f);
@@ -321,10 +319,6 @@ a:hover {
 
 .pill-rank {
   background: var(--pill-rank);
-}
-
-.pill-qualified {
-  background: var(--pill-qualified);
 }
 
 .pill-rank-gold {
