@@ -59,7 +59,7 @@
       {% assign tag_class = "tag" %}
       {% if tag == "Quals" %}
       {% assign tag_class = tag_class | append: " tag-quals" %}
-      {% if tag == "Qualified" %}
+      {% elsif tag == "Qualified" %}
       {% assign tag_class = tag_class | append: " tag-finals" %}
       {% elsif tag == "Finals" %}
       {% assign tag_class = tag_class | append: " tag-finals" %}
