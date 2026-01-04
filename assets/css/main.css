@@ -218,6 +218,7 @@ a:hover {
   border-radius: var(--radius);
   border: 1px solid var(--border);
   background: var(--surface);
+  color: var(--text);
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
@@ -226,6 +227,7 @@ a:hover {
 
 .tab-link:hover {
   border-color: var(--accent);
+  color: var(--link-hover);
   box-shadow: var(--shadow);
   transform: translateY(-2px);
 }
