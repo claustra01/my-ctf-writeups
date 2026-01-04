@@ -216,9 +216,8 @@ a:hover {
   align-items: center;
   padding: 8px 16px;
   border-radius: var(--radius);
-  border: 1px solid var(--pill-ghost-border);
-  background: var(--pill-ghost-bg);
-  color: var(--pill-text);
+  border: 1px solid var(--border);
+  background: var(--surface);
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
