@@ -376,20 +376,39 @@ a.card:hover .card-title {
 
 .toc-list {
   margin: 0;
-  padding-left: 18px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
 }
 
-.toc-list li + li {
-  margin-top: 6px;
+.toc-item {
+  line-height: 1.4;
+}
+
+.toc-level-2 {
+  margin-left: 16px;
 }
 
 .toc-link {
-  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: var(--pill-ghost-bg);
+  border: 1px solid var(--pill-ghost-border);
+  color: var(--pill-text);
   font-weight: 600;
 }
 
 .toc-link:hover {
   color: var(--link-hover);
+  border-color: var(--accent);
+}
+
+.toc-level-2 .toc-link {
+  font-size: 13px;
+  padding: 4px 8px;
 }
 
 .page-title {

@@ -6,7 +6,7 @@
     var list = toc.querySelector('.toc-list');
     if (!list) return;
 
-    var headings = document.querySelectorAll('article.prose h1');
+    var headings = document.querySelectorAll('article.prose h1, article.prose h2');
     if (!headings.length) {
       toc.remove();
       return;
@@ -38,6 +38,7 @@
       }
 
       var item = document.createElement('li');
+      item.className = heading.tagName === 'H2' ? 'toc-item toc-level-2' : 'toc-item toc-level-1';
       var link = document.createElement('a');
       link.className = 'toc-link';
       link.href = '#' + id;
