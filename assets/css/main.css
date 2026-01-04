@@ -381,7 +381,7 @@ a.card:hover .card-title {
 }
 
 .toc-link {
-  color: var(--accent);
+  color: var(--muted);
   font-weight: 600;
 }
 
