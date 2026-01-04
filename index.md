@@ -2,93 +2,27 @@
 layout: default
 title: CTF Writeups
 permalink: /
+tab: recent
 ---
 
 {% assign sorted = site.writeups | sort: "date" | reverse %}
-{% if sorted and sorted != empty %}
+{% assign recent = sorted | slice: 0, 10 %}
+{% if recent and recent != empty %}
 <section class="section">
   <div class="section-head">
     <h1 class="section-title">Recently</h1>
+    {% include writeup_tabs.html %}
   </div>
 
-  <div class="card-grid">
-    {% for writeup in sorted %}
-    <a class="card card-link" href="{{ writeup.url | relative_url }}">
-      <div class="meta-row">
-        {% assign content_text = writeup.content | strip_html | strip_newlines | strip %}
-        {% assign has_writeup = content_text | size %}
-        {% assign is_official = writeup.official %}
-        {% if is_official %}
-        <span class="pill pill-flag">Official writeup</span>
-        {% endif %}
-
-        {% if writeup.rank or writeup.total_teams %}
-        {% assign rank_classes = "pill pill-rank" %}
-        {% if writeup.rank %}
-        {% assign rank_number = writeup.rank | plus: 0 %}
-        {% if rank_number == 1 %}
-        {% assign rank_classes = rank_classes | append: " pill-rank-gold" %}
-        {% elsif rank_number == 2 %}
-        {% assign rank_classes = rank_classes | append: " pill-rank-silver" %}
-        {% elsif rank_number == 3 %}
-        {% assign rank_classes = rank_classes | append: " pill-rank-bronze" %}
-        {% endif %}
-        {% endif %}
-        <span class="{{ rank_classes }}">
-          {% if writeup.rank %}# {{ writeup.rank }}{% endif %}{% if writeup.total_teams %}{% if writeup.rank %} / {% endif %}{{ writeup.total_teams }} Teams{% endif %}
-        </span>
-        {% endif %}
-
-        {% if writeup.qualified %}
-        <span class="pill pill-qualified">Qualified</span>
-        {% endif %}
-
-        {% if has_writeup == 0 %}
-        <span class="pill pill-ghost">No writeup</span>
-        {% endif %}
-
-        {% if writeup.language %}
-        <span class="pill pill-ghost">Lang: {{ writeup.language }}</span>
-        {% endif %}
-
-        {% if writeup.team %}
-        <span class="pill pill-ghost">Team: {{ writeup.team }}</span>
-        {% elsif is_official != true %}
-        <span class="pill pill-ghost">Individual</span>
-        {% endif %}
-      </div>
-
-      <h3 class="card-title">
-        {{ writeup.title }}
-      </h3>
-
-      <div class="card-meta">
-        {% if writeup.date %}
-        <span>{{ writeup.date | date: "%Y-%m-%d" }}</span>
-        {% else %}
-        <span>No date</span>
-        {% endif %}
-      </div>
-
-      {% if writeup.tags %}
-      <div class="tag-row">
-        {% for tag in writeup.tags %}
-        {% assign tag_class = "tag" %}
-        {% if tag == "Quals" %}
-        {% assign tag_class = tag_class | append: " tag-quals" %}
-        {% elsif tag == "Finals" %}
-        {% assign tag_class = tag_class | append: " tag-finals" %}
-        {% endif %}
-        <span class="{{ tag_class }}">{{ tag }}</span>
-        {% endfor %}
-      </div>
-      {% endif %}
-    </a>
-    {% endfor %}
-  </div>
+  {% include writeup_cards.html writeups=recent %}
 </section>
 {% else %}
 <section class="section">
+  <div class="section-head">
+    <h1 class="section-title">Recently</h1>
+    {% include writeup_tabs.html %}
+  </div>
+
   <div class="empty-state">
     <p class="empty-title">No writeups or results yet</p>
   </div>
