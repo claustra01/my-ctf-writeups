@@ -33,7 +33,7 @@
     if (!toggle || !icon) return;
 
     var resolved = mode || 'system';
-    var iconText = '🌗';
+    var iconText = '⚙️';
     var labelText = 'Toggle theme (System)';
 
     if (resolved === 'light') {
