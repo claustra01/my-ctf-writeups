@@ -234,17 +234,14 @@ a:hover {
 }
 
 .tab-link:hover {
+  background: var(--pill-ghost-bg);
   border-color: var(--accent);
   box-shadow: var(--shadow);
   transform: translateY(-2px);
 }
 
 .tab-link.is-active {
-  background: var(--tag-bg);
-  border-color: var(--tag-border);
-  color: var(--tag-text);
-  box-shadow: none;
-  transform: none;
+  font-weight: 700;
 }
 
 .card-grid {
