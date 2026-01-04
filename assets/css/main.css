@@ -216,9 +216,9 @@ a:hover {
   align-items: center;
   padding: 8px 16px;
   border-radius: var(--radius);
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text);
+  border: 1px solid var(--pill-ghost-border);
+  background: var(--pill-ghost-bg);
+  color: var(--pill-text);
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
@@ -262,6 +262,10 @@ a.card:hover {
   margin: 10px 0 8px;
   font-size: 18px;
   line-height: 1.35;
+}
+
+a.card:hover .card-title {
+  color: var(--link-hover);
 }
 
 .card-meta {
