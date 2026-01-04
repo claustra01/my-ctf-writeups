@@ -94,6 +94,11 @@
         {% endif %}
       </section>
 
+      <nav class="toc" aria-label="Table of contents" hidden>
+        <div class="toc-title">Contents</div>
+        <ol class="toc-list"></ol>
+      </nav>
+
       <article class="prose">
         {% if has_writeup == 0 %}
         <p class="muted-text">No writeup content has been added yet.</p>
@@ -110,5 +115,6 @@
     {% include site_footer.html %}
   </div>
   <script src="{{ '/assets/js/theme.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/toc.js' | relative_url }}" defer></script>
 </body>
 </html>

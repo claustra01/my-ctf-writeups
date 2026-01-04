@@ -358,6 +358,40 @@ a.card:hover .card-title {
   margin: 0 auto 24px;
 }
 
+.toc {
+  max-width: 880px;
+  margin: 0 auto 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+
+.toc-title {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.toc-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.toc-list li + li {
+  margin-top: 6px;
+}
+
+.toc-link {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.toc-link:hover {
+  color: var(--link-hover);
+}
+
 .page-title {
   margin: 6px 0 12px;
   font-size: clamp(26px, 3vw, 34px);
