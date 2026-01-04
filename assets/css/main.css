@@ -361,25 +361,15 @@ a.card:hover .card-title {
 .toc {
   max-width: 880px;
   margin: 0 auto 24px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px 18px;
-}
-
-.toc-title {
-  margin: 0 0 8px;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--muted);
 }
 
 .toc-list {
   margin: 0;
   padding: 0;
-  list-style: none;
+  list-style: disc;
+  list-style-position: inside;
   display: grid;
-  gap: 8px;
+  gap: 6px;
 }
 
 .toc-item {
@@ -387,28 +377,20 @@ a.card:hover .card-title {
 }
 
 .toc-level-2 {
-  margin-left: 16px;
+  margin-left: 12px;
 }
 
 .toc-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 10px;
-  border-radius: 10px;
-  background: var(--pill-ghost-bg);
-  border: 1px solid var(--pill-ghost-border);
-  color: var(--pill-text);
+  color: var(--accent);
   font-weight: 600;
 }
 
 .toc-link:hover {
   color: var(--link-hover);
-  border-color: var(--accent);
 }
 
 .toc-level-2 .toc-link {
   font-size: 13px;
-  padding: 4px 8px;
 }
 
 .page-title {
