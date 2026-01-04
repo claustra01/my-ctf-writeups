@@ -1,6 +1,6 @@
 <div class="card-grid">
   {% for writeup in include.writeups %}
-  <a class="card card-link" href="{{ writeup.url | relative_url }}">
+  <a class="card" href="{{ writeup.url | relative_url }}">
     <div class="meta-row">
       {% assign content_text = writeup.content | strip_html | strip_newlines | strip %}
       {% assign has_writeup = content_text | size %}
