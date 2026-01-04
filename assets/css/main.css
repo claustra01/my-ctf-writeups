@@ -234,14 +234,9 @@ a:hover {
 }
 
 .tab-link:hover {
-  background: var(--pill-ghost-bg);
   border-color: var(--accent);
   box-shadow: var(--shadow);
   transform: translateY(-2px);
-}
-
-.tab-link.is-active {
-  font-weight: 700;
 }
 
 .card-grid {
