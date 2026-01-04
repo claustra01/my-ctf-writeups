@@ -85,47 +85,6 @@
   --link-hover: #93c5fd;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
-    color-scheme: dark;
-    --bg: #0b1220;
-    --surface: #0f172a;
-    --text: #e5e7eb;
-    --muted: #cbd5e1;
-    --accent: #60a5fa;
-    --accent-soft: #1e293b;
-    --accent-2: #38bdf8;
-    --border: #1f2937;
-    --shadow: 0 18px 48px rgba(0, 0, 0, 0.55);
-    --header-bg: rgba(15, 23, 42, 0.78);
-    --nav-hover-bg: var(--accent-soft);
-    --pill-ghost-bg: #15243a;
-    --pill-ghost-border: #25374f;
-    --pill-text: var(--text);
-    --pill-flag: linear-gradient(120deg, #063016, #147638);
-    --pill-qualified: linear-gradient(120deg, #4a2235, #b33674);
-    --pill-rank: linear-gradient(120deg, #132048, #127180);
-    --pill-rank-silver: linear-gradient(120deg, #2c3845, #596371);
-    --pill-rank-gold: linear-gradient(120deg, #3d300e, #8f560f);
-    --pill-rank-bronze: linear-gradient(120deg, #3b2314, #7a3a16);
-    --tag-bg: #13263f;
-    --tag-text: var(--pill-text);
-    --tag-border: #284066;
-    --tag-quals: linear-gradient(120deg, #163845, #186e9a);
-    --tag-finals: linear-gradient(120deg, #44202e, #b33674);
-    --blockquote-bg: #111827;
-    --code-inline-bg: var(--accent-soft);
-    --code-block-bg: var(--bg);
-    --code-block-text: #e2e8f0;
-    --code-scrollbar-track: var(--bg);
-    --code-scrollbar-thumb-color: #334155;
-    --code-scrollbar-thumb: linear-gradient(120deg, #2563eb, #38bdf8);
-    --table-head-bg: var(--blockquote-bg);
-    --empty-bg: linear-gradient(120deg, #111827, #0b1220);
-    --link-hover: #93c5fd;
-  }
-}
-
 *,
 *::before,
 *::after {

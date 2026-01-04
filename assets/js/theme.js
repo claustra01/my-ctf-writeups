@@ -3,7 +3,10 @@
   var root = document.documentElement;
   var toggle = document.querySelector('[data-theme-toggle]');
   var icon = document.querySelector('.theme-toggle-icon');
-  var systemQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  var currentMode = null;
+  var systemQuery = window.matchMedia
+    ? window.matchMedia('(prefers-color-scheme: dark)')
+    : null;
 
   function readStoredPreference() {
     try {
@@ -50,18 +53,21 @@
   }
 
   function applyTheme(mode) {
-    if (mode === 'light' || mode === 'dark') {
-      root.setAttribute('data-theme', mode);
-      persistPreference(mode);
-    } else {
-      root.removeAttribute('data-theme');
-      persistPreference(null);
+    var resolved = mode;
+
+    if (resolved !== 'light' && resolved !== 'dark') {
+      resolved = getSystemPreference();
+      mode = null;
     }
+
+    root.setAttribute('data-theme', resolved);
+    currentMode = mode;
+    persistPreference(mode);
     updateToggleUI(mode);
   }
 
   function cycleTheme() {
-    var current = root.getAttribute('data-theme');
+    var current = currentMode;
     var next = 'light';
 
     if (current === 'light') {
@@ -75,13 +81,13 @@
 
   applyTheme(readStoredPreference());
 
-  if (typeof systemQuery.addEventListener === 'function') {
+  if (systemQuery && typeof systemQuery.addEventListener === 'function') {
     systemQuery.addEventListener('change', function () {
       if (!readStoredPreference()) {
         applyTheme(null);
       }
     });
-  } else if (typeof systemQuery.addListener === 'function') {
+  } else if (systemQuery && typeof systemQuery.addListener === 'function') {
     systemQuery.addListener(function () {
       if (!readStoredPreference()) {
         applyTheme(null);
@@ -93,3 +99,6 @@
     toggle.addEventListener('click', cycleTheme);
   }
 })();
+  function getSystemPreference() {
+    return systemQuery && systemQuery.matches ? 'dark' : 'light';
+  }

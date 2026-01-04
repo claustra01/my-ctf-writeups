@@ -7,9 +7,13 @@
   <script>
     (function () {
       try {
+        var root = document.documentElement;
         var storedTheme = localStorage.getItem('theme-preference');
         if (storedTheme === 'dark' || storedTheme === 'light') {
-          document.documentElement.setAttribute('data-theme', storedTheme);
+          root.setAttribute('data-theme', storedTheme);
+        } else if (window.matchMedia) {
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          root.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
         }
       } catch (e) {
         /* ignore */
