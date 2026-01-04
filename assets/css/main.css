@@ -240,8 +240,11 @@ a:hover {
 }
 
 .tab-link.is-active {
-  border-color: var(--accent);
-  box-shadow: var(--shadow);
+  background: var(--tag-bg);
+  border-color: var(--tag-border);
+  color: var(--tag-text);
+  box-shadow: none;
+  transform: none;
 }
 
 .card-grid {
