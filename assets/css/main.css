@@ -22,18 +22,26 @@
   --pill-rank-gold: linear-gradient(120deg, #fdeab8, #f0c15c);
   --pill-rank-bronze: linear-gradient(120deg, #f4d0a8, #d28b4c);
   --tag-bg: #e6edff;
-  --tag-text: #0b1220;
+  --tag-text: var(--pill-text);
   --tag-border: #cdd9ff;
   --tag-quals: linear-gradient(120deg, #c6ecf4, #7ec7db);
   --tag-finals: linear-gradient(120deg, #f8c6d1, #ee8fb0);
+  --tab-track-bg: var(--pill-ghost-bg);
+  --tab-track-border: var(--pill-ghost-border);
+  --tab-text: var(--muted);
+  --tab-hover-bg: var(--nav-hover-bg);
+  --tab-hover-text: var(--text);
+  --tab-active-bg: var(--tag-bg);
+  --tab-active-text: var(--tag-text);
+  --tab-active-border: var(--tag-border);
   --blockquote-bg: #f8fafc;
   --code-inline-bg: #e5edff;
-  --code-block-bg: #0f172a;
+  --code-block-bg: var(--text);
   --code-block-text: #e2e8f0;
-  --code-scrollbar-track: #0b1220;
+  --code-scrollbar-track: var(--pill-text);
   --code-scrollbar-thumb-color: #475569;
   --code-scrollbar-thumb: linear-gradient(120deg, #1f2937, #334155);
-  --table-head-bg: #f8fafc;
+  --table-head-bg: var(--blockquote-bg);
   --empty-bg: linear-gradient(120deg, #ffffff, #f0f5ff);
   --link-hover: #1d4ed8;
 }
@@ -50,10 +58,10 @@
   --border: #1f2937;
   --shadow: 0 18px 48px rgba(0, 0, 0, 0.55);
   --header-bg: rgba(15, 23, 42, 0.78);
-  --nav-hover-bg: #1e293b;
+  --nav-hover-bg: var(--accent-soft);
   --pill-ghost-bg: #15243a;
   --pill-ghost-border: #25374f;
-  --pill-text: #e5e7eb;
+  --pill-text: var(--text);
   --pill-flag: linear-gradient(120deg, #063016, #147638);
   --pill-qualified: linear-gradient(120deg, #4a2235, #b33674);
   --pill-rank: linear-gradient(120deg, #132048, #127180);
@@ -61,17 +69,18 @@
   --pill-rank-gold: linear-gradient(120deg, #3d300e, #8f560f);
   --pill-rank-bronze: linear-gradient(120deg, #3b2314, #7a3a16);
   --tag-bg: #13263f;
-  --tag-text: #e5e7eb;
+  --tag-text: var(--pill-text);
   --tag-border: #284066;
   --tag-quals: linear-gradient(120deg, #163845, #186e9a);
   --tag-finals: linear-gradient(120deg, #44202e, #b33674);
   --blockquote-bg: #111827;
-  --code-inline-bg: #1e293b;
-  --code-block-bg: #0b1220;
+  --code-inline-bg: var(--accent-soft);
+  --code-block-bg: var(--bg);
   --code-block-text: #e2e8f0;
+  --code-scrollbar-track: var(--bg);
   --code-scrollbar-thumb-color: #334155;
   --code-scrollbar-thumb: linear-gradient(120deg, #2563eb, #38bdf8);
-  --table-head-bg: #111827;
+  --table-head-bg: var(--blockquote-bg);
   --empty-bg: linear-gradient(120deg, #111827, #0b1220);
   --link-hover: #93c5fd;
 }
@@ -89,10 +98,10 @@
     --border: #1f2937;
     --shadow: 0 18px 48px rgba(0, 0, 0, 0.55);
     --header-bg: rgba(15, 23, 42, 0.78);
-    --nav-hover-bg: #1e293b;
+    --nav-hover-bg: var(--accent-soft);
     --pill-ghost-bg: #15243a;
     --pill-ghost-border: #25374f;
-    --pill-text: #e5e7eb;
+    --pill-text: var(--text);
     --pill-flag: linear-gradient(120deg, #063016, #147638);
     --pill-qualified: linear-gradient(120deg, #4a2235, #b33674);
     --pill-rank: linear-gradient(120deg, #132048, #127180);
@@ -100,17 +109,18 @@
     --pill-rank-gold: linear-gradient(120deg, #3d300e, #8f560f);
     --pill-rank-bronze: linear-gradient(120deg, #3b2314, #7a3a16);
     --tag-bg: #13263f;
-    --tag-text: #e5e7eb;
+    --tag-text: var(--pill-text);
     --tag-border: #284066;
     --tag-quals: linear-gradient(120deg, #163845, #186e9a);
     --tag-finals: linear-gradient(120deg, #44202e, #b33674);
     --blockquote-bg: #111827;
-    --code-inline-bg: #1e293b;
-    --code-block-bg: #0b1220;
+    --code-inline-bg: var(--accent-soft);
+    --code-block-bg: var(--bg);
     --code-block-text: #e2e8f0;
+    --code-scrollbar-track: var(--bg);
     --code-scrollbar-thumb-color: #334155;
     --code-scrollbar-thumb: linear-gradient(120deg, #2563eb, #38bdf8);
-    --table-head-bg: #111827;
+    --table-head-bg: var(--blockquote-bg);
     --empty-bg: linear-gradient(120deg, #111827, #0b1220);
     --link-hover: #93c5fd;
   }
@@ -257,8 +267,8 @@ a:hover {
   gap: 6px;
   padding: 6px;
   border-radius: 999px;
-  border: 1px solid var(--border);
-  background: var(--surface);
+  border: 1px solid var(--tab-track-border);
+  background: var(--tab-track-bg);
 }
 
 .tab-link {
@@ -267,7 +277,7 @@ a:hover {
   padding: 6px 14px;
   border-radius: 999px;
   border: 1px solid transparent;
-  color: var(--muted);
+  color: var(--tab-text);
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
@@ -275,15 +285,16 @@ a:hover {
 }
 
 .tab-link:hover {
-  background: var(--nav-hover-bg);
-  color: var(--text);
+  background: var(--tab-hover-bg);
+  color: var(--tab-hover-text);
+  border-color: var(--tab-track-border);
   transform: translateY(-1px);
 }
 
 .tab-link.is-active {
-  background: var(--accent);
-  color: #ffffff;
-  border-color: var(--accent);
+  background: var(--tab-active-bg);
+  color: var(--tab-active-text);
+  border-color: var(--tab-active-border);
 }
 
 .card-grid {
