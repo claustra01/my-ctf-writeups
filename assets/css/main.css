@@ -361,11 +361,19 @@ a.card:hover .card-title {
 .toc {
   max-width: 880px;
   margin: 0 auto 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+
+.toc-title {
+  margin: 0 0 12px;
 }
 
 .toc-list {
   margin: 0;
   padding: 0;
+  color: var(--muted);
   list-style: disc;
   list-style-position: inside;
   display: grid;
