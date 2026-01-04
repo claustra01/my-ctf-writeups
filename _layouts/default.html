@@ -21,29 +21,13 @@
 </head>
 <body>
   <div class="site">
-    <header class="site-header">
-      <div class="brand">
-        <a class="brand-link" href="{{ '/' | relative_url }}">
-          claustra01 CTF writeups
-        </a>
-      </div>
-      <nav class="site-nav">
-        <a class="nav-link" href="https://x.com/claustra01" target="_blank" rel="noopener">X</a>
-        <a class="nav-link" href="https://github.com/claustra01" target="_blank" rel="noopener">GitHub</a>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme">
-          <span class="theme-toggle-icon" aria-hidden="true">🌗</span>
-        </button>
-      </nav>
-    </header>
+    {% include site_header.html %}
 
     <main class="page-shell">
       {{ content }}
     </main>
 
-    <footer class="site-footer">
-      <p class="footer-title">claustra01 CTF writeups</p>
-      <p class="footer-sub">writeups.claustra01.net</p>
-    </footer>
+    {% include site_footer.html %}
   </div>
   <script src="{{ '/assets/js/theme.js' | relative_url }}" defer></script>
 </body>
