@@ -26,14 +26,6 @@
   --tag-border: #cdd9ff;
   --tag-quals: linear-gradient(120deg, #c6ecf4, #7ec7db);
   --tag-finals: linear-gradient(120deg, #f8c6d1, #ee8fb0);
-  --tab-track-bg: var(--pill-ghost-bg);
-  --tab-track-border: var(--pill-ghost-border);
-  --tab-text: var(--muted);
-  --tab-hover-bg: var(--nav-hover-bg);
-  --tab-hover-text: var(--text);
-  --tab-active-bg: var(--tag-bg);
-  --tab-active-text: var(--tag-text);
-  --tab-active-border: var(--tag-border);
   --blockquote-bg: #f8fafc;
   --code-inline-bg: #e5edff;
   --code-block-bg: var(--text);
@@ -223,37 +215,33 @@ a:hover {
 .tab-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  padding: 6px;
-  border-radius: 999px;
-  border: 1px solid var(--tab-track-border);
-  background: var(--tab-track-bg);
+  gap: 10px;
+  padding: 0;
 }
 
 .tab-link {
   display: inline-flex;
   align-items: center;
-  padding: 6px 14px;
-  border-radius: 999px;
-  border: 1px solid transparent;
-  color: var(--tab-text);
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
 }
 
 .tab-link:hover {
-  background: var(--tab-hover-bg);
-  color: var(--tab-hover-text);
-  border-color: var(--tab-track-border);
-  transform: translateY(-1px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
 }
 
 .tab-link.is-active {
-  background: var(--tab-active-bg);
-  color: var(--tab-active-text);
-  border-color: var(--tab-active-border);
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
 }
 
 .card-grid {
