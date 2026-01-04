@@ -52,6 +52,10 @@
     toggle.setAttribute('title', labelText);
   }
 
+  function getSystemPreference() {
+    return systemQuery && systemQuery.matches ? 'dark' : 'light';
+  }
+
   function applyTheme(mode) {
     var resolved = mode;
 
@@ -99,6 +103,3 @@
     toggle.addEventListener('click', cycleTheme);
   }
 })();
-  function getSystemPreference() {
-    return systemQuery && systemQuery.matches ? 'dark' : 'light';
-  }
