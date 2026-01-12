@@ -12,7 +12,7 @@ tags:
 
 I participated in UofTCTF 2026 as a member of Project Sekai. I solved 6(+1) web challenges.
 
-# Firewall [35pt]
+# Firewall [35pt / 500solves]
 
 flag.html is hosted by Nginx and there is an eBPF packet filter.
 
@@ -309,7 +309,7 @@ if __name__ == "__main__":
 `uoftctf{f1rew4l1_Is_nOT_par7icu11rLy_R0bust_I_bl4m3_3bpf}`
 
 
-# No Quotes [37pt]
+# No Quotes [37pt / 407solves]
 A simple sql injection challenge. The goal is to exec `/readflag`.
 
 username and password are injectable.
@@ -411,7 +411,7 @@ if __name__ == "__main__":
 `uoftctf{w0w_y0u_5UcC355FU1Ly_Esc4p3d_7h3_57R1nG!}`
 
 
-# Personal Blog [40pt]
+# Personal Blog [40pt / 283solves]
 A simple note app. The goal is steal admin bot session and access to /flag.
 
 In editor page, draft content is unescaped.
@@ -669,7 +669,7 @@ if __name__ == "__main__":
 `uoftctf{533M5_l1k3_17_W4snt_50_p3r50n41...}`
 
 
-# No Quotes 2 [44pt]
+# No Quotes 2 [44pt / 206solves]
 3rd solve🥉
 
 Double check filter is added to `No Quotes` challenge.
@@ -753,7 +753,7 @@ if __name__ == "__main__":
 `uoftctf{d1d_y0u_wR173_4_pr0P3r_qU1n3_0r_u53_INFORMATION_SCHEMA???}`
 
 
-# No Quotes 3 [55pt]
+# No Quotes 3 [55pt / 128solves]
 **1st blood🩸**
 
 The waf blocks also period.
@@ -875,7 +875,7 @@ if __name__ == "__main__":
 `uoftctf{r3cuR510n_7h30R3M_m0M3n7}`
 
 
-# Unrealistic Client-Side Challenge - Flag 1 [276pt]
+# Unrealistic Client-Side Challenge - Flag 1 [276pt / 12solves]
 3rd solve🥉
 
 the flag1 is in jwt token from `/flag`. To get flag, need session and `_is_loopback`.
@@ -1028,7 +1028,7 @@ the session is jwt token, so I can get the flag by base64 decode.
 `uoftctf{h4v3_y0ur53lf_4_s4ndw1ch}`
 
 
-# Unrealistic Client-Side Challenge - Flag 2 [357pt]
+# Unrealistic Client-Side Challenge - Flag 2 [357pt / 7solves]
 This challenge solved by my teammate, I upsolved.
 
 The flag2 is in response from /motd, hosted on port 5001.
