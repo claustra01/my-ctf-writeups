@@ -500,7 +500,7 @@ Solution steps:
 1. register and login
 2. fetch autosave api with XSS payload in editor page (without client sanitization!)
 3. generate magic link
-4. report magic link and redirect to editor page (and solve PoW)
+4. report magic link and ignite XSS editor page (and solve PoW)
 5. access to /flag with stolen admin session
 
 My final payload is here:
