@@ -775,6 +775,7 @@ To waf bypass, I use some techniques:
 
 My final payload that all techniques constructed:
 ```py
+{% raw %}
 import requests
 import re
 
@@ -864,6 +865,7 @@ def solve():
 if __name__ == "__main__":
     solve()
 ```
+{% endraw %}
 `uoftctf{r3cuR510n_7h30R3M_m0M3n7}`
 
 
