@@ -878,7 +878,7 @@ if __name__ == "__main__":
 # Unrealistic Client-Side Challenge - Flag 1 [276pt]
 3rd solve🥉
 
-the flag1 is in jwt token from `/flag`. To get flag, need `_is_loopback`.
+the flag1 is in jwt token from `/flag`. To get flag, need session and `_is_loopback`.
 ```py
 @app.get("/flag")
 def flag():
