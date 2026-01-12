@@ -1062,7 +1062,7 @@ def motd():
     return resp
 ```
 
-I need XSS instead of access to /flag. It is effective `window.opener` technique for other origin XSS. And the bot need to access `localhost:5001` so the exploit server and malicious URL should be port 5001.
+I need to steal /motd response instead of access to /flag. `window.opener` technique is effective for this situation. And the bot need to access `localhost:5001` so the exploit server and malicious URL should be port 5001.
 
 My exploit server is:
 ```py
