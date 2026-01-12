@@ -502,6 +502,7 @@ Solution steps:
 5. access to /flag with stolen admin session
 
 My final payload is here:
+{% raw %}
 ```py
 #!/usr/bin/env python3
 import subprocess
@@ -662,6 +663,7 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+{% endraw %}
 `uoftctf{533M5_l1k3_17_W4snt_50_p3r50n41...}`
 
 
