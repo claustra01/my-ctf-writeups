@@ -918,7 +918,7 @@ Solution steps:
 3. fetch /register, /login and /flag with resolving localhost
 4. steal cookie with resolving attacker's server
 
-In addition, I needed to reset browser's tcp connection forcibly to re-resolve DNS in 10sec (bot timeout).
+In addition, I needed to TCP RST forcibly to re-resolve DNS in 10sec (bot timeout).
 
 My final exploit server is:
 ```py
