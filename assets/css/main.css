@@ -21,6 +21,7 @@
   --pill-rank-bronze: linear-gradient(120deg, #f4d0a8, #d28b4c);
   --tag-bg: #e6edff;
   --tag-border: #cdd9ff;
+  --tag-border-accent: rgba(255, 255, 255, 0.5);
   --tag-quals: linear-gradient(120deg, #c6ecf4, #7ec7db);
   --tag-finals: linear-gradient(120deg, #f8c6d1, #ee8fb0);
   --blockquote-bg: #f8fafc;
@@ -56,6 +57,7 @@
   --pill-rank-bronze: linear-gradient(120deg, #3b2314, #7a3a16);
   --tag-bg: #13263f;
   --tag-border: #284066;
+  --tag-border-accent: rgba(255, 255, 255, 0.3);
   --tag-quals: linear-gradient(120deg, #163845, #186e9a);
   --tag-finals: linear-gradient(120deg, #44202e, #b33674);
   --blockquote-bg: #111827;
@@ -343,10 +345,12 @@ a.card:hover .card-title {
 
 .tag-quals {
   background: var(--tag-quals);
+  border-color: var(--tag-border-accent);
 }
 
 .tag-finals {
   background: var(--tag-finals);
+  border-color: var(--tag-border-accent);
 }
 
 .section + .section {
