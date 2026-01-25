@@ -41,6 +41,14 @@
 
         <div class="meta-row">
           {% assign is_official = page.official %}
+          {% assign is_individual = false %}
+          {% if page.team == nil and is_official != true %}
+          {% assign is_individual = true %}
+          {% endif %}
+          {% assign participant_label = "Teams" %}
+          {% if is_individual %}
+          {% assign participant_label = "Players" %}
+          {% endif %}
           {% if is_official %}
           <span class="pill pill-flag">Official writeup</span>
           {% endif %}
@@ -58,7 +66,7 @@
           {% endif %}
           {% endif %}
           <span class="{{ rank_classes }}">
-            {% if page.rank %}# {{ page.rank }}{% endif %}{% if page.total_teams %}{% if page.rank %} / {% endif %}{{ page.total_teams }} Teams{% endif %}
+            {% if page.rank %}# {{ page.rank }}{% endif %}{% if page.total_teams %}{% if page.rank %} / {% endif %}{{ page.total_teams }} {{ participant_label }}{% endif %}
           </span>
           {% endif %}
 

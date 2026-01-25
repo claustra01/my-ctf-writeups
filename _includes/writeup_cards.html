@@ -5,6 +5,14 @@
       {% assign content_text = writeup.content | strip_html | strip_newlines | strip %}
       {% assign has_writeup = content_text | size %}
       {% assign is_official = writeup.official %}
+      {% assign is_individual = false %}
+      {% if writeup.team == nil and is_official != true %}
+      {% assign is_individual = true %}
+      {% endif %}
+      {% assign participant_label = "Teams" %}
+      {% if is_individual %}
+      {% assign participant_label = "Players" %}
+      {% endif %}
       {% if is_official %}
       <span class="pill pill-flag">Official writeup</span>
       {% endif %}
@@ -22,7 +30,7 @@
       {% endif %}
       {% endif %}
       <span class="{{ rank_classes }}">
-        {% if writeup.rank %}# {{ writeup.rank }}{% endif %}{% if writeup.total_teams %}{% if writeup.rank %} / {% endif %}{{ writeup.total_teams }} Teams{% endif %}
+        {% if writeup.rank %}# {{ writeup.rank }}{% endif %}{% if writeup.total_teams %}{% if writeup.rank %} / {% endif %}{{ writeup.total_teams }} {{ participant_label }}{% endif %}
       </span>
       {% endif %}
 
