@@ -68,14 +68,14 @@ The time this picture was taken is in exif:
 - OffsetTimeOriginal: +08:00 (CST)
 
 I found this thread on Reddit and flight records (for free!):
-https://www.reddit.com/r/aviation/comments/1iy0qir/free_past_flight_data_website/
-https://www.flightera.net/
+[https://www.reddit.com/r/aviation/comments/1iy0qir/free_past_flight_data_website/](https://www.reddit.com/r/aviation/comments/1iy0qir/free_past_flight_data_website/)
+[https://www.flightera.net/](https://www.flightera.net/)
 
 Qingdao Airlines all planes list is here:
-https://www.flightera.net/en/airline/Qingdao+Airlines
+[https://www.flightera.net/en/airline/Qingdao+Airlines](https://www.flightera.net/en/airline/Qingdao+Airlines)
 
 I checked manually all flight around 2025/04/10 11:20 (CST), finally I got it.
-https://www.flightera.net/en/flight_details/Qingdao+Airlines/QW6097/ZYHB/2025-04-10
+[https://www.flightera.net/en/flight_details/Qingdao+Airlines/QW6097/ZYHB/2025-04-10](https://www.flightera.net/en/flight_details/Qingdao+Airlines/QW6097/ZYHB/2025-04-10)
 ![](/assets/img/lilac_ctf_2026/flight.png)
 
 `LilacCTF{QW6097}`
