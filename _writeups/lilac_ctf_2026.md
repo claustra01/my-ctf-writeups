@@ -8,7 +8,7 @@ team: Project Sekai
 language: en
 tags:
   - Web
-  - OSINT
+  - Misc
 ---
 
 I participated in LilacCTF 2026 as a member of Project Sekai. My first ever #1 in CTF!!
@@ -48,7 +48,7 @@ $ curl -sG "http://1.95.51.2:8080/api/export/read" --data-urlencode 'path=\\?\GL
 `LilacCTF{W1n32_t0_NT_P4th_C0nv3rs10n_M4st3r_2026}`
 
 
-# [OSINT] Sky Is Ours
+# [Misc] Sky Is Ours
 Desctiption:
 > John likes to choose window seats on airplanes. He took this photo on a plane on April 10, 2025. What was his flight number?
 >
