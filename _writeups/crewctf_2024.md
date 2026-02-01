@@ -1,6 +1,6 @@
 ---
 title: CrewCTF 2024 Writeup
-date: 2024-08-28
+date: 2024-08-05
 layout: writeup
 rank: 112
 total_teams: 575

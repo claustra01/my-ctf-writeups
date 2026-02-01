@@ -1,6 +1,6 @@
 ---
 title: SECCON Beginners CTF 2024 Writeup
-date: 2024-07-01
+date: 2024-06-16
 layout: writeup
 rank: 45
 total_teams: 962

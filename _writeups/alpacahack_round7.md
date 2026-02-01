@@ -1,6 +1,6 @@
 ---
 title: AlpacaHack Round 7 (Web) Writeup
-date: 2024-12-01
+date: 2024-11-30
 layout: writeup
 rank: 17
 total_teams: 458
