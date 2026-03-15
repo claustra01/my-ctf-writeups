@@ -436,7 +436,7 @@ def extractor_tokens(index: int) -> str:
 ```
 
 これで描画された文字の幅を外部から観測することができれば、その文字を(高々数通りに)決定できる。
-描画された文字幅によって対応するリクエストを飛ばす`@container`を用意し、1文字ずる描画→リークを試みる。
+描画された文字幅によって対応するリクエストを飛ばす`@container`を用意し、1文字ずつ描画→リークを試みる。
 ```py
 for slot, (lo, hi, group) in enumerate(groups):
     ...
