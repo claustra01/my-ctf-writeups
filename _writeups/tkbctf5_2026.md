@@ -1,5 +1,5 @@
 ---
-title: tkbctf5 Writeup
+title: tkbctf 5 Writeup
 date: 2026-03-15
 layout: writeup
 rank: 2
@@ -414,9 +414,27 @@ express()
 CSPを見ると、cssとimgはかなり自由が利くが、他はほぼ何もできない。
 
 さて、どうにかしてリークする方法を考える。
+一般的にCSS Injectionでリークする場合、リーク対象がinput属性であればvalueセレクタを用いたり、p属性などであればLigatureという特定文字だけフォント幅を非常に大きくしてスクロールバーが発生するか否かをオラクルとしたりする[テクニック](https://speakerdeck.com/lmt_swallow/css-injection-plus-plus-ji-cun-shou-fa-falsegai-guan-todui-ce)が有名である。
+
+しかし、この問題ではそもそもflagがCSS変数内にあり、直接これらの手法を用いることはできない。
+そもそも、まずこの`--flag`を描画する必要がある。これは`content`プロパティなどへ変数を渡すことで可能だ。
+```css
+body::before {
+	content: var(--flag);
+	display: block;
+	font-size: 32px;
+	margin-top: 100px;
+	white-space: pre-wrap;
+}
+```
+![](/assets/img/tkbctf5_2026/render_flag.png)
+
+
+続いて、これらを1文字ずつ（順番を失わずに）リークする必要がある。
+上で挙げたLigatureはCSPのfont-srcの制約が厳しい。そこで、どうにかして1文字ずつ描画し、その文字幅をリークする方法を用いる。
 
 まず、separatorに`""`を挿入すると、flagは`"t" "k" "b" "c" "t" "f" ...`のようになる。
-そして、`open-quote`, `no-open-quote`, `close-quote`を用いて良い感じのCSSを設定すると、特定番目の文字だけ描画することができる。
+これをquotesとして、さらに`open-quote`, `no-open-quote`, `close-quote`を用いて良い感じのCSSを設定すると、特定番目の文字だけ描画することができる。
 ```css
 /* index 0 */
 content: open-quote;          /* t */
@@ -440,6 +458,25 @@ def extractor_tokens(index: int) -> str:
         tokens = ["no-open-quote"] * ((index + 1) // 2) + ["close-quote"]
     return " ".join(tokens)
 ```
+
+このCSSを用いると、実際のブラウザでは以下のように描画される。
+```css
+body {
+	width: fit-content;
+	quotes: var(--flag) ""
+}
+
+body:before {
+	content: open-quote;
+	display: block
+}
+```
+
+```
+http://34.170.146.252:36461/?sep=%22%22&css=body%7Bwidth%3Afit-content%3Bquotes%3Avar%28--flag%29+%22%22%7Dbody%3Abefore%7Bcontent%3Aopen-quote%3Bdisplay%3Ablock%7D
+```
+
+![](/assets/img/tkbctf5_2026/render_one_char.png)
 
 これで描画された文字の幅を外部から観測することができれば、その文字を(高々数通りに)決定できる。
 描画された文字幅によって対応するリクエストを飛ばす`@container`を用意し、1文字ずつ描画→リークを試みる。
