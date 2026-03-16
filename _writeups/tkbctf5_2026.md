@@ -366,6 +366,8 @@ flagが得られた。
 この問題はチームメイトが解いた問題の**upsolve**になる。(thanks for patawang!)
 
 CSS内に埋め込まれたflagをどうにかしてXS-leaksで抜き取る問題。
+
+{% raw %}
 ```js
 import express from "express";
 import cookieParser from "cookie-parser";
@@ -409,6 +411,7 @@ express()
   })
   .listen(3000);
 ```
+{% endraw %}
 
 任意のCSSと、flagの各文字間に任意のseparatorを挿入することができる。
 CSPを見ると、cssとimgはかなり自由が利くが、他はほぼ何もできない。
