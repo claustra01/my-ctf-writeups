@@ -22,7 +22,6 @@ social:
 
 plugins:
   - jekyll-seo-tag
-  - jekyll-sitemap
 
 markdown: kramdown
 highlighter: rouge
