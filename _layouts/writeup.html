@@ -67,7 +67,9 @@
           </span>
           {% endif %}
 
+          {% if is_official != true %}
           <span class="pill pill-flag">Writeup</span>
+          {% endif %}
 
           {% if page.language %}
           <span class="pill pill-ghost">Lang: {{ page.language }}</span>
