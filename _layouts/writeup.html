@@ -36,9 +36,6 @@
         <div class="meta-date">{{ page.date | date: "%Y-%m-%d" }}</div>
         {% endif %}
 
-        {% assign content_text = page.content | strip_html | strip_newlines | strip %}
-        {% assign has_writeup = content_text | size %}
-
         <div class="meta-row">
           {% assign is_official = page.official %}
           {% assign is_individual = false %}
@@ -68,10 +65,6 @@
           <span class="{{ rank_classes }}">
             {% if page.rank %}# {{ page.rank }}{% endif %}{% if page.total_teams %}{% if page.rank %} / {% endif %}{{ page.total_teams }} {{ participant_label }}{% endif %}
           </span>
-          {% endif %}
-
-          {% if has_writeup == 0 %}
-          <span class="pill pill-ghost">No writeup</span>
           {% endif %}
 
           {% if page.language %}
@@ -108,10 +101,6 @@
       </nav>
 
       <article class="prose">
-        {% if has_writeup == 0 %}
-        <p class="muted-text">No writeup content has been added yet.</p>
-        {% endif %}
-
         {{ content }}
       </article>
 

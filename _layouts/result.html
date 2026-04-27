@@ -1,0 +1,24 @@
+{% assign target_path = '/' %}
+{% if page.date %}
+  {% assign target_year = page.date | date: '%Y' %}
+  {% if target_year != '' %}
+    {% assign target_path = '/' | append: target_year | append: '/' %}
+  {% endif %}
+{% endif %}
+<!doctype html>
+<html lang="{{ page.lang | default: page.language | default: site.lang | default: 'ja' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | escape }}</title>
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="{{ target_path | relative_url | absolute_url }}">
+  <meta http-equiv="refresh" content="0; url={{ target_path | relative_url }}">
+  <script>
+    window.location.replace({{ target_path | relative_url | jsonify }});
+  </script>
+</head>
+<body>
+  <p><a href="{{ target_path | relative_url }}">Back to results</a></p>
+</body>
+</html>
