@@ -13,6 +13,8 @@
   --header-bg: rgba(255, 255, 255, 0.78);
   --pill-ghost-bg: #edf1f7;
   --pill-ghost-border: #d9e0ec;
+  --pill-border: rgba(15, 23, 42, 0.12);
+  --pill-border-accent: rgba(255, 255, 255, 0.55);
   --pill-text: #0b1220;
   --pill-flag: linear-gradient(120deg, #a7e2b6, #63b97a);
   --pill-rank: linear-gradient(120deg, #b9d4ff, #7eb4f1);
@@ -49,6 +51,8 @@
   --header-bg: rgba(15, 23, 42, 0.78);
   --pill-ghost-bg: #15243a;
   --pill-ghost-border: #25374f;
+  --pill-border: rgba(148, 163, 184, 0.22);
+  --pill-border-accent: rgba(255, 255, 255, 0.2);
   --pill-text: var(--text);
   --pill-flag: linear-gradient(120deg, #063016, #147638);
   --pill-rank: linear-gradient(120deg, #132048, #127180);
@@ -303,6 +307,7 @@ a.card {
   gap: 6px;
   padding: 6px 10px;
   border-radius: 12px;
+  border: 1px solid var(--pill-border);
   font-size: 13px;
   line-height: 1;
 }
@@ -314,22 +319,27 @@ a.card {
 
 .pill-flag {
   background: var(--pill-flag);
+  border-color: var(--pill-border-accent);
 }
 
 .pill-rank {
   background: var(--pill-rank);
+  border-color: var(--pill-border-accent);
 }
 
 .pill-rank-gold {
   background: var(--pill-rank-gold);
+  border-color: var(--pill-border-accent);
 }
 
 .pill-rank-silver {
   background: var(--pill-rank-silver);
+  border-color: var(--pill-border-accent);
 }
 
 .pill-rank-bronze {
   background: var(--pill-rank-bronze);
+  border-color: var(--pill-border-accent);
 }
 
 .tag-row {
