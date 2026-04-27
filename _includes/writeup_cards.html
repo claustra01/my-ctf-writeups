@@ -1,9 +1,20 @@
 <div class="card-grid">
   {% for writeup in include.writeups %}
+    {% assign rank_number = writeup.rank | plus: 0 %}
+    {% assign card_classes = "card" %}
+    {% if writeup.rank %}
+      {% if rank_number == 1 %}
+        {% assign card_classes = card_classes | append: " card-podium card-podium-1" %}
+      {% elsif rank_number == 2 %}
+        {% assign card_classes = card_classes | append: " card-podium card-podium-2" %}
+      {% elsif rank_number == 3 %}
+        {% assign card_classes = card_classes | append: " card-podium card-podium-3" %}
+      {% endif %}
+    {% endif %}
     {% if writeup.layout == "result" %}
-  <article class="card">
+  <article class="{{ card_classes }}">
     {% else %}
-  <a class="card" href="{{ writeup.url | relative_url }}">
+  <a class="{{ card_classes }}" href="{{ writeup.url | relative_url }}">
     {% endif %}
     <div class="meta-row">
       {% assign is_official = writeup.official %}
@@ -22,7 +33,6 @@
       {% if writeup.rank or writeup.total_teams %}
       {% assign rank_classes = "pill pill-rank" %}
       {% if writeup.rank %}
-      {% assign rank_number = writeup.rank | plus: 0 %}
       {% if rank_number == 1 %}
       {% assign rank_classes = rank_classes | append: " pill-rank-gold" %}
       {% elsif rank_number == 2 %}

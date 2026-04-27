@@ -246,6 +246,9 @@ a:hover {
 
 .card {
   display: block;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -253,6 +256,11 @@ a:hover {
   color: inherit;
   text-decoration: none;
   transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
 }
 
 a.card {
@@ -266,6 +274,83 @@ a.card {
   color: var(--link-hover);
 }
 
+.card-podium {
+  --podium-glow: rgba(255, 255, 255, 0.35);
+  --podium-spark: rgba(255, 255, 255, 0.65);
+  --podium-border: var(--accent);
+}
+
+.card-podium::before,
+.card-podium::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.24s ease, transform 0.24s ease, filter 0.24s ease;
+}
+
+.card-podium::before {
+  background:
+    radial-gradient(130px 70px at 10% 12%, var(--podium-glow), transparent 72%),
+    radial-gradient(180px 90px at 92% 0%, color-mix(in srgb, var(--podium-glow) 88%, white), transparent 70%),
+    radial-gradient(120px 80px at 50% 118%, color-mix(in srgb, var(--podium-glow) 72%, transparent), transparent 72%);
+  transform: scale(0.97);
+  filter: saturate(1.05);
+  z-index: 0;
+}
+
+.card-podium::after {
+  background:
+    radial-gradient(circle at 16% 24%, var(--podium-spark) 0 2px, transparent 3px),
+    radial-gradient(circle at 24% 76%, color-mix(in srgb, var(--podium-spark) 82%, white) 0 1.5px, transparent 3px),
+    radial-gradient(circle at 46% 16%, var(--podium-spark) 0 1.5px, transparent 3px),
+    radial-gradient(circle at 62% 82%, color-mix(in srgb, var(--podium-spark) 75%, white) 0 2px, transparent 3px),
+    radial-gradient(circle at 78% 34%, var(--podium-spark) 0 2px, transparent 3px),
+    radial-gradient(circle at 90% 68%, color-mix(in srgb, var(--podium-spark) 82%, white) 0 1.5px, transparent 3px);
+  transform: translateY(10px) scale(0.98);
+  z-index: 0;
+}
+
+.card-podium:hover {
+  border-color: var(--podium-border);
+  box-shadow:
+    0 18px 48px rgba(15, 23, 42, 0.08),
+    0 0 0 1px color-mix(in srgb, var(--podium-border) 28%, transparent),
+    0 14px 36px color-mix(in srgb, var(--podium-border) 18%, transparent);
+}
+
+.card-podium:hover::before {
+  opacity: 1;
+  transform: scale(1);
+  animation: podiumGlowDrift 4.6s linear infinite;
+}
+
+.card-podium:hover::after {
+  opacity: 0.9;
+  transform: translateY(0) scale(1);
+  animation: podiumSparkFloat 2.2s ease-in-out infinite alternate;
+}
+
+.card-podium-1 {
+  --podium-glow: rgba(255, 217, 102, 0.36);
+  --podium-spark: rgba(255, 246, 196, 0.95);
+  --podium-border: #e8b631;
+}
+
+.card-podium-2 {
+  --podium-glow: rgba(208, 220, 255, 0.34);
+  --podium-spark: rgba(243, 247, 255, 0.92);
+  --podium-border: #a9b7d6;
+}
+
+.card-podium-3 {
+  --podium-glow: rgba(233, 168, 124, 0.34);
+  --podium-spark: rgba(255, 231, 210, 0.9);
+  --podium-border: #d49361;
+}
+
 .card-title {
   margin: 10px 0 8px;
   font-size: 18px;
@@ -274,6 +359,32 @@ a.card {
 
 .card:hover .card-title {
   color: var(--link-hover);
+}
+
+@keyframes podiumGlowDrift {
+  0% {
+    transform: translate3d(-2%, 0, 0) scale(0.99);
+  }
+
+  50% {
+    transform: translate3d(2%, -2%, 0) scale(1.03);
+  }
+
+  100% {
+    transform: translate3d(-1%, 1%, 0) scale(1);
+  }
+}
+
+@keyframes podiumSparkFloat {
+  0% {
+    transform: translate3d(0, 8px, 0) scale(0.98);
+    filter: brightness(0.98);
+  }
+
+  100% {
+    transform: translate3d(0, -4px, 0) scale(1.03);
+    filter: brightness(1.08);
+  }
 }
 
 .card-meta {
