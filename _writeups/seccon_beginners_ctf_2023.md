@@ -2,8 +2,8 @@
 title: SECCON Beginners CTF 2023 Writeup
 date: 2023-06-04
 layout: writeup
-rank: ???
-total_teams: ???
+rank: 255
+total_teams: 778
 language: ja
 tags:
   - Crypto
