@@ -219,7 +219,7 @@ func sanitizer(msg string) (string, error) {
 This challenge was made for "unsloppable", so I incorporated various techniques to ensure that LLMs would not arrive at the intended solution.
 When performing "LLM babysitting," there are three hurdles to be aware of: the 48-hour contest duration, the 5-hour API limit (which doesn't mean much in this kind of contest), and the amount of "thought" that occurs before context compaction kicks in.
 
-In this challenge, I aimed to make the LLM consider some wrong approaches so that it wouldn't reach the actual solution before the context was compressed (though it was solved regardless).
+In this challenge, I aimed to make the LLM consider some wrong approaches so that it wouldn't reach the actual solution before the context was compacted (though it was solved regardless).
 
 For example, it is expected to consider the following:
 
