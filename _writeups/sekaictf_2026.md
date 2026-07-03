@@ -338,7 +338,7 @@ mux.HandleFunc("PUT /notes/{id}", func(w http.ResponseWriter, r *http.Request) {
 })
 ```
 
-In other words, by writing these two payloads simultaneously to target a race condition, we can create fill HTML tags within the note:
+In other words, by writing these two payloads simultaneously to target a race condition, we can create full HTML tags within the note:
 
 - `<`
 - `*img src=x onerror=...>`
