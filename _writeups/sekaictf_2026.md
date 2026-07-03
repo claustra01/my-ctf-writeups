@@ -236,7 +236,51 @@ Common LLMs tend to consider these possibilities before the intended solution be
 If you perform a few fuzzings, you will see that a single `<` character can be used to create a note without being removed. This is also evident from step 4 of the sanitizer.
 However, this alone is not enough to achieve XSS. Therefore, we should focus on the fact that notes are stored in the filesystem.
 
-In Golang, `open()` calls the primitive open syscall in Linux. Let's look at the [documentation for `open(2)`](https://man7.org/linux/man-pages/man2/open.2.html).
+In Golang, `os.Open()` and `os.OpenFile()` calls internal func `openFileNolog()`
+
+ref: https://go.googlesource.com/go/+/refs/tags/go1.26.0/src/os/file.go
+```go
+func OpenFile(name string, flag int, perm FileMode) (*File, error) {
+	testlog.Open(name)
+	f, err := openFileNolog(name, flag, perm)
+	if err != nil {
+		return nil, err
+	}
+	f.appendMode = flag&O_APPEND != 0
+	return f, nil
+}
+```
+
+And `openFileNolog()` calls the primitive open syscall in Linux. 
+
+ref: https://go.googlesource.com/go/+/refs/tags/go1.26.0/src/os/file_unix.go
+```go
+func openFileNolog(name string, flag int, perm FileMode) (*File, error) {
+	...
+	var (
+		r int
+		s poll.SysFile
+		e error
+	)
+	// We have to check EINTR here, per issues 11180 and 39237.
+	ignoringEINTR(func() error {
+		r, s, e = open(name, flag|syscall.O_CLOEXEC, syscallMode(perm))
+		return e
+	})
+	...
+}
+```
+
+ref: https://go.googlesource.com/go/+/refs/tags/go1.26.0/src/os/file_open_unix.go
+```go
+func open(path string, flag int, perm uint32) (int, poll.SysFile, error) {
+	fd, err := syscall.Open(path, flag, perm)
+	return fd, poll.SysFile{}, err
+}
+```
+
+
+Let's look at the [documentation for `open(2)`](https://man7.org/linux/man-pages/man2/open.2.html).
 
 >  O_TRUNC
 >   If the file already exists and is a regular file and the
