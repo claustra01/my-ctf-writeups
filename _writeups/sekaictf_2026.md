@@ -265,7 +265,6 @@ func openFileNolog(name string, flag int, perm FileMode) (*File, error) {
 		s poll.SysFile
 		e error
 	)
-	// We have to check EINTR here, per issues 11180 and 39237.
 	ignoringEINTR(func() error {
 		r, s, e = open(name, flag|syscall.O_CLOEXEC, syscallMode(perm))
 		return e
