@@ -251,7 +251,7 @@ func OpenFile(name string, flag int, perm FileMode) (*File, error) {
 ```
 [Source](https://go.googlesource.com/go/+/refs/tags/go1.26.0/src/os/file.go)
 
-And `openFileNolog()` calls the primitive open syscall in Linux. 
+And `openFileNolog()` calls the primitive syscall in Unix: `syscall.Open()`.
 
 ```go
 func openFileNolog(name string, flag int, perm FileMode) (*File, error) {
