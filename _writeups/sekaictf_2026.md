@@ -239,6 +239,10 @@ However, this alone is not enough to achieve XSS. Therefore, we should focus on 
 In Golang, `os.Open()` and `os.OpenFile()` calls internal func `openFileNolog()`
 
 ```go
+func Open(name string) (*File, error) {
+	return OpenFile(name, O_RDONLY, 0)
+}
+
 func OpenFile(name string, flag int, perm FileMode) (*File, error) {
 	testlog.Open(name)
 	f, err := openFileNolog(name, flag, perm)
@@ -281,6 +285,7 @@ func open(path string, flag int, perm uint32) (int, poll.SysFile, error) {
 
 
 Let's look at the [documentation for `open(2)`](https://man7.org/linux/man-pages/man2/open.2.html).
+In this challenge, `O_TRUNC` is set.
 
 >  O_TRUNC
 >   If the file already exists and is a regular file and the
@@ -290,7 +295,7 @@ Let's look at the [documentation for `open(2)`](https://man7.org/linux/man-pages
 >   Otherwise, the effect of O_TRUNC is unspecified.
 
 It says, `it will be truncated to length 0.` This means that the pointer offset when writing to the file is reset to 0.
-Now, let's look at the PUT method in the challenge. File locking is not implemented!
+Ok, let's check at the PUT method in the challenge. File locking is not implemented!
 
 ```go
 mux.HandleFunc("PUT /notes/{id}", func(w http.ResponseWriter, r *http.Request) {
