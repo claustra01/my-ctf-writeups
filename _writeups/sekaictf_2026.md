@@ -10,7 +10,7 @@ tags:
 
 I made a simple web challenge for [SekaiCTF 2026](https://ctftime.org/event/3113/). This article is author's official writeup.
 
-# [web] \&lt;\w+
+# [web] &amplt;\w+
 
 > HTML unescape + Regex to delete all = What can I do?
 
