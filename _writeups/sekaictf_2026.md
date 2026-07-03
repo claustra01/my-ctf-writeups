@@ -238,7 +238,6 @@ However, this alone is not enough to achieve XSS. Therefore, we should focus on 
 
 In Golang, `os.Open()` and `os.OpenFile()` calls internal func `openFileNolog()`
 
-ref: https://go.googlesource.com/go/+/refs/tags/go1.26.0/src/os/file.go
 ```go
 func OpenFile(name string, flag int, perm FileMode) (*File, error) {
 	testlog.Open(name)
@@ -250,10 +249,10 @@ func OpenFile(name string, flag int, perm FileMode) (*File, error) {
 	return f, nil
 }
 ```
+[Source](https://go.googlesource.com/go/+/refs/tags/go1.26.0/src/os/file.go)
 
 And `openFileNolog()` calls the primitive open syscall in Linux. 
 
-ref: https://go.googlesource.com/go/+/refs/tags/go1.26.0/src/os/file_unix.go
 ```go
 func openFileNolog(name string, flag int, perm FileMode) (*File, error) {
 	...
@@ -270,14 +269,15 @@ func openFileNolog(name string, flag int, perm FileMode) (*File, error) {
 	...
 }
 ```
+[Source](https://go.googlesource.com/go/+/refs/tags/go1.26.0/src/os/file_unix.go)
 
-ref: https://go.googlesource.com/go/+/refs/tags/go1.26.0/src/os/file_open_unix.go
 ```go
 func open(path string, flag int, perm uint32) (int, poll.SysFile, error) {
 	fd, err := syscall.Open(path, flag, perm)
 	return fd, poll.SysFile{}, err
 }
 ```
+[Source](https://go.googlesource.com/go/+/refs/tags/go1.26.0/src/os/file_open_unix.go)
 
 
 Let's look at the [documentation for `open(2)`](https://man7.org/linux/man-pages/man2/open.2.html).
