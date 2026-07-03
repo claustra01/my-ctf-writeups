@@ -236,7 +236,7 @@ Common LLMs tend to consider these possibilities before the intended solution be
 If you perform a few fuzzings, you will see that a single `<` character can be used to create a note without being removed. This is also evident from step 4 of the sanitizer.
 However, this alone is not enough to achieve XSS. Therefore, we should focus on the fact that notes are stored in the filesystem.
 
-In Golang, `open()` calls the primitive open syscall in Linux. Let's look at the documentation for [`open(2)`](https://man7.org/linux/man-pages/man2/open.2.html).
+In Golang, `open()` calls the primitive open syscall in Linux. Let's look at the [documentation for `open(2)`](https://man7.org/linux/man-pages/man2/open.2.html).
 
 >  O_TRUNC
 >   If the file already exists and is a regular file and the
