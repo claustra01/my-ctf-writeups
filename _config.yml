@@ -20,9 +20,6 @@ social:
     - "https://x.com/claustra01"
     - "https://github.com/claustra01"
 
-plugins:
-  - jekyll-seo-tag
-
 markdown: kramdown
 highlighter: rouge
 kramdown:
