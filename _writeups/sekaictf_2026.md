@@ -1,5 +1,5 @@
 ---
-title: SekaiCTF 2025 Author's Writeup
+title: SekaiCTF 2026 Author's Writeup
 date: 2026-06-29
 layout: writeup
 official: true
