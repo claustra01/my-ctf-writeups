@@ -233,7 +233,7 @@ Common LLMs tend to consider these possibilities before the intended solution be
 
 ## Solution
 
-If you perform a few fuzzings, you will see that a single `<` character can be used to create a note without being removed. This is also evident from step 4 of the sanitizer.
+If you try a few fuzzing, you will see that a single `<` character can be used to create a note without being removed. This is also evident from step 4 of the sanitizer.
 However, this alone is not enough to achieve XSS. Therefore, we should focus on the fact that notes are stored in the filesystem.
 
 In Golang, `os.Open()` and `os.OpenFile()` calls internal func `openFileNolog()`
