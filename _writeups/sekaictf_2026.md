@@ -214,23 +214,6 @@ func sanitizer(msg string) (string, error) {
 ```
 
 
-## Rabbit-Hole for LLMs
-
-This challenge was made for "unsloppable", so I incorporated various techniques to ensure that LLMs would not arrive at the intended solution.
-When performing "LLM babysitting," there are three hurdles to be aware of: the 48-hour contest duration, the 5-hour API limit (which doesn't mean much in this kind of contest), and the amount of "thought" that occurs before context compaction kicks in.
-
-In this challenge, I aimed to make the LLM consider some wrong approaches so that it wouldn't reach the actual solution before the context was compacted (though it was solved regardless).
-
-For example, it is expected to consider the following:
-
-- XSS due to the difference in DOM parsing between Bluemonday and Chromium: No known `StrictPolicy()` bypass has been reported.
-- Content-type confusion with tags like `<?xml`: The response header is explicitly set to `text/html;charset=utf-8`.
-- Character encoding confusion like ISO-2022-JP: The sanitizer verifies that it is UTF-8.
-- Generating non-ASCII character tags such as `<å`: This is impossible because Chromium does not interpret them correctly.
-
-Common LLMs tend to consider these possibilities before the intended solution because these are "common" approaches. And as a result, I intended delaying to make solving it via LLM babysitting difficult.
-
-
 ## Solution
 
 If you try a few fuzzing, you will see that a single `<` character can be used to create a note without being removed. This is also evident from step 4 of the sanitizer.
