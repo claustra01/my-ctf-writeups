@@ -277,7 +277,7 @@ In this challenge, `O_TRUNC` is set.
 >   Otherwise, the effect of O_TRUNC is unspecified.
 
 It says, `it will be truncated to length 0.` This means that the pointer offset when writing to the file is reset to 0.
-Ok, let's check at the PUT method in the challenge. File locking is not implemented!
+Ok, let's check at the PUT method in the challenge. File lock is not implemented!
 
 ```go
 mux.HandleFunc("PUT /notes/{id}", func(w http.ResponseWriter, r *http.Request) {
