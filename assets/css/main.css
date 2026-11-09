@@ -26,7 +26,7 @@
   --faint: #958d84;
 
   --gold: #9a7413;
-  --silver: #6b717c;
+  --silver: #586172;
   --bronze: #9a5a2c;
 
   /* category colours carried over from the original design */
@@ -60,7 +60,7 @@
   --faint: #7f776d;
 
   --gold: #e0b95a;
-  --silver: #b7bcc6;
+  --silver: #dde3ec;
   --bronze: #d49468;
 
   --rank: #8fb3d9;
@@ -139,7 +139,6 @@ h4 {
 .site {
   display: grid;
   grid-template-columns: var(--sidebar) minmax(0, 1fr);
-  grid-template-rows: 1fr auto;
   column-gap: var(--sidebar-gap);
   max-width: var(--site-max);
   min-height: 100vh;
@@ -161,7 +160,6 @@ h4 {
 
 .site-header {
   grid-column: 1;
-  grid-row: 1 / span 2;
   position: sticky;
   top: 0;
   align-self: start;
@@ -304,6 +302,15 @@ h4 {
 .rank-official {
   font-size: 26px;
   font-weight: 500;
+}
+
+/* normal ranks stay light so the podium (bold, metal colours) stands out */
+.rank-num {
+  font-weight: 400;
+}
+
+.card-podium .rank-num {
+  font-weight: 700;
 }
 
 .rank-num::before {
@@ -817,31 +824,6 @@ div.highlight {
   font-size: 15px;
 }
 
-.site-footer {
-  grid-column: 2;
-  grid-row: 2;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem 0.9rem;
-  max-width: var(--measure);
-  padding: 1.5rem 0 1.75rem;
-}
-
-.footer-title {
-  margin: 0;
-  padding: 0.15rem 0.6rem;
-  background: var(--surface);
-  color: var(--text);
-  font-size: 14px;
-}
-
-.footer-sub {
-  margin: 0;
-  color: var(--muted);
-  font-size: 14px;
-}
-
 /* ------------------------------------------------------------------
    Narrow screens: sidebar collapses into a top bar
    ------------------------------------------------------------------ */
@@ -884,10 +866,6 @@ div.highlight {
     padding-top: 2.5rem;
   }
 
-  .site-footer {
-    max-width: var(--measure);
-    margin-inline: auto;
-  }
 }
 
 @media (max-width: 640px) {
