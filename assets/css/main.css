@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&family=Shippori+Mincho+B1:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400..700&family=Noto+Sans+Mono:wght@400..600&display=swap");
 
 /* ------------------------------------------------------------------
    Tokens
@@ -7,8 +7,9 @@
 :root {
   color-scheme: light;
 
-  --font-serif: "Newsreader", "Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
-  --font-mono: "IBM Plex Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-sans: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", system-ui, sans-serif;
+  /* code only; Japanese glyphs inside code fall back to Noto Sans JP */
+  --font-mono: "Noto Sans Mono", "Noto Sans JP", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   --measure: 48rem;
   --gutter: 20px;
@@ -164,13 +165,12 @@ html {
 
 body {
   margin: 0;
-  font-family: var(--font-serif);
-  font-optical-sizing: auto;
-  font-size: 17px;
+  font-family: var(--font-sans);
+  font-size: 16px;
   color: var(--text);
   background: var(--bg);
-  line-height: 1.75;
-  letter-spacing: 0.005em;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   text-wrap: pretty;
@@ -267,9 +267,9 @@ h4 {
   display: inline-flex;
   align-items: baseline;
   gap: 0.5ch;
-  font-size: 19px;
-  font-weight: 500;
-  letter-spacing: 0;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   color: var(--text);
   text-decoration: none;
   white-space: nowrap;
@@ -277,8 +277,8 @@ h4 {
 
 .brand-link::before {
   content: "~/";
-  font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 500;
   color: var(--accent);
 }
 
@@ -295,7 +295,6 @@ h4 {
 .nav-link {
   padding: 4px 8px;
   border-radius: var(--radius-sm);
-  font-family: var(--font-mono);
   font-size: 13px;
   color: var(--muted);
   text-decoration: none;
@@ -364,10 +363,10 @@ h4 {
 
 .section-title {
   margin: 0;
-  font-size: clamp(30px, 5vw, 40px);
-  font-weight: 500;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
+  font-size: clamp(28px, 4.6vw, 36px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: 0;
 }
 
 .tab-row {
@@ -380,7 +379,6 @@ h4 {
 .tab-link {
   position: relative;
   padding: 2px 0;
-  font-family: var(--font-mono);
   font-size: 13px;
   color: var(--muted);
   text-decoration: none;
@@ -427,10 +425,12 @@ h4 {
   border-top: 1px solid var(--border);
 }
 
+/* date | title
+        | pills + tags   (tags share the pill row so every row has the same height) */
 .card {
   display: grid;
-  grid-template-columns: 7rem minmax(0, 1fr);
-  column-gap: 20px;
+  grid-template-columns: 8.25rem auto minmax(0, 1fr);
+  column-gap: 0;
   align-items: baseline;
   position: relative;
   isolation: isolate;
@@ -449,11 +449,11 @@ h4 {
 
 .card > .card-meta {
   grid-column: 1;
-  grid-row: 1 / span 3;
+  grid-row: 1 / span 2;
 }
 
 .card > .card-title {
-  grid-column: 2;
+  grid-column: 2 / -1;
   grid-row: 1;
 }
 
@@ -463,8 +463,9 @@ h4 {
 }
 
 .card > .tag-row {
-  grid-column: 2;
-  grid-row: 3;
+  grid-column: 3;
+  grid-row: 2;
+  margin: 0 0 0 14px;
 }
 
 a.card {
@@ -478,9 +479,9 @@ a.card:hover {
 
 .card-title {
   margin: 0 0 10px;
-  font-size: 21px;
-  font-weight: 500;
-  line-height: 1.35;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.45;
   color: var(--text);
 }
 
@@ -500,7 +501,6 @@ a.card .card-title::after {
   content: "→";
   display: inline-block;
   margin-left: 0.4em;
-  font-family: var(--font-mono);
   font-size: 0.75em;
   color: var(--accent);
   opacity: 0;
@@ -514,7 +514,6 @@ a.card:hover .card-title::after {
 }
 
 .card-meta {
-  font-family: var(--font-mono);
   font-size: 13px;
   color: var(--muted);
   font-variant-numeric: tabular-nums;
@@ -621,7 +620,6 @@ a.card:hover .card-title::after {
 .tag {
   display: inline-flex;
   align-items: center;
-  font-family: var(--font-mono);
   font-size: 12px;
   line-height: 1;
   white-space: nowrap;
@@ -724,23 +722,21 @@ a.card:hover .card-title::after {
 
 .page-title {
   margin: 20px 0 10px;
-  font-size: clamp(30px, 4.6vw, 42px);
-  font-weight: 500;
-  line-height: 1.18;
-  letter-spacing: -0.01em;
+  font-size: clamp(28px, 4.2vw, 38px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0;
 }
 
 .meta-date {
   display: block;
   margin: 0 0 16px;
-  font-family: var(--font-mono);
   font-size: 13px;
   color: var(--muted);
   font-variant-numeric: tabular-nums;
 }
 
 .text-link {
-  font-family: var(--font-mono);
   font-size: 13px;
   color: var(--muted);
   text-decoration: none;
@@ -765,7 +761,6 @@ a.card:hover .card-title::after {
 
 .toc-title {
   margin: 0 0 10px;
-  font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.12em;
@@ -873,8 +868,8 @@ a.card:hover .card-title::after {
 
 .prose {
   margin-top: 0;
-  font-size: 17.5px;
-  line-height: 1.9;
+  font-size: 16px;
+  line-height: 1.95;
   color: color-mix(in oklab, var(--text) 88%, transparent);
   overflow-wrap: break-word;
 }
@@ -889,23 +884,23 @@ a.card:hover .card-title::after {
 .prose h4 {
   position: relative;
   color: var(--text);
-  font-weight: 500;
-  line-height: 1.35;
+  font-weight: 600;
+  line-height: 1.45;
   margin: 2em 0 0.6em;
 }
 
 .prose h1 {
-  font-size: 1.6em;
+  font-size: 1.5em;
   margin-top: 2.2em;
-  letter-spacing: -0.005em;
+  font-weight: 700;
 }
 
 .prose h2 {
-  font-size: 1.32em;
+  font-size: 1.28em;
 }
 
 .prose h3 {
-  font-size: 1.14em;
+  font-size: 1.1em;
 }
 
 .prose h4 {
@@ -919,7 +914,6 @@ a.card:hover .card-title::after {
     position: absolute;
     right: 100%;
     margin-right: 0.55em;
-    font-family: var(--font-mono);
     font-weight: 400;
     color: var(--faint);
     opacity: 0.7;
@@ -941,7 +935,7 @@ a.card:hover .card-title::after {
 }
 
 .prose strong {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text);
 }
 
@@ -1009,7 +1003,7 @@ a.card:hover .card-title::after {
   background: var(--code-inline-bg);
   color: var(--text);
   font-family: var(--font-mono);
-  font-size: 0.82em;
+  font-size: 0.875em;
   word-break: break-word;
   overflow-wrap: anywhere;
 }
@@ -1203,7 +1197,6 @@ div.highlight {
 
 .empty-title {
   margin: 0;
-  font-family: var(--font-mono);
   font-size: 14px;
   color: var(--muted);
 }
@@ -1221,7 +1214,7 @@ div.highlight {
 
 .footer-title {
   margin: 0;
-  font-size: 15px;
+  font-size: 14px;
   color: var(--text-soft);
 }
 
@@ -1232,7 +1225,6 @@ div.highlight {
 
 .footer-sub {
   margin: 0;
-  font-family: var(--font-mono);
   font-size: 12px;
   color: var(--faint);
 }
@@ -1243,7 +1235,7 @@ div.highlight {
 
 @media (max-width: 720px) {
   body {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .site-header {
@@ -1256,42 +1248,41 @@ div.highlight {
   }
 
   .card {
-    grid-template-columns: minmax(0, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 8px;
     padding: 16px 10px;
-  }
-
-  .card > .card-meta,
-  .card > .card-title,
-  .card > .meta-row,
-  .card > .tag-row {
-    grid-column: 1;
-    grid-row: auto;
   }
 
   .card > .card-meta {
     order: -1;
-    margin-bottom: 2px;
+    flex-basis: 100%;
   }
 
   .card > .card-title {
-    order: 0;
+    flex-basis: 100%;
+    margin-bottom: 4px;
   }
 
-  .card > .meta-row {
+  /* let pills and tags flow on the same lines */
+  .card > .meta-row,
+  .card > .tag-row {
+    display: contents;
+  }
+
+  .card .pill,
+  .card .tag {
     order: 1;
   }
 
-  .card > .tag-row {
-    order: 2;
-  }
-
   .card-title {
-    font-size: 19px;
+    font-size: 17px;
   }
 
   .prose {
-    font-size: 16.5px;
-    line-height: 1.85;
+    font-size: 15.5px;
+    line-height: 1.9;
   }
 
   .prose pre,
@@ -1306,7 +1297,7 @@ div.highlight {
   }
 
   .brand-link {
-    font-size: 17px;
+    font-size: 16px;
   }
 }
 
