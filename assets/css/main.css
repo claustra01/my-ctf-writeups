@@ -10,7 +10,7 @@
   --font-sans: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", system-ui, sans-serif;
   --font-mono: "Noto Sans Mono", "Noto Sans JP", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-  --sidebar: 13rem;
+  --sidebar: 15rem;
   --sidebar-gap: 3rem;
   --measure: 46rem;
   --site-max: 76rem;
@@ -309,7 +309,9 @@ h4 {
   font-weight: 400;
 }
 
-.card-podium .rank-num {
+.rank-gold,
+.rank-silver,
+.rank-bronze {
   font-weight: 700;
 }
 
@@ -330,7 +332,7 @@ h4 {
   font-size: 14px;
 }
 
-.card-labels {
+.rank-labels {
   display: flex;
   flex-wrap: wrap;
   gap: 0 0.55em;
@@ -405,23 +407,19 @@ a.card:hover .card-title {
 }
 
 /* colour-coded kinds: rank, medals, stage, writeup */
-.rank-num,
-.pill-rank {
+.rank-num {
   color: var(--rank);
 }
 
-.card-podium-1 .rank-num,
-.pill-rank-gold {
+.rank-gold {
   color: var(--gold);
 }
 
-.card-podium-2 .rank-num,
-.pill-rank-silver {
+.rank-silver {
   color: var(--silver);
 }
 
-.card-podium-3 .rank-num,
-.pill-rank-bronze {
+.rank-bronze {
   color: var(--bronze);
 }
 
@@ -438,7 +436,7 @@ a.card:hover .card-title {
   font-weight: 500;
 }
 
-.card-labels .pill::before,
+.rank-labels .pill::before,
 .tag-quals::before,
 .tag-finals::before {
   content: none;
@@ -462,16 +460,27 @@ a.card:hover .card-title {
 }
 
 .page-title {
-  margin: 1.1rem 0 0.4rem;
+  margin: 1.1rem 0 0.75rem;
   font-size: clamp(28px, 4vw, 34px);
   font-weight: 500;
   line-height: 1.35;
 }
 
-.meta-date {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.7;
+/* same rank block as the list, laid out on one line */
+.page-rank {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  line-height: 1.4;
+}
+
+.page-rank .rank-labels {
+  margin: 0 0 0 1rem;
+}
+
+.page-header > .meta-row,
+.page-header > .tag-row {
+  margin-top: 0.45rem;
 }
 
 /* ------------------------------------------------------------------
@@ -530,10 +539,11 @@ a.card:hover .card-title {
 @media (min-width: 1024px) {
   .toc {
     position: fixed;
-    top: 15rem;
+    top: 12rem;
     bottom: 5.5rem;
     left: calc(max(0px, (100vw - var(--site-max)) / 2) + var(--site-pad));
-    width: var(--sidebar);
+    /* may use the gutter next to the sidebar so long headings wrap less */
+    width: calc(var(--sidebar) + var(--sidebar-gap) - 1.25rem);
     margin: 0;
     padding: 0;
     border: 0;
@@ -547,11 +557,11 @@ a.card:hover .card-title {
   }
 
   .toc-item {
-    padding-left: 0.75rem;
+    padding-left: 0.7rem;
   }
 
   .toc-level-2 {
-    padding-left: 1.6rem;
+    padding-left: 1.4rem;
   }
 }
 
@@ -899,10 +909,9 @@ div.highlight {
     font-size: 17px;
   }
 
-  .card-labels,
+  .rank-labels,
   .meta-row,
-  .tag-row,
-  .meta-date {
+  .tag-row {
     font-size: 13px;
   }
 

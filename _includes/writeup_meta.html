@@ -1,0 +1,21 @@
+{% assign w = include.writeup %}
+<div class="meta-row">
+  <span class="pill">{{ w.date | date: "%Y-%m-%d" | default: "No date" }}</span>
+  {% if w.language %}
+  <span class="pill pill-ghost">Lang: {{ w.language }}</span>
+  {% endif %}
+  {% if w.team %}
+  <span class="pill pill-ghost">Team: {{ w.team }}</span>
+  {% elsif w.official != true %}
+  <span class="pill pill-ghost">Individual</span>
+  {% endif %}
+</div>
+{% if w.tags %}
+<div class="tag-row">
+  {% for tag in w.tags %}
+  {% unless tag == "Quals" or tag == "Qualified" or tag == "Finals" %}
+  <span class="tag">{{ tag }}</span>
+  {% endunless %}
+  {% endfor %}
+</div>
+{% endif %}

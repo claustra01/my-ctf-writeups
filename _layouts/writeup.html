@@ -34,71 +34,10 @@
         <a class="text-link" href="{{ '/' | relative_url }}">← All writeups &amp; results</a>
         <h1 class="page-title">{{ page.title }}</h1>
 
-        {% if page.date %}
-        <div class="meta-date">{{ page.date | date: "%Y-%m-%d" }}</div>
-        {% endif %}
-
-        <div class="meta-row">
-          {% assign is_official = page.official %}
-          {% assign is_individual = false %}
-          {% if page.team == nil and is_official != true %}
-          {% assign is_individual = true %}
-          {% endif %}
-          {% assign participant_label = "Teams" %}
-          {% if is_individual %}
-          {% assign participant_label = "Players" %}
-          {% endif %}
-          {% if is_official %}
-          <span class="pill pill-flag">Official writeup</span>
-          {% endif %}
-
-          {% if page.rank or page.total_teams %}
-          {% assign rank_classes = "pill pill-rank" %}
-          {% if page.rank %}
-          {% assign rank_number = page.rank | plus: 0 %}
-          {% if rank_number == 1 %}
-          {% assign rank_classes = rank_classes | append: " pill-rank-gold" %}
-          {% elsif rank_number == 2 %}
-          {% assign rank_classes = rank_classes | append: " pill-rank-silver" %}
-          {% elsif rank_number == 3 %}
-          {% assign rank_classes = rank_classes | append: " pill-rank-bronze" %}
-          {% endif %}
-          {% endif %}
-          <span class="{{ rank_classes }}">
-            {% if page.rank %}# {{ page.rank }}{% endif %}{% if page.total_teams %}{% if page.rank %} / {% endif %}{{ page.total_teams }} {{ participant_label }}{% endif %}
-          </span>
-          {% endif %}
-
-          {% if is_official != true %}
-          <span class="pill pill-flag">Writeup</span>
-          {% endif %}
-
-          {% if page.language %}
-          <span class="pill pill-ghost">Lang: {{ page.language }}</span>
-          {% endif %}
-
-          {% if page.team %}
-          <span class="pill pill-ghost">Team: {{ page.team }}</span>
-          {% elsif is_official != true %}
-          <span class="pill pill-ghost">Individual</span>
-          {% endif %}
+        <div class="page-rank">
+          {% include writeup_rank.html writeup=page %}
         </div>
-
-        {% if page.tags %}
-        <div class="tag-row">
-          {% for tag in page.tags %}
-          {% assign tag_class = "tag" %}
-          {% if tag == "Quals" %}
-          {% assign tag_class = tag_class | append: " tag-quals" %}
-          {% elsif tag == "Qualified" %}
-          {% assign tag_class = tag_class | append: " tag-finals" %}
-          {% elsif tag == "Finals" %}
-          {% assign tag_class = tag_class | append: " tag-finals" %}
-          {% endif %}
-          <span class="{{ tag_class }}">{{ tag }}</span>
-          {% endfor %}
-        </div>
-        {% endif %}
+        {% include writeup_meta.html writeup=page %}
       </section>
 
       <nav class="toc" aria-label="Table of contents" hidden>

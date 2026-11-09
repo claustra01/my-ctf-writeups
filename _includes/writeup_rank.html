@@ -1,0 +1,22 @@
+{% assign w = include.writeup %}
+{% assign medal = "" %}
+{% assign rank_number = w.rank | plus: 0 %}
+{% case rank_number %}
+  {% when 1 %}{% assign medal = " rank-gold" %}
+  {% when 2 %}{% assign medal = " rank-silver" %}
+  {% when 3 %}{% assign medal = " rank-bronze" %}
+{% endcase %}
+{% if w.rank %}
+<span class="rank-num{{ medal }}">{{ w.rank }}</span>
+{% elsif w.official %}
+<span class="rank-official">Official</span>
+{% endif %}
+{% if w.total_teams %}
+<span class="rank-total">/ {{ w.total_teams }}</span>
+{% endif %}
+<span class="rank-labels">
+  {% if w.tags contains "Quals" %}<span class="tag tag-quals">Quals</span>{% endif %}
+  {% if w.tags contains "Qualified" %}<span class="tag tag-finals">Qualified</span>{% endif %}
+  {% if w.tags contains "Finals" %}<span class="tag tag-finals">Finals</span>{% endif %}
+  {% if w.official %}<span class="pill pill-flag">Writeup</span>{% endif %}
+</span>

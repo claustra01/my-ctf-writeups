@@ -1,63 +1,15 @@
 <div class="card-grid">
   {% for writeup in include.writeups %}
-    {% assign rank_number = writeup.rank | plus: 0 %}
-    {% assign card_classes = "card" %}
-    {% if writeup.rank %}
-      {% if rank_number == 1 %}
-        {% assign card_classes = card_classes | append: " card-podium card-podium-1" %}
-      {% elsif rank_number == 2 %}
-        {% assign card_classes = card_classes | append: " card-podium card-podium-2" %}
-      {% elsif rank_number == 3 %}
-        {% assign card_classes = card_classes | append: " card-podium card-podium-3" %}
-      {% endif %}
-    {% endif %}
     {% if writeup.layout == "result" %}
-  <article class="{{ card_classes }}">
+  <article class="card">
     {% else %}
-  <a class="{{ card_classes }}" href="{{ writeup.url | relative_url }}">
+  <a class="card" href="{{ writeup.url | relative_url }}">
     {% endif %}
     <div class="card-rank">
-      {% if writeup.rank %}
-      <span class="rank-num">{{ writeup.rank }}</span>
-      {% elsif writeup.official %}
-      <span class="rank-official">Official</span>
-      {% endif %}
-      {% if writeup.total_teams %}
-      <span class="rank-total">/ {{ writeup.total_teams }}</span>
-      {% endif %}
-      <span class="card-labels">
-        {% if writeup.tags contains "Quals" %}<span class="tag tag-quals">Quals</span>{% endif %}
-        {% if writeup.tags contains "Qualified" %}<span class="tag tag-finals">Qualified</span>{% endif %}
-        {% if writeup.tags contains "Finals" %}<span class="tag tag-finals">Finals</span>{% endif %}
-        {% if writeup.layout == "writeup" %}<span class="pill pill-flag">Writeup</span>{% endif %}
-      </span>
+      {% include writeup_rank.html writeup=writeup %}
     </div>
-
-    <h3 class="card-title">
-      {{ writeup.title }}
-    </h3>
-
-    <div class="meta-row">
-      <span class="pill">{{ writeup.date | date: "%Y-%m-%d" | default: "No date" }}</span>
-      {% if writeup.language %}
-      <span class="pill pill-ghost">Lang: {{ writeup.language }}</span>
-      {% endif %}
-      {% if writeup.team %}
-      <span class="pill pill-ghost">Team: {{ writeup.team }}</span>
-      {% elsif writeup.official != true %}
-      <span class="pill pill-ghost">Individual</span>
-      {% endif %}
-    </div>
-
-    {% if writeup.tags %}
-    <div class="tag-row">
-      {% for tag in writeup.tags %}
-      {% unless tag == "Quals" or tag == "Qualified" or tag == "Finals" %}
-      <span class="tag">{{ tag }}</span>
-      {% endunless %}
-      {% endfor %}
-    </div>
-    {% endif %}
+    <h3 class="card-title">{{ writeup.title }}</h3>
+    {% include writeup_meta.html writeup=writeup %}
     {% if writeup.layout == "result" %}
   </article>
     {% else %}
