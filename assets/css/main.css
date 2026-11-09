@@ -478,6 +478,16 @@ a.card:hover .card-title {
   margin: 0 0 0 1rem;
 }
 
+/* "Official Writeup" reads as one phrase on the writeup page */
+.page-rank .rank-official + .rank-labels {
+  margin-left: 0.3em;
+}
+
+.page-rank .pill-flag {
+  font-size: 20px;
+  font-weight: 500;
+}
+
 .page-header > .meta-row,
 .page-header > .tag-row {
   margin-top: 0.45rem;
