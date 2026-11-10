@@ -243,8 +243,14 @@ h4 {
    Section heading + year tabs
    ------------------------------------------------------------------ */
 
+/* boundaries: --stroke between regions, 1px between repeated rows */
 .section-head {
-  margin-bottom: 2.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: var(--stroke) solid var(--border);
+}
+
+.section-head + .empty-state {
+  margin-top: 1.75rem;
 }
 
 .section-title {
@@ -281,10 +287,10 @@ h4 {
 .card-grid {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
 }
 
 .card {
+  padding-block: 1.75rem;
   display: grid;
   grid-template-columns: 7.5rem minmax(0, 1fr);
   grid-template-rows: auto auto 1fr;
@@ -446,8 +452,14 @@ a.card:hover .card-title {
    Writeup page header
    ------------------------------------------------------------------ */
 
+.card + .card {
+  border-top: 1px solid var(--border);
+}
+
 .page-header {
   margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: var(--stroke) solid var(--border);
 }
 
 .text-link {
@@ -604,6 +616,13 @@ a.card:hover .card-title {
 
 .prose h1 {
   font-size: 1.5em;
+}
+
+/* each h1 starts a new challenge: rule above it, like an hr */
+.prose h1:not(:first-child) {
+  margin-top: 2em;
+  padding-top: 1.25em;
+  border-top: var(--stroke) solid var(--border);
 }
 
 .prose h2 {
@@ -831,6 +850,8 @@ div.highlight {
 
 .back-link {
   margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: var(--stroke) solid var(--border);
 }
 
 .empty-state {
@@ -898,6 +919,7 @@ div.highlight {
   }
 
   .card {
+    padding-block: 1.25rem;
     grid-template-columns: 6rem minmax(0, 1fr);
     column-gap: 0.75rem;
   }
