@@ -915,6 +915,7 @@ div.highlight {
   }
 
   .rank-official,
+  .page-rank .pill-flag,
   .card-title {
     font-size: 17px;
   }

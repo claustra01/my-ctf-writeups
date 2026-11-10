@@ -18,5 +18,6 @@
   {% if w.tags contains "Quals" %}<span class="tag tag-quals">Quals</span>{% endif %}
   {% if w.tags contains "Qualified" %}<span class="tag tag-finals">Qualified</span>{% endif %}
   {% if w.tags contains "Finals" %}<span class="tag tag-finals">Finals</span>{% endif %}
-  {% if w.official %}<span class="pill pill-flag">Writeup</span>{% endif %}
+  {% comment %} the list marks every writeup; the writeup page only says "Official Writeup" {% endcomment %}
+  {% if w.official or include.list and w.layout == "writeup" %}<span class="pill pill-flag">Writeup</span>{% endif %}
 </span>

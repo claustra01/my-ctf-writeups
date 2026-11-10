@@ -6,7 +6,7 @@
   <a class="card" href="{{ writeup.url | relative_url }}">
     {% endif %}
     <div class="card-rank">
-      {% include writeup_rank.html writeup=writeup %}
+      {% include writeup_rank.html writeup=writeup list=true %}
     </div>
     <h3 class="card-title">{{ writeup.title }}</h3>
     {% include writeup_meta.html writeup=writeup %}
